@@ -1,0 +1,21 @@
+# Core RDF and Semantic Web
+rdflib==7.0.0
+SPARQLWrapper==2.0.0
+owlrl==6.0.2
+pyshacl==0.25.0
+
+# MediaWiki API
+mwclient==0.10.1
+mwparserfromhell==0.6.6
+
+# Web Framework
+Flask==3.0.0
+Flask-CORS==4.0.0
+
+# Data Processing
+pandas==2.1.4
+requests==2.31.0
+
+# Utilities
+python-dotenv==1.0.0
+tqdm==4.66.1
