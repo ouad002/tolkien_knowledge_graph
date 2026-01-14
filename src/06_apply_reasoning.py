@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 """
 Step 6: Apply reasoning rules to the Tolkien Knowledge Graph
 Infers new relationships using RDFS/OWL semantics and custom rules
@@ -8,8 +9,8 @@ import sys
 import os
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, project_root)
-from config import *
 
+from config import *
 from rdflib import Graph, Namespace, RDF, RDFS, OWL, Literal, URIRef
 from pathlib import Path
 import time
@@ -33,14 +34,14 @@ class TolkienReasoner:
         self.graph.bind('owl', OWL)
         
         self.initial_triples = len(self.graph)
-        print(f"  ✓ Loaded {self.initial_triples:,} triples\n")
-    
+        print(f" ✓ Loaded {self.initial_triples:,} triples\n")
+
     def define_ontology(self):
         """Define class hierarchies and property relationships"""
         print("Defining ontology axioms...")
         
         # RACE/SPECIES HIERARCHY
-        print("  → Defining race hierarchy...")
+        print(" → Defining race hierarchy...")
         
         # Elven races
         self.graph.add((TG.Noldor, RDFS.subClassOf, TG.Elves))
@@ -67,7 +68,7 @@ class TolkienReasoner:
         self.graph.add((TG.Spiders, RDFS.subClassOf, TG.EvilCreatures))
         
         # PROPERTY HIERARCHIES
-        print("  → Defining property hierarchies...")
+        print(" → Defining property hierarchies...")
         
         # Family relationships
         self.graph.add((TGO.parentage, RDFS.subPropertyOf, SCHEMA.parent))
@@ -84,8 +85,53 @@ class TolkienReasoner:
         self.graph.add((TGO.birthlocation, RDFS.subPropertyOf, TGO.location))
         self.graph.add((TGO.deathlocation, RDFS.subPropertyOf, TGO.location))
         
-        print(f"  ✓ Added ontology axioms\n")
-    
+        # INVERSE RELATIONSHIP PROPERTIES (NOUVEAU)
+        print(" → Defining inverse relationship properties...")
+        
+        # Organizations
+        self.graph.add((TGO.hasMember, RDFS.label, Literal("has member", lang='en')))
+        self.graph.add((TGO.hasMember, RDFS.domain, SCHEMA.Organization))
+        self.graph.add((TGO.hasMember, RDFS.range, SCHEMA.Person))
+        self.graph.add((TGO.hasMember, OWL.inverseOf, SCHEMA.memberOf))
+        
+        # Races
+        self.graph.add((TGO.raceIncludes, RDFS.label, Literal("race includes", lang='en')))
+        self.graph.add((TGO.raceIncludes, RDFS.domain, TGO.Race))
+        self.graph.add((TGO.raceIncludes, RDFS.range, SCHEMA.Person))
+        self.graph.add((TGO.raceIncludes, OWL.inverseOf, TGO.belongsToRace))
+        
+        # Houses
+        self.graph.add((TGO.houseIncludes, RDFS.label, Literal("house includes", lang='en')))
+        self.graph.add((TGO.houseIncludes, RDFS.domain, TGO.House))
+        self.graph.add((TGO.houseIncludes, RDFS.range, SCHEMA.Person))
+        self.graph.add((TGO.houseIncludes, OWL.inverseOf, TGO.belongsToHouse))
+        
+        # Artifacts
+        self.graph.add((TGO.wieldedBy, RDFS.label, Literal("wielded by", lang='en')))
+        self.graph.add((TGO.wieldedBy, RDFS.domain, TGO.Artifact))
+        self.graph.add((TGO.wieldedBy, RDFS.range, SCHEMA.Person))
+        self.graph.add((TGO.wieldedBy, OWL.inverseOf, TGO.wields))
+        
+        # Events
+        self.graph.add((TGO.hasParticipant, RDFS.label, Literal("has participant", lang='en')))
+        self.graph.add((TGO.hasParticipant, RDFS.domain, SCHEMA.Event))
+        self.graph.add((TGO.hasParticipant, RDFS.range, SCHEMA.Person))
+        self.graph.add((TGO.hasParticipant, OWL.inverseOf, TGO.participatedIn))
+        
+        # Creatures
+        self.graph.add((TGO.riddenBy, RDFS.label, Literal("ridden by", lang='en')))
+        self.graph.add((TGO.riddenBy, RDFS.domain, TGO.Creature))
+        self.graph.add((TGO.riddenBy, RDFS.range, SCHEMA.Person))
+        self.graph.add((TGO.riddenBy, OWL.inverseOf, TGO.rides))
+        
+        # Languages
+        self.graph.add((TGO.spokenBy, RDFS.label, Literal("spoken by", lang='en')))
+        self.graph.add((TGO.spokenBy, RDFS.domain, SCHEMA.Language))
+        self.graph.add((TGO.spokenBy, RDFS.range, SCHEMA.Person))
+        self.graph.add((TGO.spokenBy, OWL.inverseOf, TGO.speaks))
+        
+        print(f" ✓ Added ontology axioms (including inverse properties)\n")
+
     def infer_family_relationships(self):
         """Infer sibling and parent-child relationships"""
         print("Inferring family relationships...")
@@ -109,23 +155,23 @@ class TolkienReasoner:
                             self.graph.add((child2, TGO.siblings, child1))
                             inferred += 2
         
-        # Rule 2: Inverse parentage (parent → child) - FIX: Check if 'o' is URI
+        # Rule 2: Inverse parentage (parent → child)
         for s, p, o in list(self.graph.triples((None, TGO.parentage, None))):
-            if isinstance(o, URIRef):  # Only create inverse if parent is a URI
+            if isinstance(o, URIRef):
                 if (o, SCHEMA.children, s) not in self.graph:
                     self.graph.add((o, SCHEMA.children, s))
                     inferred += 1
         
-        # Rule 3: Spouse symmetry - FIX: Check if 'o' is URI
+        # Rule 3: Spouse symmetry
         for s, p, o in list(self.graph.triples((None, SCHEMA.spouse, None))):
-            if isinstance(o, URIRef):  # Only create inverse if spouse is a URI
+            if isinstance(o, URIRef):
                 if (o, SCHEMA.spouse, s) not in self.graph:
                     self.graph.add((o, SCHEMA.spouse, s))
                     inferred += 1
         
-        print(f"  ✓ Inferred {inferred} family relationships\n")
+        print(f" ✓ Inferred {inferred} family relationships\n")
         return inferred
-    
+
     def infer_fellowship_membership(self):
         """Tag Fellowship members"""
         print("Inferring Fellowship membership...")
@@ -147,9 +193,86 @@ class TolkienReasoner:
         self.graph.add((TG.Fellowship_of_the_Ring, RDF.type, SCHEMA.Organization))
         self.graph.add((TG.Fellowship_of_the_Ring, RDFS.label, Literal("Fellowship of the Ring", lang='en')))
         
-        print(f"  ✓ Inferred {inferred} Fellowship memberships\n")
+        print(f" ✓ Inferred {inferred} Fellowship memberships\n")
         return inferred
-    
+
+    def infer_inverse_relationships(self):
+        """
+        Infer inverse relationships to enrich collective entities (NOUVEAU)
+        Examples:
+            X schema:memberOf Y → Y tgo:hasMember X
+            X tgo:belongsToRace R → R tgo:raceIncludes X
+            X tgo:wields A → A tgo:wieldedBy X
+        """
+        print("Inferring inverse relationships...")
+        inferred = 0
+        
+        # 1. Membership inverses (Organizations) - schema:memberOf
+        for subject, _, org in list(self.graph.triples((None, SCHEMA.memberOf, None))):
+            if isinstance(org, URIRef):
+                if (org, TGO.hasMember, subject) not in self.graph:
+                    self.graph.add((org, TGO.hasMember, subject))
+                    inferred += 1
+        
+        # 2. Membership inverses (Organizations) - tgo:memberOf
+        for subject, _, org in list(self.graph.triples((None, TGO.memberOf, None))):
+            if isinstance(org, URIRef):
+                if (org, TGO.hasMember, subject) not in self.graph:
+                    self.graph.add((org, TGO.hasMember, subject))
+                    inferred += 1
+        
+        # 3. Race membership inverses
+        for subject, _, race in list(self.graph.triples((None, TGO.belongsToRace, None))):
+            if isinstance(race, URIRef):
+                if (race, TGO.raceIncludes, subject) not in self.graph:
+                    self.graph.add((race, TGO.raceIncludes, subject))
+                    inferred += 1
+        
+        # 4. House membership inverses
+        for subject, _, house in list(self.graph.triples((None, TGO.belongsToHouse, None))):
+            if isinstance(house, URIRef):
+                if (house, TGO.houseIncludes, subject) not in self.graph:
+                    self.graph.add((house, TGO.houseIncludes, subject))
+                    inferred += 1
+        
+        # 5. Artifact/Weapon wielding inverses
+        for subject, _, artifact in list(self.graph.triples((None, TGO.wields, None))):
+            if isinstance(artifact, URIRef):
+                if (artifact, TGO.wieldedBy, subject) not in self.graph:
+                    self.graph.add((artifact, TGO.wieldedBy, subject))
+                    inferred += 1
+        
+        # 6. Event participation inverses - tgo:participatedIn
+        for subject, _, event in list(self.graph.triples((None, TGO.participatedIn, None))):
+            if isinstance(event, URIRef):
+                if (event, TGO.hasParticipant, subject) not in self.graph:
+                    self.graph.add((event, TGO.hasParticipant, subject))
+                    inferred += 1
+        
+        # 7. Event participation inverses - tgo:notableFor
+        for subject, _, event in list(self.graph.triples((None, TGO.notableFor, None))):
+            if isinstance(event, URIRef):
+                if (event, TGO.hasParticipant, subject) not in self.graph:
+                    self.graph.add((event, TGO.hasParticipant, subject))
+                    inferred += 1
+        
+        # 8. Creature/Mount riding inverses
+        for subject, _, creature in list(self.graph.triples((None, TGO.rides, None))):
+            if isinstance(creature, URIRef):
+                if (creature, TGO.riddenBy, subject) not in self.graph:
+                    self.graph.add((creature, TGO.riddenBy, subject))
+                    inferred += 1
+        
+        # 9. Language speaking inverses
+        for subject, _, lang in list(self.graph.triples((None, TGO.speaks, None))):
+            if isinstance(lang, URIRef):
+                if (lang, TGO.spokenBy, subject) not in self.graph:
+                    self.graph.add((lang, TGO.spokenBy, subject))
+                    inferred += 1
+        
+        print(f" ✓ Inferred {inferred} inverse relationships\n")
+        return inferred
+
     def infer_race_based_groups(self):
         """Infer group memberships based on race"""
         print("Inferring race-based group memberships...")
@@ -176,9 +299,9 @@ class TolkienReasoner:
                 if (group_uri, RDFS.label, None) not in self.graph:
                     self.graph.add((group_uri, RDFS.label, Literal(group_label, lang='en')))
         
-        print(f"  ✓ Inferred {inferred} group memberships\n")
+        print(f" ✓ Inferred {inferred} group memberships\n")
         return inferred
-    
+
     def apply_rdfs_entailment(self):
         """Apply RDFS reasoning (subclass and subproperty inference)"""
         print("Applying RDFS entailment...")
@@ -206,31 +329,31 @@ class TolkienReasoner:
             if new_triples == 0:
                 break
         
-        print(f"  ✓ Inferred {inferred} triples via RDFS reasoning (converged in {iteration+1} iterations)\n")
+        print(f" ✓ Inferred {inferred} triples via RDFS reasoning (converged in {iteration+1} iterations)\n")
         return inferred
-    
+
     def infer_locations_from_birth_death(self):
         """If character born/died somewhere, they have connection to that location"""
         print("Inferring location associations...")
         inferred = 0
         
-        # Birth locations - FIX: Check if location is URI
+        # Birth locations
         for char, _, loc in list(self.graph.triples((None, TGO.birthlocation, None))):
             if isinstance(loc, URIRef):
                 if (char, TGO.hasConnectionTo, loc) not in self.graph:
                     self.graph.add((char, TGO.hasConnectionTo, loc))
                     inferred += 1
         
-        # Death locations - FIX: Check if location is URI
+        # Death locations
         for char, _, loc in list(self.graph.triples((None, TGO.deathlocation, None))):
             if isinstance(loc, URIRef):
                 if (char, TGO.hasConnectionTo, loc) not in self.graph:
                     self.graph.add((char, TGO.hasConnectionTo, loc))
                     inferred += 1
         
-        print(f"  ✓ Inferred {inferred} location associations\n")
+        print(f" ✓ Inferred {inferred} location associations\n")
         return inferred
-    
+
     def export_reasoned_graph(self, output_file):
         """Save the enriched graph"""
         print(f"Exporting reasoned graph to {output_file}...")
@@ -242,11 +365,11 @@ class TolkienReasoner:
         print(f"\n{'='*60}")
         print("REASONING SUMMARY")
         print('='*60)
-        print(f"Initial triples:     {self.initial_triples:,}")
-        print(f"Final triples:       {final_triples:,}")
-        print(f"New inferred:        {new_triples:,} (+{100*new_triples/self.initial_triples:.1f}%)")
+        print(f"Initial triples:  {self.initial_triples:,}")
+        print(f"Final triples:    {final_triples:,}")
+        print(f"New inferred:     {new_triples:,} (+{100*new_triples/self.initial_triples:.1f}%)")
         print(f"\n✓ Saved to: {output_file}")
-    
+
     def generate_statistics(self):
         """Generate statistics about the reasoned graph"""
         print(f"\n{'='*60}")
@@ -255,11 +378,19 @@ class TolkienReasoner:
         
         # Count entities by type
         persons = len(list(self.graph.subjects(RDF.type, SCHEMA.Person)))
-        locations = len(set(self.graph.subjects(RDF.type, SCHEMA.Thing)))
+        places = len(list(self.graph.subjects(RDF.type, SCHEMA.Place)))
+        events = len(list(self.graph.subjects(RDF.type, SCHEMA.Event)))
+        organizations = len(list(self.graph.subjects(RDF.type, SCHEMA.Organization)))
+        races = len(list(self.graph.subjects(RDF.type, TGO.Race)))
+        artifacts = len(list(self.graph.subjects(RDF.type, TGO.Artifact)))
         
         print(f"\nEntity Counts:")
-        print(f"  Characters:          {persons}")
-        print(f"  Locations/Things:    {locations}")
+        print(f"  Characters:      {persons}")
+        print(f"  Places:          {places}")
+        print(f"  Events:          {events}")
+        print(f"  Organizations:   {organizations}")
+        print(f"  Races:           {races}")
+        print(f"  Artifacts:       {artifacts}")
         
         # Count relationships
         stats = {
@@ -272,6 +403,7 @@ class TolkienReasoner:
             'Affiliations': [
                 (TGO.affiliation, 'Direct affiliations'),
                 (TGO.memberOf, 'Group memberships'),
+                (TGO.hasMember, 'Has members (inverse)'),  # NOUVEAU
                 (TGO.belongsTo, 'Belongs to'),
             ],
             'Locations': [
@@ -279,6 +411,14 @@ class TolkienReasoner:
                 (TGO.birthlocation, 'Born in'),
                 (TGO.deathlocation, 'Died in'),
                 (TGO.hasConnectionTo, 'Connected to'),
+            ],
+            'Inverse relationships (NEW)': [  # NOUVEAU
+                (TGO.raceIncludes, 'Race includes'),
+                (TGO.houseIncludes, 'House includes'),
+                (TGO.wieldedBy, 'Wielded by'),
+                (TGO.hasParticipant, 'Has participant'),
+                (TGO.riddenBy, 'Ridden by'),
+                (TGO.spokenBy, 'Spoken by'),
             ]
         }
         
@@ -286,11 +426,11 @@ class TolkienReasoner:
             print(f"\n{category}:")
             for prop, label in props:
                 count = len(list(self.graph.triples((None, prop, None))))
-                print(f"  {label:25} {count:4}")
+                print(f"  {label:30} {count:4}")
 
 def main():
     print('='*60)
-    print("Tolkien Knowledge Graph - Reasoning Engine")
+    print("Tolkien Knowledge Graph - Reasoning Engine (Enhanced)")
     print('='*60 + '\n')
     
     input_file = RDF_OUTPUT_FILE
@@ -308,6 +448,7 @@ def main():
     reasoner.define_ontology()
     reasoner.infer_family_relationships()
     reasoner.infer_fellowship_membership()
+    reasoner.infer_inverse_relationships()  # ← NOUVEAU
     reasoner.infer_race_based_groups()
     reasoner.infer_locations_from_birth_death()
     reasoner.apply_rdfs_entailment()
@@ -321,7 +462,7 @@ def main():
     print(f"\nNext steps:")
     print(f"  1. Reload into Fuseki: python src/05_load_fuseki.py --force")
     print(f"  2. Test SPARQL queries with inferred facts")
-    print(f"  3. Build web interface (Steps 8-9)")
+    print(f"  3. Launch web interface: cd web && python app.py")
 
 if __name__ == "__main__":
     main()

@@ -26,12 +26,12 @@ DBO = Namespace(DBPEDIA_ONTOLOGY)
 
 # Template to schema.org class mappings
 TEMPLATE_TO_CLASS = {
-    # Both orders supported (infobox character vs character)
+    # Both orders supported
     'infobox character': SCHEMA.Person,
     'character': SCHEMA.Person,
     
     'infobox location': SCHEMA.Place,
-    'location infobox': SCHEMA.Place,  # ← FIX: Support reversed order
+    'location infobox': SCHEMA.Place,
     'location': SCHEMA.Place,
     
     'infobox book': SCHEMA.Book,
@@ -135,6 +135,19 @@ def extract_wikilink_target(value):
         return match.group(1).strip()
     return None
 
+def extract_all_wikilinks(text):
+    """
+    Extract all wikilink targets from text
+    Example: "[[Gandalf]] and [[Frodo]]" -> ["Gandalf", "Frodo"]
+    """
+    if not text:
+        return []
+    
+    # Find all [[target]] or [[target|display]]
+    pattern = r'\[\[([^\]|]+)(?:\|[^\]]+)?\]\]'
+    matches = re.findall(pattern, text)
+    return [m.strip() for m in matches if m.strip()]
+
 def is_descriptive_value(value):
     """
     Check if value is a descriptive note rather than entity reference
@@ -174,6 +187,91 @@ def get_descriptive_property(param_name):
     }
     return descriptive_map.get(param_name, TGO[param_name + '_note'])
 
+def create_or_get_entity(entity_name, entity_type, graph):
+    """
+    Create entity if it doesn't exist, or return existing URI
+    
+    Args:
+        entity_name: Name of the entity
+        entity_type: RDF type (SCHEMA.Event, SCHEMA.Organization, etc.)
+        graph: RDF graph
+    
+    Returns:
+        URIRef of the entity
+    """
+    entity_uri = create_entity_uri(entity_name)
+    
+    # Check if entity already exists
+    if (entity_uri, RDF.type, None) not in graph:
+        # Create new entity
+        graph.add((entity_uri, RDF.type, entity_type))
+        graph.add((entity_uri, RDFS.label, Literal(entity_name, lang='en')))
+    
+    return entity_uri
+
+def extract_embedded_entities(entity_uri, params, graph):
+    """
+    Extract entities embedded in properties (events, organizations, races, weapons)
+    and create them as standalone entities with relationships
+    """
+    
+    # 1. EVENTS - from 'events' property (locations) or 'notablefor' (characters)
+    if 'events' in params:
+        event_names = extract_all_wikilinks(params['events'])
+        for event_name in event_names:
+            event_uri = create_or_get_entity(event_name, SCHEMA.Event, graph)
+            graph.add((entity_uri, TGO.participatedIn, event_uri))
+    
+    if 'notablefor' in params:
+        # Notable events/achievements
+        notable_items = extract_all_wikilinks(params['notablefor'])
+        for item_name in notable_items:
+            # Could be event or action - create as Event
+            item_uri = create_or_get_entity(item_name, SCHEMA.Event, graph)
+            graph.add((entity_uri, TGO.notableFor, item_uri))
+    
+    # 2. ORGANIZATIONS - from 'affiliation' property
+    if 'affiliation' in params:
+        org_names = extract_all_wikilinks(params['affiliation'])
+        for org_name in org_names:
+            org_uri = create_or_get_entity(org_name, SCHEMA.Organization, graph)
+            graph.add((entity_uri, SCHEMA.memberOf, org_uri))
+    
+    # 3. RACES/PEOPLES - from 'people' property
+    if 'people' in params:
+        race_names = extract_all_wikilinks(params['people'])
+        for race_name in race_names:
+            race_uri = create_or_get_entity(race_name, TGO.Race, graph)
+            graph.add((entity_uri, TGO.belongsToRace, race_uri))
+    
+    # 4. WEAPONS/ARTIFACTS - from 'weapons' property
+    if 'weapons' in params:
+        weapon_names = extract_all_wikilinks(params['weapons'])
+        for weapon_name in weapon_names:
+            weapon_uri = create_or_get_entity(weapon_name, TGO.Artifact, graph)
+            graph.add((entity_uri, TGO.wields, weapon_uri))
+    
+    # 5. HOUSES/DYNASTIES - from 'house' property
+    if 'house' in params:
+        house_names = extract_all_wikilinks(params['house'])
+        for house_name in house_names:
+            house_uri = create_or_get_entity(house_name, TGO.House, graph)
+            graph.add((entity_uri, TGO.belongsToHouse, house_uri))
+    
+    # 6. LANGUAGES - from 'language' property
+    if 'language' in params:
+        lang_names = extract_all_wikilinks(params['language'])
+        for lang_name in lang_names:
+            lang_uri = create_or_get_entity(lang_name, SCHEMA.Language, graph)
+            graph.add((entity_uri, TGO.speaks, lang_uri))
+    
+    # 7. STEEDS/MOUNTS - from 'steed' property
+    if 'steed' in params:
+        steed_names = extract_all_wikilinks(params['steed'])
+        for steed_name in steed_names:
+            steed_uri = create_or_get_entity(steed_name, TGO.Creature, graph)
+            graph.add((entity_uri, TGO.rides, steed_uri))
+
 def map_infobox_to_rdf(page_title, infobox, graph):
     """
     Convert a single infobox to RDF triples
@@ -187,7 +285,7 @@ def map_infobox_to_rdf(page_title, infobox, graph):
         URIRef of created entity
     """
     entity_uri = create_entity_uri(page_title)
-    template_type = infobox['name'].lower().strip()  # Normalize to lowercase
+    template_type = infobox['name'].lower().strip()
     
     # Map template to RDF class
     rdf_class = TEMPLATE_TO_CLASS.get(template_type, SCHEMA.Thing)
@@ -242,6 +340,9 @@ def map_infobox_to_rdf(page_title, infobox, graph):
                 # Use standard property for normal literal values
                 graph.add((entity_uri, rdf_property, Literal(clean_value, lang='en')))
     
+    # ✨ NEW: Extract embedded entities from properties
+    extract_embedded_entities(entity_uri, infobox['params'], graph)
+    
     # Add source information
     source_url = f"https://tolkiengateway.net/wiki/{page_title.replace(' ', '_')}"
     graph.add((entity_uri, DCTERMS.source, URIRef(source_url)))
@@ -285,7 +386,11 @@ def build_knowledge_graph(pages_data):
         'total_pages': 0,
         'pages_with_infoboxes': 0,
         'total_triples': 0,
-        'entities_created': 0
+        'entities_created': 0,
+        'events_extracted': 0,
+        'organizations_extracted': 0,
+        'races_extracted': 0,
+        'artifacts_extracted': 0
     }
     
     for page in tqdm(pages_data, desc="Converting to RDF"):
@@ -308,12 +413,18 @@ def build_knowledge_graph(pages_data):
     
     stats['total_triples'] = len(g)
     
+    # Count extracted entities
+    stats['events_extracted'] = len(list(g.subjects(RDF.type, SCHEMA.Event)))
+    stats['organizations_extracted'] = len(list(g.subjects(RDF.type, SCHEMA.Organization)))
+    stats['races_extracted'] = len(list(g.subjects(RDF.type, TGO.Race)))
+    stats['artifacts_extracted'] = len(list(g.subjects(RDF.type, TGO.Artifact)))
+    
     return g, stats
 
 def main():
     """Main execution function"""
     print("="*60)
-    print("Tolkien Gateway RDF Builder")
+    print("Tolkien Gateway RDF Builder (Enhanced)")
     print("="*60)
     
     # Load parsed templates
@@ -340,20 +451,14 @@ def main():
     print(f"Total pages processed: {stats['total_pages']}")
     print(f"Pages with infoboxes: {stats['pages_with_infoboxes']}")
     print(f"Entities created: {stats['entities_created']}")
-    print(f"Total triples: {stats['total_triples']:,}")
+    print(f"\n📊 Extracted Entities:")
+    print(f"  - Events: {stats['events_extracted']}")
+    print(f"  - Organizations: {stats['organizations_extracted']}")
+    print(f"  - Races: {stats['races_extracted']}")
+    print(f"  - Artifacts: {stats['artifacts_extracted']}")
+    print(f"\nTotal triples: {stats['total_triples']:,}")
     print(f"\nOutput file: {RDF_OUTPUT_FILE}")
     print(f"File size: {os.path.getsize(RDF_OUTPUT_FILE) / (1024*1024):.2f} MB")
-    
-    # Show sample triples
-    print("\n" + "="*60)
-    print("Sample Triples (first 10):")
-    print("="*60)
-    for i, (s, p, o) in enumerate(graph):
-        if i >= 10:
-            break
-        print(f"{s}")
-        print(f"  {p}")
-        print(f"  {o}\n")
 
 if __name__ == "__main__":
     main()

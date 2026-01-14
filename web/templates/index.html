@@ -1,34 +1,180 @@
 {% extends "base.html" %}
 
-{% block title %}Browse Entities - Tolkien KG{% endblock %}
+{% block title %}Tolkien Knowledge Graph{% endblock %}
 
 {% block content %}
-<div class="page-header">
-    <h2>Browse Entities</h2>
-    <p>Explore the Tolkien Knowledge Graph with {{ entities|length }} entities</p>
+<div class="hero">
+    <h1>🌟 Tolkien Knowledge Graph</h1>
+    <p>Explore the legendarium of J.R.R. Tolkien through semantic web technologies</p>
 </div>
 
-<div class="search-box">
-    <form action="{{ url_for('search') }}" method="get">
-        <input type="text" name="q" placeholder="Search for characters, places..." autofocus>
-        <button type="submit">Search</button>
-    </form>
+<form action="/search" method="get" class="search-form">
+    <input type="text" 
+           name="q" 
+           placeholder="Search for characters, places, events..." 
+           class="search-input">
+    <button type="submit" class="search-button">🔍 Search</button>
+</form>
+
+<div class="stats">
+    <p>Showing <strong>{{ entities|length }}</strong> entities</p>
 </div>
+
+<h2>Browse Entities</h2>
 
 <div class="entity-grid">
-    {% for entity in entities %}
+{% for entity in entities %}
     <div class="entity-card">
-        <a href="{{ url_for('entity', entity_name=entity.local_name) }}">
-            <h3>{{ entity.label }}</h3>
-            <span class="entity-type">{{ entity.type.split('/')[-1] }}</span>
+        <a href="/resource/{{ entity.local_name }}" class="entity-link">
+            <strong>{{ entity.label }}</strong>
         </a>
+        <span class="badge badge-{{ entity.type|lower }}">{{ entity.type }}</span>
     </div>
-    {% endfor %}
+{% endfor %}
 </div>
 
-{% if entities|length == 0 %}
-<div class="empty-state">
-    <p>No entities found. Make sure Fuseki is running with data loaded.</p>
-</div>
-{% endif %}
+<style>
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2.5rem;
+}
+
+.hero p {
+    margin: 0;
+    font-size: 1.125rem;
+    opacity: 0.95;
+}
+
+/* Search form */
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+    margin: 2rem 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    transition: border-color 0.2s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.search-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-button:hover {
+    background: #2563eb;
+}
+
+/* Stats */
+.stats {
+    text-align: center;
+    margin: 1.5rem 0;
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+/* Entity grid */
+.entity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Entity cards */
+.entity-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    background: white;
+    transition: all 0.2s;
+}
+
+.entity-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #3b82f6;
+    transform: translateY(-2px);
+}
+
+.entity-link {
+    text-decoration: none;
+    color: #1e40af;
+    flex: 1;
+    font-size: 1rem;
+}
+
+.entity-link:hover {
+    text-decoration: underline;
+}
+
+/* Type badges */
+.badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.badge-person { background: #3b82f6; color: white; }
+.badge-place { background: #10b981; color: white; }
+.badge-event { background: #f59e0b; color: white; }
+.badge-organization { background: #8b5cf6; color: white; }
+.badge-race { background: #ec4899; color: white; }
+.badge-artifact { background: #ef4444; color: white; }
+.badge-house { background: #6366f1; color: white; }
+.badge-creature { background: #14b8a6; color: white; }
+.badge-language { background: #a855f7; color: white; }
+.badge-book { background: #06b6d4; color: white; }
+.badge-thing { background: #6b7280; color: white; }
+
+/* Responsive design */
+@media (max-width: 640px) {
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+    
+    .search-form {
+        flex-direction: column;
+    }
+    
+    .entity-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 {% endblock %}

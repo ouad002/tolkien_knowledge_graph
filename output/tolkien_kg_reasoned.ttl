@@ -14,10 +14,45 @@ tgo:birthlocation rdfs:subPropertyOf tgo:location .
 
 tgo:deathlocation rdfs:subPropertyOf tgo:location .
 
+tgo:hasMember rdfs:label "has member"@en ;
+    rdfs:domain schema1:Organization ;
+    rdfs:range schema1:Person ;
+    owl:inverseOf schema1:memberOf .
+
+tgo:hasParticipant rdfs:label "has participant"@en ;
+    rdfs:domain schema1:Event ;
+    rdfs:range schema1:Person ;
+    owl:inverseOf tgo:participatedIn .
+
+tgo:houseIncludes rdfs:label "house includes"@en ;
+    rdfs:domain tgo:House ;
+    rdfs:range schema1:Person ;
+    owl:inverseOf tgo:belongsToHouse .
+
 tgo:parentage rdfs:subPropertyOf schema1:parent .
+
+tgo:raceIncludes rdfs:label "race includes"@en ;
+    rdfs:domain tgo:Race ;
+    rdfs:range schema1:Person ;
+    owl:inverseOf tgo:belongsToRace .
+
+tgo:riddenBy rdfs:label "ridden by"@en ;
+    rdfs:domain tgo:Creature ;
+    rdfs:range schema1:Person ;
+    owl:inverseOf tgo:rides .
 
 tgo:siblings a owl:SymmetricProperty ;
     rdfs:subPropertyOf schema1:relatedTo .
+
+tgo:spokenBy rdfs:label "spoken by"@en ;
+    rdfs:domain schema1:Language ;
+    rdfs:range schema1:Person ;
+    owl:inverseOf tgo:speaks .
+
+tgo:wieldedBy rdfs:label "wielded by"@en ;
+    rdfs:domain tgo:Artifact ;
+    rdfs:range schema1:Person ;
+    owl:inverseOf tgo:wields .
 
 tg:Argonath a schema1:Place ;
     rdfs:label "Argonath"@en ;
@@ -38,62 +73,6 @@ tg:Argonath a schema1:Place ;
     tgo:gallery "the Argonath"@en ;
     tgo:image "John Howe - The Argonath.jpg"@en ;
     tgo:othernames tg:Sindarin .
-
-tg:Azog a schema1:Person ;
-    rdfs:label "Azog"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Azog> ;
-    schema1:birthDate "Before"@en ;
-    schema1:children tg:Bolg ;
-    schema1:deathDate ""@en ;
-    schema1:gender "Male"@en ;
-    schema1:height "Tall"@en ;
-    schema1:location tg:Azanulbizar,
-        tg:Moria ;
-    schema1:mentions tg:Azanulbizar,
-        tg:CategoryImages_by_Pascal_Yung,
-        tg:Dimrill_Dale,
-        tg:Moria,
-        tg:Orcs,
-        tg:Orcs_of_the_Misty_Mountains,
-        tg:Orkish,
-        tg:Thrór,
-        tg:Westron ;
-    schema1:name "Azog"@en ;
-    schema1:relatedTo tg:Bolg ;
-    tgo:affiliation tg:Orcs_of_the_Misty_Mountains ;
-    tgo:belongsTo tg:ServantsOfMordor ;
-    tgo:caption tg:CategoryImages_by_Pascal_Yung ;
-    tgo:deathlocation tg:Azanulbizar ;
-    tgo:hasConnectionTo tg:Azanulbizar ;
-    tgo:image "Pascal Yung - Azog.jpg"@en ;
-    tgo:language tg:Orkish ;
-    tgo:location tg:Azanulbizar,
-        tg:Moria ;
-    tgo:notablefor tg:Thrór ;
-    tgo:people tg:Orcs ;
-    tgo:position tg:Orcs ;
-    tgo:titles "the Goblin"@en .
-
-tg:Cirith_Ungol a schema1:Place ;
-    rdfs:label "Cirith Ungol"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Cirith_Ungol> ;
-    schema1:additionalType "Pass"@en ;
-    schema1:containedInPlace tg:Ephel_Dúath ;
-    schema1:mentions tg:Cirith_Ungol_disambiguation,
-        tg:Ephel_Dúath,
-        tg:FileJRR_Tolkien_-_Kirith_Ungoljpg,
-        tg:Men,
-        tg:Mordor,
-        tg:Orcs,
-        tg:Quest_of_the_Ring,
-        tg:Shelob,
-        tg:Sindarin ;
-    schema1:name "Cirith Ungol"@en ;
-    tgo:caption "\"Cirith Ungol\" by Rob Alexander"@en ;
-    tgo:events tg:Quest_of_the_Ring ;
-    tgo:image "Rob Alexander - Cirith Ungol.jpg"@en ;
-    tgo:inhabitants tg:Men ;
-    tgo:pronun tg:Sindarin .
 
 tg:Dead_Marshes a schema1:Place ;
     rdfs:label "Dead Marshes"@en ;
@@ -137,167 +116,7 @@ tg:Edoras a schema1:Place ;
     tgo:image "Jef Murray - Edoras.jpg"@en ;
     tgo:inhabitants tg:Rohirrim .
 
-tg:Gandalf a schema1:Person ;
-    rdfs:label "Gandalf"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Gandalf> ;
-    schema1:birthDate tg:Creation_of_the_Ainur ;
-    schema1:gender "Male"@en ;
-    schema1:height "5'6\", p. 49"@en ;
-    schema1:location tg:Timeless_Halls,
-        "No fixed abode"@en ;
-    schema1:mentions tg:CategoryImages_by_Matt_Stewart,
-        tg:Gandalf_disambiguation,
-        tg:Haradrim,
-        tg:Khuzdul,
-        tg:Maiar,
-        tg:Other_names,
-        tg:Quenya,
-        tg:Sindarin,
-        tg:Wizards ;
-    schema1:name "Gandalf"@en ;
-    tgo:affiliation tg:Five_Guardians ;
-    tgo:belongsTo tg:Ainur ;
-    tgo:birthlocation tg:Timeless_Halls ;
-    tgo:caption tg:CategoryImages_by_Matt_Stewart ;
-    tgo:clothing "Grey robes (later white), blue hat, grey scarf, black boots"@en ;
-    tgo:eyes "Black that could become red"@en ;
-    tgo:hair "Long white, silver beard"@en ;
-    tgo:hasConnectionTo tg:Timeless_Halls ;
-    tgo:image "Matt Stewart - Gandalf - A Light in the Dark.jpg"@en ;
-    tgo:language tg:Valarin ;
-    tgo:location tg:Timeless_Halls,
-        "No fixed abode"@en ;
-    tgo:memberOf tg:Fellowship_of_the_Ring ;
-    tgo:othernames tg:Quenya ;
-    tgo:people tg:Maiar ;
-    tgo:people_duplicated tg:Maiar ;
-    tgo:sailedfrom tg:Grey_Havens ;
-    tgo:sailedwest tg:29_September ;
-    tgo:steed tg:Shadowfax ;
-    tgo:titles tg:The_White ;
-    tgo:weapons tg:Glamdring .
-
-tg:Gollum a schema1:Person ;
-    rdfs:label "Gollum"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Gollum> ;
-    schema1:birthDate "c. , p. 167, entry \"Gollum\""@en ;
-    schema1:deathDate tg:25_March ;
-    schema1:gender "Male"@en ;
-    schema1:location tg:Gladden_Fields,
-        tg:Mount_Doom,
-        tg:Vales_of_Anduin ;
-    schema1:mentions tg:Desolation_of_the_Morannon,
-        tg:Hobbits,
-        tg:John_Howe,
-        tg:Misty_Mountains,
-        tg:Mordor,
-        tg:North_Ithilien,
-        tg:Trahald,
-        tg:Vales_of_Anduin,
-        tg:Westron,
-        tg:Woodland_Realm ;
-    schema1:name "Gollum"@en ;
-    tgo:affiliation tg:Stoors ;
-    tgo:age "c. 589"@en ;
-    tgo:belongsTo tg:HobbitKind ;
-    tgo:birthlocation tg:Gladden_Fields ;
-    tgo:caption tg:John_Howe ;
-    tgo:deathlocation tg:Mount_Doom ;
-    tgo:hair "Thin, lank"@en ;
-    tgo:hasConnectionTo tg:Gladden_Fields,
-        tg:Mount_Doom ;
-    tgo:image "John Howe - Gollum.jpg"@en ;
-    tgo:language tg:Westron ;
-    tgo:location tg:Gladden_Fields,
-        tg:Mount_Doom,
-        tg:Vales_of_Anduin ;
-    tgo:othernames tg:Trahald ;
-    tgo:people tg:Hobbits .
-
-tg:Haldir a schema1:Person ;
-    rdfs:label "Haldir"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Haldir> ;
-    schema1:gender "Male"@en ;
-    schema1:location tg:Lothlórien ;
-    schema1:mentions tg:Anke_Eißmann,
-        tg:Haldir_disambiguation,
-        tg:Lothlórien,
-        tg:Lothlórien_chapter,
-        tg:Orophin,
-        tg:Rúmil_elf_of_Lórien,
-        tg:Silvan_Elves,
-        tg:Silvan_Elvish,
-        tg:The_Fellowship_of_the_Ring,
-        tg:Westron ;
-    schema1:name "Haldir"@en ;
-    schema1:relatedTo tg:Rúmil_elf_of_Lórien ;
-    tgo:caption tg:Anke_Eißmann ;
-    tgo:image "Anke Eißmann - Atop Cerin Amroth.jpeg"@en ;
-    tgo:language tg:Silvan_Elvish ;
-    tgo:location tg:Lothlórien ;
-    tgo:people tg:Silvan_Elves ;
-    tgo:siblings tg:Rúmil_elf_of_Lórien .
-
 tg:Half_elven rdfs:subClassOf tg:Elves .
-
-tg:Lurtz a schema1:Person ;
-    rdfs:label "Lurtz"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Lurtz> ;
-    schema1:birthDate ""@en ;
-    schema1:deathDate tg:26_February ;
-    schema1:gender "Male"@en ;
-    schema1:height "Tall"@en ;
-    schema1:location tg:Amon_Hen,
-        tg:Isengard ;
-    schema1:mentions tg:26_February,
-        tg:Amon_Hen,
-        tg:Anduin,
-        tg:Isengard,
-        tg:Orcs,
-        tg:The_Lord_of_the_Rings_The_Fellowship_of_the_Ring,
-        tg:Westron,
-        tg:White_Hand ;
-    schema1:name "Lurtz"@en ;
-    tgo:affiliation tg:White_Hand ;
-    tgo:belongsTo tg:ServantsOfMordor ;
-    tgo:birthlocation tg:Isengard ;
-    tgo:caption tg:The_Lord_of_the_Rings_The_Fellowship_of_the_Ring ;
-    tgo:deathlocation tg:Amon_Hen ;
-    tgo:hair "Black"@en ;
-    tgo:hasConnectionTo tg:Amon_Hen,
-        tg:Isengard ;
-    tgo:image "The Lord of the Rings (film series) - Lurtz the orc.jpg"@en ;
-    tgo:language tg:Westron ;
-    tgo:location tg:Amon_Hen,
-        tg:Isengard ;
-    tgo:notablefor tg:Boromir ;
-    tgo:people tg:Orcs ;
-    tgo:weapons "Sword and bow"@en .
-
-tg:Rhovanion a schema1:Place ;
-    rdfs:label "Rhovanion"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Rhovanion> ;
-    schema1:additionalType "Region"@en ;
-    schema1:containedInPlace tg:Middle-earth ;
-    schema1:mentions tg:Caras_Galadhon,
-        tg:Dáins_Halls,
-        tg:Eastern_Eriador,
-        tg:Iron_Hills,
-        tg:JRR_Tolkien,
-        tg:Lothlórien,
-        tg:Middle-earth,
-        tg:Mirkwood,
-        tg:Vales_of_Anduin ;
-    schema1:name "Rhovanion"@en ;
-    tgo:audio ""@en ;
-    tgo:caption tg:JRR_Tolkien ;
-    tgo:description tg:Mirkwood ;
-    tgo:events tg:Disaster_of_the_Gladden_Fields ;
-    tgo:image "J.R.R. Tolkien - Map of Wilderland.jpg"@en ;
-    tgo:inhabitants tg:Durins_Folk ;
-    tgo:othernames "Wilderland"@en ;
-    tgo:regions tg:Eastern_Eriador ;
-    tgo:settlements tg:Caras_Galadhon .
 
 tg:Weathertop a schema1:Place ;
     rdfs:label "Weathertop"@en ;
@@ -321,6 +140,26 @@ tg:Weathertop a schema1:Place ;
     tgo:image "Jef Murray - Amon Sûl.jpg"@en ;
     tgo:othernames "Amon Sûl"@en .
 
+tg:Assaults_on_Lothlórien a schema1:Event ;
+    rdfs:label "Assaults on Lothlórien"@en ;
+    tgo:hasParticipant tg:Lothlórien .
+
+tg:Barrow-wights a schema1:Event ;
+    rdfs:label "Barrow-wights"@en ;
+    tgo:hasParticipant tg:Tom_Bombadil .
+
+tg:Battle_of_Dale a schema1:Event ;
+    rdfs:label "Battle of Dale"@en ;
+    tgo:hasParticipant tg:Rhovanion .
+
+tg:Black_Breath a tgo:Artifact ;
+    rdfs:label "Black Breath"@en ;
+    tgo:wieldedBy tg:Witch-king .
+
+tg:Boromir_Steward_of_Gondor a schema1:Event ;
+    rdfs:label "Boromir (Steward of Gondor)"@en ;
+    tgo:hasParticipant tg:Witch-king .
+
 tg:Bree a schema1:Place ;
     rdfs:label "Bree"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Bree> ;
@@ -339,6 +178,230 @@ tg:Bree a schema1:Place ;
     tgo:image "Darek Zabrocki - Morning.jpg"@en ;
     tgo:inhabitants tg:Men .
 
+tg:Cirith_Ungol a schema1:Place ;
+    rdfs:label "Cirith Ungol"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Cirith_Ungol> ;
+    schema1:additionalType "Pass"@en ;
+    schema1:containedInPlace tg:Ephel_Dúath ;
+    schema1:mentions tg:Cirith_Ungol_disambiguation,
+        tg:Ephel_Dúath,
+        tg:FileJRR_Tolkien_-_Kirith_Ungoljpg,
+        tg:Men,
+        tg:Mordor,
+        tg:Orcs,
+        tg:Quest_of_the_Ring,
+        tg:Shelob,
+        tg:Sindarin ;
+    schema1:name "Cirith Ungol"@en ;
+    tgo:caption "\"Cirith Ungol\" by Rob Alexander"@en ;
+    tgo:events tg:Quest_of_the_Ring ;
+    tgo:image "Rob Alexander - Cirith Ungol.jpg"@en ;
+    tgo:inhabitants tg:Men ;
+    tgo:participatedIn tg:Quest_of_the_Ring ;
+    tgo:pronun tg:Sindarin .
+
+tg:Cracks_of_Doom a schema1:Event ;
+    rdfs:label "Cracks of Doom"@en ;
+    tgo:hasParticipant tg:Frodo_Baggins .
+
+tg:Doom_of_Mandos a tgo:House ;
+    rdfs:label "Doom of Mandos"@en ;
+    tgo:houseIncludes tg:Elrond .
+
+tg:Downfall_of_Númenor a schema1:Event ;
+    rdfs:label "Downfall of Númenor"@en ;
+    tgo:hasParticipant tg:Sauron .
+
+tg:Edain a tgo:House ;
+    rdfs:label "Edain"@en ;
+    tgo:houseIncludes tg:Elrond .
+
+tg:Elvish a schema1:Language ;
+    rdfs:label "Elvish"@en ;
+    tgo:spokenBy tg:Gandalf .
+
+tg:Elwë a tgo:House ;
+    rdfs:label "Elwë"@en ;
+    tgo:houseIncludes tg:Elrond .
+
+tg:Entish a schema1:Language ;
+    rdfs:label "Entish"@en ;
+    tgo:spokenBy tg:Treebeard .
+
+tg:Eärnur a schema1:Event ;
+    rdfs:label "Eärnur"@en ;
+    tgo:hasParticipant tg:Witch-king .
+
+tg:Fall_of_Gondolin a schema1:Event ;
+    rdfs:label "Fall of Gondolin"@en ;
+    tgo:hasParticipant tg:Glorfindel .
+
+tg:Herblore_of_the_Shire a schema1:Event ;
+    rdfs:label "Herblore of the Shire"@en ;
+    tgo:hasParticipant tg:Meriadoc_Brandybuck .
+
+tg:HobbitsHistory a schema1:Event ;
+    rdfs:label "Hobbits#History"@en ;
+    tgo:hasParticipant tg:Eriador .
+
+tg:House_of_Bëor a tgo:House ;
+    rdfs:label "House of Bëor"@en ;
+    tgo:houseIncludes tg:Elrond .
+
+tg:House_of_Fingolfin a tgo:House ;
+    rdfs:label "House of Fingolfin"@en ;
+    tgo:houseIncludes tg:Elrond .
+
+tg:House_of_Haleth a tgo:House ;
+    rdfs:label "House of Haleth"@en ;
+    tgo:houseIncludes tg:Elrond .
+
+tg:Istari a schema1:Organization ;
+    rdfs:label "Istari"@en ;
+    tgo:hasMember tg:Saruman .
+
+tg:Merry a schema1:Event ;
+    rdfs:label "Merry"@en ;
+    tgo:hasParticipant tg:Tom_Bombadil .
+
+tg:Minas_Ithil a schema1:Event ;
+    rdfs:label "Minas Ithil"@en ;
+    tgo:hasParticipant tg:Witch-king .
+
+tg:Morgoth a schema1:Organization ;
+    rdfs:label "Morgoth"@en ;
+    tgo:hasMember tg:Sauron .
+
+tg:Narya a tgo:Artifact ;
+    rdfs:label "Narya"@en ;
+    tgo:wieldedBy tg:Gandalf .
+
+tg:Old_Man_Willow a schema1:Event ;
+    rdfs:label "Old Man Willow"@en ;
+    tgo:hasParticipant tg:Tom_Bombadil .
+
+tg:Order_of_Wizards a schema1:Organization ;
+    rdfs:label "Order of Wizards"@en ;
+    tgo:hasMember tg:Gandalf .
+
+tg:Orthanc-stone a schema1:Event ;
+    rdfs:label "Orthanc-stone"@en ;
+    tgo:hasParticipant tg:Peregrin_Took .
+
+tg:Pippin a schema1:Event ;
+    rdfs:label "Pippin"@en ;
+    tgo:hasParticipant tg:Tom_Bombadil .
+
+tg:Rings_of_Power a schema1:Event ;
+    rdfs:label "Rings of Power"@en ;
+    tgo:hasParticipant tg:Sauron .
+
+tg:Rings_of_PowerThe_Creation_of_the_Rings_of_Power a schema1:Event ;
+    rdfs:label "Rings of Power#The Creation of the Rings of Power"@en ;
+    tgo:hasParticipant tg:Eriador .
+
+tg:Sack_of_Erebor a schema1:Event ;
+    rdfs:label "Sack of Erebor"@en ;
+    tgo:hasParticipant tg:Rhovanion .
+
+tg:Teleri a schema1:Language ;
+    rdfs:label "Teleri"@en ;
+    tgo:spokenBy tg:Galadriel .
+
+tg:Vanyar a schema1:Language ;
+    rdfs:label "Vanyar"@en ;
+    tgo:spokenBy tg:Galadriel .
+
+tg:Vanyarin a schema1:Language ;
+    rdfs:label "Vanyarin"@en ;
+    tgo:spokenBy tg:Galadriel .
+
+tg:War_of_the_Dwarves_and_Dragons a schema1:Event ;
+    rdfs:label "War of the Dwarves and Dragons"@en ;
+    tgo:hasParticipant tg:Rhovanion .
+
+tg:War_of_the_Elves_and_Sauron a schema1:Event ;
+    rdfs:label "War of the Elves and Sauron"@en ;
+    tgo:hasParticipant tg:Eriador .
+
+tg:Witch-King_of_Angmar a schema1:Event ;
+    rdfs:label "Witch-King of Angmar"@en ;
+    tgo:hasParticipant tg:Meriadoc_Brandybuck .
+
+tg:Wraiths a tgo:Race ;
+    rdfs:label "Wraiths"@en ;
+    tgo:raceIncludes tg:Witch-king .
+
+tgo:location rdfs:subPropertyOf schema1:location .
+
+tg:Adûnaic a schema1:Language ;
+    rdfs:label "Adûnaic"@en ;
+    tgo:spokenBy tg:Sauron .
+
+tg:Aragorn schema1:relatedTo tg:Arwen ;
+    schema1:spouse tg:Arwen .
+
+tg:ArnorHistory a schema1:Event ;
+    rdfs:label "Arnor#History"@en ;
+    tgo:hasParticipant tg:Eriador .
+
+tg:ArnorThe_Fall_of_Arthedain a schema1:Event ;
+    rdfs:label "Arnor#The Fall of Arthedain"@en ;
+    tgo:hasParticipant tg:Witch-king .
+
+tg:Asfaloth a tgo:Creature ;
+    rdfs:label "Asfaloth"@en ;
+    tgo:riddenBy tg:Glorfindel .
+
+tg:Balrog a schema1:Event ;
+    rdfs:label "Balrog"@en ;
+    tgo:hasParticipant tg:Glorfindel .
+
+tg:Baranor_Man_of_Gondor schema1:children tg:Beregond ;
+    schema1:relatedTo tg:Beregond .
+
+tg:Barrow-blades a tgo:Artifact ;
+    rdfs:label "Barrow-blades"@en ;
+    tgo:wieldedBy tg:Samwise_Gamgee .
+
+tg:Battle_of_Greenfields a schema1:Event ;
+    rdfs:label "Battle of Greenfields"@en ;
+    tgo:hasParticipant tg:The_Shire .
+
+tg:Battle_under_the_trees a schema1:Event ;
+    rdfs:label "Battle under the trees"@en ;
+    tgo:hasParticipant tg:Mirkwood .
+
+tg:Bill_the_Pony a tgo:Creature ;
+    rdfs:label "Bill the Pony"@en ;
+    tgo:riddenBy tg:Samwise_Gamgee .
+
+tg:Bow_of_the_Galadhrim a tgo:Artifact ;
+    rdfs:label "Bow of the Galadhrim"@en ;
+    tgo:wieldedBy tg:Legolas .
+
+tg:Bungo_Baggins schema1:children tg:Bilbo_Baggins ;
+    schema1:relatedTo tg:Bilbo_Baggins .
+
+tg:Diamond_of_Long_Cleeve schema1:relatedTo tg:Peregrin_Took ;
+    schema1:spouse tg:Peregrin_Took .
+
+tg:Disaster_of_the_Gladden_Fields a schema1:Event ;
+    rdfs:label "Disaster of the Gladden Fields"@en ;
+    tgo:hasParticipant tg:Rhovanion .
+
+tg:Downfall_of_Barad-dûr a schema1:Event ;
+    rdfs:label "Downfall of Barad-dûr"@en ;
+    tgo:hasParticipant tg:Barad-dûr .
+
+tg:Drogo_Baggins schema1:children tg:Frodo_Baggins ;
+    schema1:relatedTo tg:Frodo_Baggins .
+
+tg:DwarfKind rdfs:label "Dwarf-kind"@en .
+
+tg:Elfhild schema1:relatedTo tg:Théoden ;
+    schema1:spouse tg:Théoden .
+
 tg:Emyn_Muil a schema1:Place ;
     rdfs:label "Emyn Muil"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Emyn_Muil> ;
@@ -356,32 +419,250 @@ tg:Emyn_Muil a schema1:Place ;
     tgo:description "A treacherous labyrinth of hills"@en ;
     tgo:events tg:Breaking_of_the_Fellowship ;
     tgo:gallery "the Emyn Muil"@en ;
-    tgo:image "Ted Nasmith - No Way Down.jpg"@en .
+    tgo:image "Ted Nasmith - No Way Down.jpg"@en ;
+    tgo:participatedIn tg:Breaking_of_the_Fellowship .
 
-tg:Osgiliath a schema1:Place ;
-    rdfs:label "Osgiliath"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Osgiliath> ;
-    schema1:additionalType "City"@en ;
-    schema1:containedInPlace tg:Anduin ;
-    schema1:mentions tg:Alan_Lee,
-        tg:Anduin,
-        tg:Anárions_defence_of_Osgiliath,
-        tg:Gondorians,
-        tg:Kin-strife,
-        tg:Minas_Morgul,
-        tg:Minas_Tirith,
-        tg:Ruin_of_Osgiliath,
-        tg:War_of_the_Ring ;
-    schema1:name "Osgiliath"@en ;
-    tgo:caption tg:Alan_Lee ;
-    tgo:created "c."@en ;
-    tgo:description tg:Anduin ;
-    tgo:destructionDate tg:Ruin_of_Osgiliath ;
-    tgo:events tg:Anárions_defence_of_Osgiliath ;
-    tgo:image "Alan Lee - The Window on the West.jpg"@en ;
-    tgo:inhabitants tg:Gondorians ;
-    tgo:othernames "Old Gondor, City of Ghosts"@en ;
-    tgo:pronun ""@en .
+tg:Estella_Bolger schema1:relatedTo tg:Meriadoc_Brandybuck ;
+    schema1:spouse tg:Meriadoc_Brandybuck .
+
+tg:Eärendil schema1:children tg:Elrond ;
+    schema1:relatedTo tg:Elrond .
+
+tg:Fall_of_Dol_Guldur a schema1:Event ;
+    rdfs:label "Fall of Dol Guldur"@en ;
+    tgo:hasParticipant tg:Mirkwood,
+        tg:Rhovanion .
+
+tg:Fatty_Lumpkin a tgo:Creature ;
+    rdfs:label "Fatty Lumpkin"@en ;
+    tgo:riddenBy tg:Tom_Bombadil .
+
+tg:Fell_Winter_Third_Age a schema1:Event ;
+    rdfs:label "Fell Winter (Third Age)"@en ;
+    tgo:hasParticipant tg:Eriador,
+        tg:Rhovanion .
+
+tg:Fell_beasts a tgo:Creature ;
+    rdfs:label "Fell beasts"@en ;
+    tgo:riddenBy tg:Witch-king .
+
+tg:Fimbrethil schema1:relatedTo tg:Treebeard ;
+    schema1:spouse tg:Treebeard .
+
+tg:Finarfin schema1:children tg:Galadriel ;
+    schema1:relatedTo tg:Galadriel .
+
+tg:Firefoot a tgo:Creature ;
+    rdfs:label "Firefoot"@en ;
+    tgo:riddenBy tg:Éomer .
+
+tg:Five_Guardians a schema1:Organization ;
+    rdfs:label "Five Guardians"@en ;
+    tgo:hasMember tg:Gandalf .
+
+tg:Gaffer_Gamgee schema1:children tg:Samwise_Gamgee ;
+    schema1:relatedTo tg:Samwise_Gamgee .
+
+tg:Galadhon schema1:children tg:Celeborn ;
+    schema1:relatedTo tg:Celeborn .
+
+tg:Gift_of_Ilúvatar a schema1:Event ;
+    rdfs:label "Gift of Ilúvatar"@en ;
+    tgo:hasParticipant tg:Arwen .
+
+tg:Glamdring a tgo:Artifact ;
+    rdfs:label "Glamdring"@en ;
+    tgo:wieldedBy tg:Gandalf .
+
+tg:Glóin schema1:children tg:Gimli ;
+    schema1:relatedTo tg:Gimli .
+
+tg:Great_Plague a schema1:Event ;
+    rdfs:label "Great Plague"@en ;
+    tgo:hasParticipant tg:Eriador,
+        tg:Rhovanion .
+
+tg:Gúthwinë a tgo:Artifact ;
+    rdfs:label "Gúthwinë"@en ;
+    tgo:wieldedBy tg:Éomer .
+
+tg:Herugrim a tgo:Artifact ;
+    rdfs:label "Herugrim"@en ;
+    tgo:wieldedBy tg:Théoden .
+
+tg:Hobbitish a schema1:Language ;
+    rdfs:label "Hobbitish"@en ;
+    tgo:spokenBy tg:Gandalf .
+
+tg:House_of_Finarfin a tgo:House ;
+    rdfs:label "House of Finarfin"@en ;
+    tgo:houseIncludes tg:Galadriel .
+
+tg:House_of_Hador a tgo:House ;
+    rdfs:label "House of Hador"@en ;
+    tgo:houseIncludes tg:Elrond .
+
+tg:Kin-strife a schema1:Event ;
+    rdfs:label "Kin-strife"@en ;
+    tgo:hasParticipant tg:Osgiliath .
+
+tg:Lothíriel schema1:relatedTo tg:Éomer ;
+    schema1:spouse tg:Éomer .
+
+tg:Morgul-knife a tgo:Artifact ;
+    rdfs:label "Morgul-knife"@en ;
+    tgo:wieldedBy tg:Witch-king .
+
+tg:Orcrist a tgo:Artifact ;
+    rdfs:label "Orcrist"@en ;
+    tgo:wieldedBy tg:Thorin .
+
+tg:Paladin_Took_II schema1:children tg:Peregrin_Took ;
+    schema1:relatedTo tg:Peregrin_Took .
+
+tg:Rose_Cotton schema1:relatedTo tg:Samwise_Gamgee ;
+    schema1:spouse tg:Samwise_Gamgee .
+
+tg:Sam a schema1:Event ;
+    rdfs:label "Sam"@en ;
+    tgo:hasParticipant tg:Tom_Bombadil .
+
+tg:Saradoc_Brandybuck schema1:children tg:Meriadoc_Brandybuck ;
+    schema1:relatedTo tg:Meriadoc_Brandybuck .
+
+tg:Scouring_of_the_Shire a schema1:Event ;
+    rdfs:label "Scouring of the Shire"@en ;
+    tgo:hasParticipant tg:Bag_End .
+
+tg:ServantsOfMordor rdfs:label "Servants of Mordor"@en .
+
+tg:Shadowfax a tgo:Creature ;
+    rdfs:label "Shadowfax"@en ;
+    tgo:riddenBy tg:Gandalf .
+
+tg:Snowmane a tgo:Creature ;
+    rdfs:label "Snowmane"@en ;
+    tgo:riddenBy tg:Théoden .
+
+tg:Stoors a schema1:Organization ;
+    rdfs:label "Stoors"@en ;
+    tgo:hasMember tg:Gollum .
+
+tg:Strider_pony a tgo:Creature ;
+    rdfs:label "Strider (pony)"@en ;
+    tgo:riddenBy tg:Frodo_Baggins .
+
+tg:Stybba a tgo:Creature ;
+    rdfs:label "Stybba"@en ;
+    tgo:riddenBy tg:Meriadoc_Brandybuck .
+
+tg:Thengel schema1:children tg:Théoden ;
+    schema1:relatedTo tg:Théoden .
+
+tg:Thranduil schema1:children tg:Legolas ;
+    schema1:relatedTo tg:Legolas .
+
+tg:Thráin schema1:children tg:Thorin ;
+    schema1:relatedTo tg:Thorin .
+
+tg:Ungoliant schema1:children tg:Shelob ;
+    schema1:relatedTo tg:Shelob .
+
+tg:War_of_the_Dwarves_and_Orcs a schema1:Event ;
+    rdfs:label "War of the Dwarves and Orcs"@en ;
+    tgo:hasParticipant tg:Azog,
+        tg:Rhovanion .
+
+tg:War_of_the_Ring a schema1:Event ;
+    rdfs:label "War of the Ring"@en ;
+    tgo:hasParticipant tg:Osgiliath .
+
+tg:Windfola a tgo:Creature ;
+    rdfs:label "Windfola"@en ;
+    tgo:riddenBy tg:Éowyn .
+
+tg:An_Unexpected_Party a schema1:Event ;
+    rdfs:label "An Unexpected Party"@en ;
+    tgo:hasParticipant tg:Bag_End .
+
+tg:Anárions_defence_of_Osgiliath a schema1:Event ;
+    rdfs:label "Anárion's defence of Osgiliath"@en ;
+    tgo:hasParticipant tg:Osgiliath .
+
+tg:Breaking_of_the_Fellowship a schema1:Event ;
+    rdfs:label "Breaking of the Fellowship"@en ;
+    tgo:hasParticipant tg:Emyn_Muil .
+
+tg:Haldir a schema1:Person ;
+    rdfs:label "Haldir"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Haldir> ;
+    schema1:gender "Male"@en ;
+    schema1:location tg:Lothlórien ;
+    schema1:mentions tg:Anke_Eißmann,
+        tg:Haldir_disambiguation,
+        tg:Lothlórien,
+        tg:Lothlórien_chapter,
+        tg:Orophin,
+        tg:Rúmil_elf_of_Lórien,
+        tg:Silvan_Elves,
+        tg:Silvan_Elvish,
+        tg:The_Fellowship_of_the_Ring,
+        tg:Westron ;
+    schema1:name "Haldir"@en ;
+    schema1:relatedTo tg:Rúmil_elf_of_Lórien ;
+    tgo:belongsToRace tg:Silvan_Elves ;
+    tgo:caption tg:Anke_Eißmann ;
+    tgo:image "Anke Eißmann - Atop Cerin Amroth.jpeg"@en ;
+    tgo:language tg:Silvan_Elvish ;
+    tgo:location tg:Lothlórien ;
+    tgo:people tg:Silvan_Elves ;
+    tgo:siblings tg:Rúmil_elf_of_Lórien ;
+    tgo:speaks tg:Silvan_Elvish,
+        tg:Westron .
+
+tg:Northmen rdfs:label "Northmen"@en .
+
+tg:Oath_of_Eorl a schema1:Organization ;
+    rdfs:label "Oath of Eorl"@en ;
+    tgo:hasMember tg:Éomer .
+
+tg:One_Ring a schema1:Event ;
+    rdfs:label "One Ring"@en ;
+    tgo:hasParticipant tg:Bilbo_Baggins,
+        tg:Frodo_Baggins .
+
+tg:Orcs_of_the_Misty_Mountains a schema1:Organization ;
+    rdfs:label "Orcs of the Misty Mountains"@en ;
+    tgo:hasMember tg:Azog .
+
+tg:Orkish a schema1:Language ;
+    rdfs:label "Orkish"@en ;
+    tgo:spokenBy tg:Azog .
+
+tg:River-woman schema1:children tg:Goldberry ;
+    schema1:relatedTo tg:Goldberry .
+
+tg:Siege_of_Barad-dur a schema1:Event ;
+    rdfs:label "Siege of Barad-dur"@en ;
+    tgo:hasParticipant tg:Barad-dûr .
+
+tg:Siege_of_Minas_Tirith a schema1:Event ;
+    rdfs:label "Siege of Minas Tirith"@en ;
+    tgo:hasParticipant tg:Minas_Tirith .
+
+tg:Silvan_Elves a tgo:Race ;
+    rdfs:label "Silvan Elves"@en ;
+    tgo:raceIncludes tg:Haldir ;
+    rdfs:subClassOf tg:Elves .
+
+tg:Telerin a schema1:Language ;
+    rdfs:label "Telerin"@en ;
+    tgo:spokenBy tg:Galadriel .
+
+tg:The_One_Ring a schema1:Event ;
+    rdfs:label "The One Ring"@en ;
+    tgo:hasParticipant tg:Sauron ;
+    tgo:wieldedBy tg:Sauron .
 
 tg:The_Shire a schema1:Place ;
     rdfs:label "The Shire"@en ;
@@ -406,16 +687,36 @@ tg:The_Shire a schema1:Place ;
     tgo:image "Ted Nasmith - Green Hill Morning.jpg"@en ;
     tgo:inhabitants tg:Hobbits ;
     tgo:othernames tg:Sûza ;
+    tgo:participatedIn tg:Battle_of_Bywater,
+        tg:Battle_of_Greenfields ;
     tgo:regions tg:Eastfarthing ;
     tgo:settlements tg:Bywater .
 
-tgo:location rdfs:subPropertyOf schema1:location .
+tg:Thrór a schema1:Event ;
+    rdfs:label "Thrór"@en ;
+    tgo:hasParticipant tg:Azog .
 
-tg:Aragorn schema1:relatedTo tg:Arwen ;
-    schema1:spouse tg:Arwen .
+tg:White_Hand a schema1:Organization ;
+    rdfs:label "White Hand"@en ;
+    tgo:hasMember tg:Lurtz .
 
-tg:Baranor_Man_of_Gondor schema1:children tg:Beregond ;
-    schema1:relatedTo tg:Beregond .
+tg:the_One_Ring a schema1:Event ;
+    rdfs:label "the One Ring"@en ;
+    tgo:hasParticipant tg:Mount_Doom .
+
+tg:Ainur rdfs:label "Ainur"@en .
+
+tg:Arod a tgo:Creature ;
+    rdfs:label "Arod"@en ;
+    tgo:riddenBy tg:Gimli,
+        tg:Legolas .
+
+tg:Battle_of_Bywater a schema1:Event ;
+    rdfs:label "Battle of Bywater"@en ;
+    tgo:hasParticipant tg:Eriador,
+        tg:Meriadoc_Brandybuck,
+        tg:Peregrin_Took,
+        tg:The_Shire .
 
 tg:Beregond a schema1:Person ;
     rdfs:label "Beregond"@en ;
@@ -439,6 +740,7 @@ tg:Beregond a schema1:Person ;
     schema1:parent tg:Baranor_Man_of_Gondor ;
     schema1:relatedTo tg:Bergil ;
     tgo:belongsTo tg:Númenóreans ;
+    tgo:belongsToRace tg:Gondorians ;
     tgo:caption tg:William_OConnor ;
     tgo:clothing "Black and silver livery"@en ;
     tgo:image "William O'Connor - Beregond and Pippin.jpg"@en ;
@@ -447,452 +749,91 @@ tg:Beregond a schema1:Person ;
     tgo:parentage tg:Baranor_Man_of_Gondor ;
     tgo:people tg:Gondorians ;
     tgo:position tg:Guard_of_the_Citadel ;
+    tgo:speaks tg:Westron ;
     tgo:titles "\"Beregond of the Guard\""@en ;
     tgo:weapons "Sword"@en .
 
-tg:Bilbo_Baggins a schema1:Person ;
-    rdfs:label "Bilbo Baggins"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Bilbo_Baggins> ;
-    schema1:birthDate tg:22_September ;
-    schema1:gender "Male"@en ;
-    schema1:height "Between 3' and 3'6''"@en ;
-    schema1:location tg:Bag_End ;
-    schema1:mentions tg:Bag_End,
-        tg:Bilbo_Gardner,
-        tg:Hobbiton,
-        tg:Hobbits,
-        tg:Other_names,
-        tg:Ring-bearers,
-        tg:Rivendell,
-        tg:Samwise_Gamgee,
-        tg:Thorin_and_Company,
-        tg:Tol_Eressëa ;
-    schema1:name "Bilbo Baggins"@en ;
-    schema1:parent tg:Bungo_Baggins ;
-    tgo:affiliation tg:Thorin_and_Company ;
-    tgo:age "131"@en ;
-    tgo:belongsTo tg:HobbitKind ;
-    tgo:caption "\"Bilbo Baggins\" by Mike Szabados."@en ;
-    tgo:childrenNote "None"@en ;
-    tgo:clothing tg:mithril_coat ;
-    tgo:family tg:Baggins_Family ;
-    tgo:hair "Brown, later White"@en ;
-    tgo:image "Mike Szabados - Bilbo Baggins.jpg"@en ;
-    tgo:language tg:Westron ;
-    tgo:location tg:Bag_End ;
-    tgo:maritalStatus "Never married"@en ;
-    tgo:notablefor tg:Quest_of_Erebor ;
-    tgo:othernames tg:Other_names ;
-    tgo:parentage tg:Bungo_Baggins ;
-    tgo:people tg:Hobbits ;
-    tgo:position tg:Ring-bearers ;
-    tgo:sailedfrom tg:Grey_Havens ;
-    tgo:sailedwest tg:29_September ;
-    tgo:weapons tg:Sting .
+tg:Daggers_of_Westernesse a tgo:Artifact ;
+    rdfs:label "Daggers of Westernesse"@en ;
+    tgo:wieldedBy tg:Meriadoc_Brandybuck,
+        tg:Peregrin_Took .
 
-tg:Bungo_Baggins schema1:children tg:Bilbo_Baggins ;
-    schema1:relatedTo tg:Bilbo_Baggins .
+tg:Denethor schema1:children tg:Boromir,
+        tg:Faramir ;
+    schema1:relatedTo tg:Boromir,
+        tg:Faramir .
 
-tg:Diamond_of_Long_Cleeve schema1:relatedTo tg:Peregrin_Took ;
-    schema1:spouse tg:Peregrin_Took .
+tg:Eldest a schema1:Event ;
+    rdfs:label "Eldest"@en ;
+    tgo:hasParticipant tg:Treebeard .
 
-tg:Drogo_Baggins schema1:children tg:Frodo_Baggins ;
-    schema1:relatedTo tg:Frodo_Baggins .
+tg:Ents a schema1:Event ;
+    rdfs:label "Ents"@en ;
+    tgo:hasParticipant tg:Treebeard ;
+    tgo:raceIncludes tg:Treebeard .
 
-tg:DwarfKind rdfs:label "Dwarf-kind"@en .
+tg:Eye_of_Sauron a schema1:Organization ;
+    rdfs:label "Eye of Sauron"@en ;
+    tgo:hasMember tg:Witch-king .
 
-tg:Elfhild schema1:relatedTo tg:Théoden ;
-    schema1:spouse tg:Théoden .
+tg:Frodo a schema1:Event ;
+    rdfs:label "Frodo"@en ;
+    tgo:hasParticipant tg:Tom_Bombadil .
 
-tg:Estella_Bolger schema1:relatedTo tg:Meriadoc_Brandybuck ;
-    schema1:spouse tg:Meriadoc_Brandybuck .
-
-tg:Eärendil schema1:children tg:Elrond ;
-    schema1:relatedTo tg:Elrond .
-
-tg:Fimbrethil schema1:relatedTo tg:Treebeard ;
-    schema1:spouse tg:Treebeard .
-
-tg:Finarfin schema1:children tg:Galadriel ;
-    schema1:relatedTo tg:Galadriel .
-
-tg:Gaffer_Gamgee schema1:children tg:Samwise_Gamgee ;
-    schema1:relatedTo tg:Samwise_Gamgee .
-
-tg:Galadhon schema1:children tg:Celeborn ;
-    schema1:relatedTo tg:Celeborn .
-
-tg:Gimli a schema1:Person ;
-    rdfs:label "Gimli"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Gimli> ;
-    schema1:birthDate ""@en ;
-    schema1:gender "Male"@en ;
-    schema1:location tg:Thorins_Halls ;
-    schema1:mentions tg:CategoryImages_by_Matt_Stewart,
-        tg:Dwarves,
-        tg:Elf-friend,
-        tg:Gimli_elf,
-        tg:Lockbearer,
-        tg:Lonely_Mountain,
-        tg:Lord_of_the_Glittering_Caves,
-        tg:The_Lord_of_the_Rings,
-        tg:The_Tale_of_Tinúviel,
-        tg:Thorins_Halls ;
-    schema1:name "Gimli"@en ;
-    schema1:parent tg:Glóin ;
-    tgo:affiliation tg:Fellowship_of_the_Ring ;
-    tgo:age "262"@en ;
-    tgo:belongsTo tg:DwarfKind ;
-    tgo:birthlocation tg:Thorins_Halls ;
-    tgo:caption tg:CategoryImages_by_Matt_Stewart ;
-    tgo:clothing "Short shirt of steel ringscap of iron and leatherbelt, hood, boots, shield"@en ;
-    tgo:eyes "Dark"@en ;
-    tgo:hasConnectionTo tg:Thorins_Halls ;
-    tgo:house tg:House_of_Durin ;
-    tgo:image "Matt Stewart - Forty-Two.jpg"@en ;
-    tgo:language tg:Khuzdul ;
-    tgo:location tg:Thorins_Halls ;
-    tgo:memberOf tg:Fellowship_of_the_Ring ;
-    tgo:othernames tg:Elf-friend ;
-    tgo:parentage tg:Glóin ;
-    tgo:people tg:Dwarves ;
-    tgo:rule tg:Fourth_Age ;
-    tgo:sailedfrom tg:Ithilien ;
-    tgo:sailedwest ""@en ;
-    tgo:steed tg:Arod ;
-    tgo:titles tg:Lord_of_the_Glittering_Caves ;
-    tgo:weapons "Broad-bladed axe"@en .
-
-tg:Glorfindel a schema1:Person ;
-    rdfs:label "Glorfindel"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Glorfindel> ;
-    schema1:birthDate tg:Years_of_the_Trees ;
-    schema1:deathDate tg:Midsummer ;
-    schema1:gender "Male"@en ;
-    schema1:height "Tall"@en ;
-    schema1:location tg:Aman,
-        tg:Cirith_Thoronath ;
-    schema1:mentions tg:Aman,
-        tg:CategoryImages_by_Venlian,
-        tg:Gondolin,
-        tg:House_of_the_Golden_Flower,
-        tg:Nevrast,
-        tg:Noldor,
-        tg:Quenya,
-        tg:Rivendell,
-        tg:Sindarin,
-        tg:Turgon ;
-    schema1:name "Glorfindel"@en ;
-    schema1:parent tg:Turgon ;
-    tgo:affiliation tg:Turgon ;
-    tgo:birthlocation tg:Aman ;
-    tgo:caption tg:CategoryImages_by_Venlian ;
-    tgo:deathlocation tg:Cirith_Thoronath ;
-    tgo:hair "Golden (long)"@en ;
-    tgo:hasConnectionTo tg:Aman,
-        tg:Cirith_Thoronath ;
-    tgo:house tg:House_of_the_Golden_Flower ;
-    tgo:image "Venlian - Glorfindel Before the Storm.jpg"@en ;
-    tgo:language tg:Quenya ;
-    tgo:location tg:Aman,
-        tg:Cirith_Thoronath ;
-    tgo:notablefor tg:Balrog ;
-    tgo:othernames tg:Quenya ;
-    tgo:parentage tg:Turgon ;
-    tgo:people tg:Noldor ;
-    tgo:position tg:House_of_the_Golden_Flower ;
-    tgo:pronun tg:Sindarin ;
-    tgo:steed tg:Asfaloth .
-
-tg:Glóin schema1:children tg:Gimli ;
-    schema1:relatedTo tg:Gimli .
-
-tg:Legolas a schema1:Person ;
-    rdfs:label "Legolas"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Legolas> ;
-    schema1:gender "Male"@en ;
-    schema1:height "Over 6 feet (1.83 m), \"Heights\", p. 195"@en ;
-    schema1:location tg:Woodland_Realm ;
-    schema1:mentions tg:CategoryImages_by_Līga_Kļaviņa,
-        tg:Fellowship_of_the_Ring,
-        tg:Ithilien,
-        tg:Legolas_elf_of_Gondolin,
-        tg:Quenya,
-        tg:Sindar,
-        tg:Sindarin,
-        tg:The_Fall_of_Gondolin_chapter,
-        tg:Woodland_Realm ;
-    schema1:name "Legolas"@en ;
-    schema1:parent tg:Thranduil ;
-    tgo:affiliation tg:Fellowship_of_the_Ring ;
-    tgo:caption tg:CategoryImages_by_Līga_Kļaviņa ;
-    tgo:clothing "Green and brown garb"@en ;
-    tgo:image "Līga Kļaviņa - Legolas (cropped).jpg"@en ;
-    tgo:language tg:Sindarin ;
-    tgo:location tg:Woodland_Realm ;
-    tgo:memberOf tg:Fellowship_of_the_Ring ;
-    tgo:othernames tg:Quenya ;
-    tgo:parentage tg:Thranduil ;
-    tgo:people tg:Sindar ;
-    tgo:pronun tg:Sindarin ;
-    tgo:sailedfrom tg:Ithilien ;
-    tgo:sailedwest ""@en ;
-    tgo:steed tg:Arod ;
-    tgo:titles tg:Woodland_Realm ;
-    tgo:weapons tg:Bow_of_the_Galadhrim .
-
-tg:Lothíriel schema1:relatedTo tg:Éomer ;
-    schema1:spouse tg:Éomer .
-
-tg:Mirkwood a schema1:Place ;
-    rdfs:label "Mirkwood"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Mirkwood> ;
-    schema1:additionalType "Forest"@en ;
-    schema1:containedInPlace tg:Misty_Mountains ;
-    schema1:mentions tg:Amon_Lanc,
-        tg:Dol_Guldur,
-        tg:East_Lórien,
-        tg:Ered_Mithrin,
-        tg:Eryn_Lasgalen,
-        tg:JRR_Tolkien,
-        tg:Mirkwood_disambiguation,
-        tg:Misty_Mountains,
-        tg:Narrows,
-        tg:Woodland_Realm ;
-    schema1:name "Mirkwood"@en ;
-    tgo:caption tg:JRR_Tolkien ;
-    tgo:description "Deep, thick, dark forest"@en ;
-    tgo:events tg:Battle_under_the_trees ;
-    tgo:image "J.R.R. Tolkien - Mirkwood.jpg"@en ;
-    tgo:inhabitants tg:Spiders ;
-    tgo:othernames tg:Eryn_Lasgalen ;
-    tgo:regions tg:East_Lórien ;
-    tgo:towns tg:Amon_Lanc .
-
-tg:Paladin_Took_II schema1:children tg:Peregrin_Took ;
-    schema1:relatedTo tg:Peregrin_Took .
-
-tg:Rose_Cotton schema1:relatedTo tg:Samwise_Gamgee ;
-    schema1:spouse tg:Samwise_Gamgee .
-
-tg:Saradoc_Brandybuck schema1:children tg:Meriadoc_Brandybuck ;
-    schema1:relatedTo tg:Meriadoc_Brandybuck .
-
-tg:Saruman a schema1:Person ;
-    rdfs:label "Saruman"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Saruman> ;
-    schema1:deathDate tg:3_November ;
-    schema1:gender "Male"@en ;
-    schema1:height "Tall"@en ;
-    schema1:location tg:Hobbiton,
-        tg:Orthanc ;
-    schema1:mentions tg:John_Howe,
-        tg:Maiar,
-        tg:Many_Colours,
-        tg:Quenya,
-        tg:Ring-maker,
-        tg:Sindarin,
-        tg:Wizards,
-        tg:the_White,
-        tg:the_Wise ;
-    schema1:name "Saruman"@en ;
-    tgo:affiliation tg:Aulë ;
-    tgo:belongsTo tg:Ainur ;
-    tgo:caption tg:John_Howe ;
-    tgo:clothing "White robes, shimmering with many colours"@en ;
-    tgo:deathlocation tg:Hobbiton ;
-    tgo:hair "White with strands of black"@en ;
-    tgo:hasConnectionTo tg:Hobbiton ;
-    tgo:image "John Howe - Saruman.jpg"@en ;
-    tgo:location tg:Hobbiton,
-        tg:Orthanc ;
-    tgo:othernames tg:Quenya ;
-    tgo:people tg:Maiar ;
-    tgo:people_duplicated tg:Maiar ;
-    tgo:position tg:Heren_Istarion ;
-    tgo:rule_note "-"@en ;
-    tgo:titles tg:Lord_of_Isengard ;
-    tgo:weapons "StaffKnife"@en .
-
-tg:Sauron a schema1:Person ;
-    rdfs:label "Sauron"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Sauron> ;
-    schema1:birthDate tg:Creation_of_the_Ainur ;
+tg:Gollum a schema1:Person ;
+    rdfs:label "Gollum"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Gollum> ;
+    schema1:birthDate "c. , p. 167, entry \"Gollum\""@en ;
     schema1:deathDate tg:25_March ;
     schema1:gender "Male"@en ;
-    schema1:height tg:Physical_form ;
-    schema1:location tg:Barad-dûr,
-        tg:Timeless_Halls ;
-    schema1:mentions tg:Adûnaic,
-        tg:CategoryImages_by_Alaïs,
-        tg:Dark_Lord,
-        tg:Eye_of_Sauron,
-        tg:Maiar,
-        tg:Other_names,
-        tg:Quenya,
-        tg:Sindarin ;
-    schema1:name "Sauron"@en ;
-    tgo:affiliation tg:Aulë ;
-    tgo:age "Unquantifiable"@en ;
-    tgo:belongsTo tg:Ainur ;
-    tgo:birthlocation tg:Timeless_Halls ;
-    tgo:caption tg:CategoryImages_by_Alaïs ;
-    tgo:deathlocation tg:Barad-dûr ;
-    tgo:eyes tg:Eye_of_Sauron ;
-    tgo:hasConnectionTo tg:Barad-dûr,
-        tg:Timeless_Halls ;
-    tgo:image "Alaïs - Annatar.jpg"@en ;
-    tgo:language tg:Valarin ;
-    tgo:location tg:Barad-dûr,
-        tg:Timeless_Halls ;
-    tgo:notablefor tg:Elves ;
-    tgo:othernames tg:Quenya ;
-    tgo:people tg:Maiar ;
-    tgo:position tg:Aulë ;
-    tgo:pronun tg:Quenya ;
-    tgo:rule_note "-"@en ;
-    tgo:titles tg:Dark_Lord ;
-    tgo:weapons tg:The_One_Ring .
-
-tg:ServantsOfMordor rdfs:label "Servants of Mordor"@en .
-
-tg:Silvan_Elves rdfs:subClassOf tg:Elves .
-
-tg:Thengel schema1:children tg:Théoden ;
-    schema1:relatedTo tg:Théoden .
-
-tg:Thorin a schema1:Person ;
-    rdfs:label "Thorin"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Thorin> ;
-    schema1:birthDate ""@en ;
-    schema1:deathDate "(aged 195)"@en ;
-    schema1:gender "Male"@en ;
-    schema1:location tg:Battle_of_Five_Armies,
-        tg:Dunland,
-        tg:Lonely_Mountain ;
-    schema1:mentions tg:Dunland,
-        tg:Dwarves,
-        tg:Khuzdul,
-        tg:King_under_the_Mountain,
-        tg:Kings_of_Durins_Folk,
-        tg:Lonely_Mountain,
-        tg:Rodrigo_Machado,
-        tg:Thorin_and_Company,
-        tg:Thorin_disambiguation,
-        tg:Thorins_Halls ;
-    schema1:name "Thorin II"@en ;
-    schema1:parent tg:Thráin ;
-    schema1:relatedTo tg:Frerin ;
-    tgo:affiliation tg:Thorin_and_Company ;
-    tgo:belongsTo tg:DwarfKind ;
-    tgo:birthlocation tg:Lonely_Mountain ;
-    tgo:caption tg:Rodrigo_Machado ;
-    tgo:clothing "Sky-blue hood with a long silver tassel, jacket, coat of gold-plated rings, belt crusted with scarlet stones, fine gold chain, possibly yellow stockings"@en ;
-    tgo:deathlocation tg:Battle_of_Five_Armies ;
-    tgo:hair "White beard"@en ;
-    tgo:hasConnectionTo tg:Battle_of_Five_Armies,
-        tg:Lonely_Mountain ;
-    tgo:house tg:House_of_Durin ;
-    tgo:image "Rodrigo Machado - Thorin Oakenshield.png"@en ;
-    tgo:language tg:Khuzdul ;
-    tgo:location tg:Battle_of_Five_Armies,
-        tg:Dunland,
-        tg:Lonely_Mountain ;
-    tgo:notablefor tg:Quest_of_Erebor ;
-    tgo:othernames "Thorin Oakenshield"@en ;
-    tgo:parentage tg:Thráin ;
-    tgo:people tg:Dwarves ;
-    tgo:rule tg:Third_Age_2850 ;
-    tgo:siblings tg:Frerin ;
-    tgo:titles tg:Kings_of_Durins_Folk ;
-    tgo:weapons tg:Orcrist .
-
-tg:Thranduil schema1:children tg:Legolas ;
-    schema1:relatedTo tg:Legolas .
-
-tg:Thráin schema1:children tg:Thorin ;
-    schema1:relatedTo tg:Thorin .
-
-tg:Treebeard a schema1:Person ;
-    rdfs:label "Treebeard"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Treebeard> ;
-    schema1:birthDate tg:Years_of_the_Trees ;
-    schema1:gender "Male"@en ;
-    schema1:height "14 feet (4.2m)"@en ;
-    schema1:location tg:Eriador,
-        tg:Middle-earth ;
-    schema1:mentions tg:Beleriand,
-        tg:Ents,
-        tg:Eriador,
-        tg:Fangorn_Forest,
-        tg:Fangorn_disambiguation,
-        tg:First_Age,
-        tg:Sindarin,
-        tg:Third_Age,
-        tg:Treebeard_disambiguation,
-        tg:Treegarth_of_Orthanc ;
-    schema1:name "Treebeard"@en ;
-    schema1:relatedTo tg:Fimbrethil ;
-    schema1:spouse tg:Fimbrethil ;
-    tgo:birthlocation tg:Middle-earth ;
-    tgo:caption "\"Treebeard\" by [https://jonathangebel.artstation.com/ Jonathan Gebel]"@en ;
-    tgo:eyes "Brown with green light"@en ;
-    tgo:hair "Grey beard"@en ;
-    tgo:hasConnectionTo tg:Middle-earth ;
-    tgo:image "Jonathan Gebel - Treebeard.jpg"@en ;
+    schema1:location tg:Gladden_Fields,
+        tg:Mount_Doom,
+        tg:Vales_of_Anduin ;
+    schema1:memberOf tg:Ring-bearers,
+        tg:Stoors ;
+    schema1:mentions tg:Desolation_of_the_Morannon,
+        tg:Hobbits,
+        tg:John_Howe,
+        tg:Misty_Mountains,
+        tg:Mordor,
+        tg:North_Ithilien,
+        tg:Trahald,
+        tg:Vales_of_Anduin,
+        tg:Westron,
+        tg:Woodland_Realm ;
+    schema1:name "Gollum"@en ;
+    tgo:affiliation tg:Stoors ;
+    tgo:age "c. 589"@en ;
+    tgo:belongsTo tg:HobbitKind ;
+    tgo:belongsToRace tg:Hobbits ;
+    tgo:birthlocation tg:Gladden_Fields ;
+    tgo:caption tg:John_Howe ;
+    tgo:deathlocation tg:Mount_Doom ;
+    tgo:hair "Thin, lank"@en ;
+    tgo:hasConnectionTo tg:Gladden_Fields,
+        tg:Mount_Doom ;
+    tgo:image "John Howe - Gollum.jpg"@en ;
     tgo:language tg:Westron ;
-    tgo:location tg:Eriador,
-        tg:Middle-earth ;
-    tgo:notablefor tg:Eldest ;
-    tgo:othernames tg:Sindarin ;
-    tgo:people tg:Ents .
+    tgo:location tg:Gladden_Fields,
+        tg:Mount_Doom,
+        tg:Vales_of_Anduin ;
+    tgo:othernames tg:Trahald ;
+    tgo:people tg:Hobbits ;
+    tgo:speaks tg:Westron .
 
-tg:Ungoliant schema1:children tg:Shelob ;
-    schema1:relatedTo tg:Shelob .
+tg:House_of_Durin a tgo:House ;
+    rdfs:label "House of Durin"@en ;
+    tgo:houseIncludes tg:Gimli,
+        tg:Thorin .
 
-tg:Witch-king a schema1:Person ;
-    rdfs:label "Witch-king"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Witch-king> ;
-    schema1:birthDate "Before"@en ;
-    schema1:deathDate tg:15_March ;
-    schema1:gender "Male"@en ;
-    schema1:height "Tallest of the Nazgûl"@en ;
-    schema1:location tg:Angmar,
-        tg:Pelennor_Fields ;
-    schema1:mentions tg:15_March,
-        tg:Angmar,
-        tg:Black_Speech,
-        tg:CategoryImages_by_Melissa_Hitchcock,
-        tg:Dwimmerlaik,
-        tg:Eye_of_Sauron,
-        tg:Minas_Morgul,
-        tg:Nazgûl,
-        tg:Westron ;
-    schema1:name "Witch-king of Angmar"@en ;
-    tgo:affiliation tg:Nazgûl ;
-    tgo:age "4209+"@en ;
-    tgo:birthlocation_note "Unknown"@en ;
-    tgo:caption tg:CategoryImages_by_Melissa_Hitchcock ;
-    tgo:clothing "Crown"@en ;
-    tgo:deathlocation tg:Pelennor_Fields ;
-    tgo:eyes "Fiery red"@en ;
-    tgo:gallery "the Witch-king"@en ;
-    tgo:hair "Gleaming"@en ;
-    tgo:hasConnectionTo tg:Pelennor_Fields ;
-    tgo:image "Melissa Hitchcock - The Black Captain.jpg"@en ;
-    tgo:language tg:Black_Speech ;
-    tgo:location tg:Angmar,
-        tg:Pelennor_Fields ;
-    tgo:notablefor tg:ArnorThe_Fall_of_Arthedain ;
-    tgo:othernames tg:Dwimmerlaik ;
-    tgo:people tg:Men ;
-    tgo:position tg:Nazgûl ;
-    tgo:rule "- (in Angmar) - (in Minas Morgul)"@en ;
-    tgo:steed tg:Fell_beasts ;
-    tgo:titles "King of AngmarLord of Minas Morgul"@en ;
-    tgo:weapons tg:Morgul-knife .
+tg:House_of_Húrin a tgo:House ;
+    rdfs:label "House of Húrin"@en ;
+    tgo:houseIncludes tg:Boromir,
+        tg:Faramir .
 
-tg:Wizards rdfs:subClassOf tg:Maiar .
+tg:House_of_the_Golden_Flower a tgo:House ;
+    rdfs:label "House of the Golden Flower"@en ;
+    tgo:houseIncludes tg:Glorfindel .
 
 tg:Minas_Tirith a schema1:Place ;
     rdfs:label "Minas Tirith"@en ;
@@ -916,90 +857,294 @@ tg:Minas_Tirith a schema1:Place ;
     tgo:events tg:Siege_of_Minas_Tirith ;
     tgo:image "Ralph Damiani - Across Middle-earth - The White City.png"@en ;
     tgo:inhabitants tg:Gondorians ;
-    tgo:othernames tg:Minas_TirithHistory .
+    tgo:othernames tg:Minas_TirithHistory ;
+    tgo:participatedIn tg:Siege_of_Minas_Tirith .
 
-tg:Northmen rdfs:label "Northmen"@en .
+tg:Mirkwood a schema1:Place ;
+    rdfs:label "Mirkwood"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Mirkwood> ;
+    schema1:additionalType "Forest"@en ;
+    schema1:containedInPlace tg:Misty_Mountains ;
+    schema1:mentions tg:Amon_Lanc,
+        tg:Dol_Guldur,
+        tg:East_Lórien,
+        tg:Ered_Mithrin,
+        tg:Eryn_Lasgalen,
+        tg:JRR_Tolkien,
+        tg:Mirkwood_disambiguation,
+        tg:Misty_Mountains,
+        tg:Narrows,
+        tg:Woodland_Realm ;
+    schema1:name "Mirkwood"@en ;
+    tgo:caption tg:JRR_Tolkien ;
+    tgo:description "Deep, thick, dark forest"@en ;
+    tgo:events tg:Battle_under_the_trees ;
+    tgo:image "J.R.R. Tolkien - Mirkwood.jpg"@en ;
+    tgo:inhabitants tg:Spiders ;
+    tgo:othernames tg:Eryn_Lasgalen ;
+    tgo:participatedIn tg:Battle_under_the_trees,
+        tg:Fall_of_Dol_Guldur ;
+    tgo:regions tg:East_Lórien ;
+    tgo:towns tg:Amon_Lanc .
 
-tg:River-woman schema1:children tg:Goldberry ;
-    schema1:relatedTo tg:Goldberry .
+tg:Quest_of_Erebor a schema1:Event ;
+    rdfs:label "Quest of Erebor"@en ;
+    tgo:hasParticipant tg:Bilbo_Baggins,
+        tg:Thorin .
 
-tg:Tom_Bombadil a schema1:Person ;
-    rdfs:label "Tom Bombadil"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Tom_Bombadil> ;
-    schema1:gender "Male"@en ;
-    schema1:height "Short"@en ;
-    schema1:location tg:Underhill_house ;
-    schema1:mentions tg:Eldest,
-        tg:John_Howe,
-        tg:Master,
-        tg:Old_English,
-        tg:Old_Forest,
-        tg:Old_Norse,
-        tg:Sindarin,
-        tg:Tom_BombadilNature,
-        tg:Tom_disambiguation,
-        tg:Underhill_house ;
-    schema1:name "Tom Bombadil"@en ;
-    schema1:relatedTo tg:Goldberry ;
-    schema1:spouse tg:Goldberry ;
-    tgo:affiliation tg:Forest-folk ;
-    tgo:caption tg:John_Howe ;
-    tgo:clothing "Blue jacket and hat, boots"@en ;
-    tgo:image "John Howe - Tom Bombadil.jpg"@en ;
-    tgo:language tg:Westron ;
-    tgo:location tg:Underhill_house ;
-    tgo:notablefor tg:Frodo ;
-    tgo:othernames tg:Sindarin ;
-    tgo:people tg:Tom_BombadilNature ;
-    tgo:race tg:Tom_BombadilNature ;
-    tgo:steed tg:Fatty_Lumpkin ;
-    tgo:titles tg:Eldest ;
-    tgo:weapons "Song"@en .
+tg:Silvan_Elvish a schema1:Language ;
+    rdfs:label "Silvan Elvish"@en ;
+    tgo:spokenBy tg:Galadriel,
+        tg:Haldir .
 
-tg:Ainur rdfs:label "Ainur"@en .
+tg:Tom_BombadilNature a tgo:Race ;
+    rdfs:label "Tom Bombadil/Nature"@en ;
+    tgo:raceIncludes tg:Tom_Bombadil .
 
-tg:Arwen a schema1:Person ;
-    rdfs:label "Arwen"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Arwen> ;
+tg:Valarin a schema1:Language ;
+    rdfs:label "Valarin"@en ;
+    tgo:spokenBy tg:Gandalf,
+        tg:Sauron .
+
+tg:Wizards a tgo:Race ;
+    rdfs:label "Wizards"@en ;
+    tgo:raceIncludes tg:Gandalf,
+        tg:Saruman ;
+    rdfs:subClassOf tg:Maiar .
+
+tg:Aulë a schema1:Organization ;
+    rdfs:label "Aulë"@en ;
+    tgo:hasMember tg:Saruman,
+        tg:Sauron .
+
+tg:Battle_of_Five_Armies a schema1:Event ;
+    rdfs:label "Battle of Five Armies"@en ;
+    tgo:hasParticipant tg:Rhovanion .
+
+tg:Battle_of_Isengard a schema1:Event ;
+    rdfs:label "Battle of Isengard"@en ;
+    tgo:hasParticipant tg:Isengard,
+        tg:Orthanc .
+
+tg:Doriath a tgo:House ;
+    rdfs:label "Doriath"@en ;
+    tgo:houseIncludes tg:Celeborn .
+
+tg:Forest-folk a schema1:Organization ;
+    rdfs:label "Forest-folk"@en ;
+    tgo:hasMember tg:Goldberry,
+        tg:Tom_Bombadil .
+
+tg:Lurtz a schema1:Person ;
+    rdfs:label "Lurtz"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Lurtz> ;
     schema1:birthDate ""@en ;
-    schema1:children tg:Eldarion ;
-    schema1:deathDate tg:1_March ;
-    schema1:gender "Female"@en ;
-    schema1:location tg:Cerin_Amroth,
-        tg:Rivendell ;
-    schema1:mentions tg:Half-elven,
-        tg:John_Howe,
-        tg:Lothlórien,
-        tg:Quenya,
-        tg:Reunited_Kingdom,
-        tg:Rivendell,
+    schema1:deathDate tg:26_February ;
+    schema1:gender "Male"@en ;
+    schema1:height "Tall"@en ;
+    schema1:location tg:Amon_Hen,
+        tg:Isengard ;
+    schema1:memberOf tg:Isengard,
+        tg:White_Hand ;
+    schema1:mentions tg:26_February,
+        tg:Amon_Hen,
+        tg:Anduin,
+        tg:Isengard,
+        tg:Orcs,
+        tg:The_Lord_of_the_Rings_The_Fellowship_of_the_Ring,
+        tg:Westron,
+        tg:White_Hand ;
+    schema1:name "Lurtz"@en ;
+    tgo:affiliation tg:White_Hand ;
+    tgo:belongsTo tg:ServantsOfMordor ;
+    tgo:belongsToRace tg:Orcs ;
+    tgo:birthlocation tg:Isengard ;
+    tgo:caption tg:The_Lord_of_the_Rings_The_Fellowship_of_the_Ring ;
+    tgo:deathlocation tg:Amon_Hen ;
+    tgo:hair "Black"@en ;
+    tgo:hasConnectionTo tg:Amon_Hen,
+        tg:Isengard ;
+    tgo:image "The Lord of the Rings (film series) - Lurtz the orc.jpg"@en ;
+    tgo:language tg:Westron ;
+    tgo:location tg:Amon_Hen,
+        tg:Isengard ;
+    tgo:notableFor tg:Boromir ;
+    tgo:notablefor tg:Boromir ;
+    tgo:people tg:Orcs ;
+    tgo:speaks tg:Westron ;
+    tgo:weapons "Sword and bow"@en .
+
+tg:Mount_Doom a schema1:Place ;
+    rdfs:label "Mount Doom"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Mount_Doom> ;
+    schema1:additionalType "Mountain"@en ;
+    schema1:containedInPlace tg:Mordor ;
+    schema1:mentions tg:Alan_Lee,
+        tg:Frodo,
+        tg:Mordor,
+        tg:Mount_Doom_chapter,
+        tg:Mount_Doom_disambiguation,
+        tg:Sam,
+        tg:Sindarin,
+        tg:The_Return_of_the_King,
+        tg:the_One_Ring ;
+    schema1:name "Mount Doom"@en ;
+    tgo:caption tg:Alan_Lee ;
+    tgo:events tg:the_One_Ring ;
+    tgo:image "Alan Lee - Mount Doom.jpg"@en ;
+    tgo:othernames tg:Sindarin ;
+    tgo:participatedIn tg:the_One_Ring ;
+    tgo:pronun tg:Sindarin .
+
+tg:Nazgûl a schema1:Organization ;
+    rdfs:label "Nazgûl"@en ;
+    tgo:hasMember tg:Witch-king .
+
+tg:Númenóreans rdfs:label "Númenórean descendants"@en .
+
+tg:Orthanc a schema1:Place ;
+    rdfs:label "Orthanc"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Orthanc> ;
+    schema1:additionalType "Tower"@en ;
+    schema1:containedInPlace tg:Isengard ;
+    schema1:mentions tg:Battle_of_Isengard,
+        tg:Dúnedain,
+        tg:Gondorians,
+        tg:Isengard,
+        tg:Misty_Mountains,
+        tg:Saruman,
+        tg:Second_Age,
+        tg:The_Two_Towers,
+        tg:The_Voice_of_Saruman ;
+    schema1:name "Orthanc"@en ;
+    tgo:created tg:Second_Age ;
+    tgo:description "Black-coloured stone tower of 500 feet"@en ;
+    tgo:events tg:Battle_of_Isengard ;
+    tgo:image "Alan Lee - The Voice of Saruman.jpg"@en ;
+    tgo:inhabitants tg:Dúnedain ;
+    tgo:participatedIn tg:Battle_of_Isengard .
+
+tg:Osgiliath a schema1:Event,
+        schema1:Place ;
+    rdfs:label "Osgiliath"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Osgiliath> ;
+    schema1:additionalType "City"@en ;
+    schema1:containedInPlace tg:Anduin ;
+    schema1:mentions tg:Alan_Lee,
+        tg:Anduin,
+        tg:Anárions_defence_of_Osgiliath,
+        tg:Gondorians,
+        tg:Kin-strife,
+        tg:Minas_Morgul,
+        tg:Minas_Tirith,
+        tg:Ruin_of_Osgiliath,
+        tg:War_of_the_Ring ;
+    schema1:name "Osgiliath"@en ;
+    tgo:caption tg:Alan_Lee ;
+    tgo:created "c."@en ;
+    tgo:description tg:Anduin ;
+    tgo:destructionDate tg:Ruin_of_Osgiliath ;
+    tgo:events tg:Anárions_defence_of_Osgiliath ;
+    tgo:hasParticipant tg:Witch-king ;
+    tgo:image "Alan Lee - The Window on the West.jpg"@en ;
+    tgo:inhabitants tg:Gondorians ;
+    tgo:othernames "Old Gondor, City of Ghosts"@en ;
+    tgo:participatedIn tg:Anárions_defence_of_Osgiliath,
+        tg:Kin-strife,
+        tg:War_of_the_Ring ;
+    tgo:pronun ""@en .
+
+tg:Pelennor_Fields a schema1:Place ;
+    rdfs:label "Pelennor Fields"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Pelennor_Fields> ;
+    schema1:additionalType "Farmlands"@en ;
+    schema1:containedInPlace tg:Minas_Tirith ;
+    schema1:mentions tg:Alan_Lee,
+        tg:Anduin,
+        tg:Battle_of_the_Pelennor_Fields,
+        tg:Gondor,
+        tg:Gondorians,
+        tg:Minas_Tirith,
+        tg:Osgiliath,
+        tg:Rammas_Echor,
         tg:Sindarin ;
-    schema1:name "Arwen"@en ;
-    schema1:parent tg:Elrond ;
-    schema1:relatedTo tg:Aragorn,
-        tg:Eldarion,
-        tg:Elladan ;
-    schema1:spouse tg:Aragorn ;
-    tgo:age "2,901"@en ;
-    tgo:caption tg:John_Howe ;
-    tgo:clothing "Grey raiment with girdle of silver leaves; silver and blue mantle"@en ;
-    tgo:deathlocation tg:Cerin_Amroth ;
-    tgo:eyes "Grey"@en ;
-    tgo:hair "Dark"@en ;
-    tgo:hasConnectionTo tg:Cerin_Amroth ;
-    tgo:heritage tg:Half-elven ;
-    tgo:image "John Howe - Arwen.jpg"@en ;
-    tgo:language tg:Sindarin ;
-    tgo:location tg:Cerin_Amroth,
-        tg:Rivendell ;
-    tgo:notablefor tg:Gift_of_Ilúvatar ;
-    tgo:othernames tg:Quenya ;
-    tgo:parentage tg:Elrond ;
-    tgo:people tg:Half-elven ;
-    tgo:pronun tg:Sindarin ;
-    tgo:rule_note "-"@en ;
-    tgo:siblings tg:Elladan ;
-    tgo:titles "Lady of RivendellQueen of Elves and MenQueen of Gondor and Arnor"@en .
+    schema1:name "Pelennor Fields"@en ;
+    tgo:caption tg:Alan_Lee ;
+    tgo:description tg:Rammas_Echor ;
+    tgo:events tg:Battle_of_the_Pelennor_Fields ;
+    tgo:image "Alan Lee - The Last Debate.jpg"@en ;
+    tgo:inhabitants tg:Gondorians ;
+    tgo:participatedIn tg:Battle_of_the_Pelennor_Fields ;
+    tgo:pronun tg:Sindarin .
+
+tg:Quest_of_the_Ring a schema1:Event ;
+    rdfs:label "Quest of the Ring"@en ;
+    tgo:hasParticipant tg:Cirith_Ungol,
+        tg:Lothlórien .
+
+tg:Sting a tgo:Artifact ;
+    rdfs:label "Sting"@en ;
+    tgo:wieldedBy tg:Bilbo_Baggins,
+        tg:Frodo_Baggins,
+        tg:Samwise_Gamgee .
+
+tg:Turgon a schema1:Organization ;
+    rdfs:label "Turgon"@en ;
+    schema1:children tg:Glorfindel ;
+    schema1:relatedTo tg:Glorfindel ;
+    tgo:hasMember tg:Glorfindel .
+
+tg:White_Council a schema1:Organization ;
+    rdfs:label "White Council"@en ;
+    tgo:hasMember tg:Elrond,
+        tg:Galadriel,
+        tg:Gandalf .
+
+tg:Éomund schema1:children tg:Éomer,
+        tg:Éowyn ;
+    schema1:relatedTo tg:Éomer,
+        tg:Éowyn .
+
+tg:Azog a schema1:Person ;
+    rdfs:label "Azog"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Azog> ;
+    schema1:birthDate "Before"@en ;
+    schema1:children tg:Bolg ;
+    schema1:deathDate ""@en ;
+    schema1:gender "Male"@en ;
+    schema1:height "Tall"@en ;
+    schema1:location tg:Azanulbizar,
+        tg:Moria ;
+    schema1:memberOf tg:Orcs_of_the_Misty_Mountains ;
+    schema1:mentions tg:Azanulbizar,
+        tg:CategoryImages_by_Pascal_Yung,
+        tg:Dimrill_Dale,
+        tg:Moria,
+        tg:Orcs,
+        tg:Orcs_of_the_Misty_Mountains,
+        tg:Orkish,
+        tg:Thrór,
+        tg:Westron ;
+    schema1:name "Azog"@en ;
+    schema1:relatedTo tg:Bolg ;
+    tgo:affiliation tg:Orcs_of_the_Misty_Mountains ;
+    tgo:belongsTo tg:ServantsOfMordor ;
+    tgo:belongsToRace tg:Orcs ;
+    tgo:caption tg:CategoryImages_by_Pascal_Yung ;
+    tgo:deathlocation tg:Azanulbizar ;
+    tgo:hasConnectionTo tg:Azanulbizar ;
+    tgo:image "Pascal Yung - Azog.jpg"@en ;
+    tgo:language tg:Orkish ;
+    tgo:location tg:Azanulbizar,
+        tg:Moria ;
+    tgo:notableFor tg:Thrór,
+        tg:War_of_the_Dwarves_and_Orcs ;
+    tgo:notablefor tg:Thrór ;
+    tgo:people tg:Orcs ;
+    tgo:position tg:Orcs ;
+    tgo:speaks tg:Orkish,
+        tg:Westron ;
+    tgo:titles "the Goblin"@en .
 
 tg:Bag_End a schema1:Place ;
     rdfs:label "Bag End"@en ;
@@ -1022,7 +1167,9 @@ tg:Bag_End a schema1:Place ;
     tgo:description "The most luxurious hobbit-hole in the local area"@en ;
     tgo:events tg:An_Unexpected_Party ;
     tgo:image "J.R.R. Tolkien - The Hall at Bag-End, Residence of B. Baggins Esquire (Colored by H.E. Riddett).jpg"@en ;
-    tgo:inhabitants tg:Baggins_Family .
+    tgo:inhabitants tg:Baggins_Family ;
+    tgo:participatedIn tg:An_Unexpected_Party,
+        tg:Scouring_of_the_Shire .
 
 tg:Barad-dûr a schema1:Place ;
     rdfs:label "Barad-dûr"@en ;
@@ -1048,7 +1195,262 @@ tg:Barad-dûr a schema1:Place ;
     tgo:image "J.R.R. Tolkien - Barad-dur.jpg"@en ;
     tgo:inhabitants tg:Sauron ;
     tgo:othernames tg:Black_Speech ;
+    tgo:participatedIn tg:Downfall_of_Barad-dûr,
+        tg:Siege_of_Barad-dur ;
     tgo:rebuilt_note "-"@en .
+
+tg:Black_Speech a schema1:Language ;
+    rdfs:label "Black Speech"@en ;
+    tgo:spokenBy tg:Sauron,
+        tg:Witch-king .
+
+tg:Celebrían schema1:relatedTo tg:Elrond ;
+    schema1:spouse tg:Elrond .
+
+tg:Dwarves a tgo:Race ;
+    rdfs:label "Dwarves"@en ;
+    tgo:raceIncludes tg:Gimli,
+        tg:Thorin ;
+    rdfs:subClassOf tg:FreePeoples .
+
+tg:Goldberry a schema1:Person ;
+    rdfs:label "Goldberry"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Goldberry> ;
+    schema1:gender "Female"@en ;
+    schema1:location tg:Underhill_house ;
+    schema1:memberOf tg:Forest-folk ;
+    schema1:mentions tg:Forest-folk,
+        tg:Frodo_Baggins,
+        tg:In_the_House_of_Tom_Bombadil,
+        tg:Jenny_Dolfen,
+        tg:Old_Forest,
+        tg:River-woman,
+        tg:Tom_Bombadil,
+        tg:Underhill_house,
+        tg:Westron ;
+    schema1:name "Goldberry"@en ;
+    schema1:parent tg:River-woman ;
+    schema1:relatedTo tg:Tom_Bombadil ;
+    schema1:spouse tg:Tom_Bombadil ;
+    tgo:affiliation tg:Forest-folk ;
+    tgo:caption tg:Jenny_Dolfen ;
+    tgo:hair "Golden"@en ;
+    tgo:image "Jenny Dolfen - Goldberry's Washing Day.jpg"@en ;
+    tgo:language tg:Westron ;
+    tgo:location tg:Underhill_house ;
+    tgo:othernames "The River-daughter"@en ;
+    tgo:parentage tg:River-woman ;
+    tgo:people_note "Unknown"@en ;
+    tgo:race_note "Unknown"@en ;
+    tgo:speaks tg:Westron .
+
+tg:HobbitKind rdfs:label "Hobbit-kind"@en .
+
+tg:Khuzdul a schema1:Language ;
+    rdfs:label "Khuzdul"@en ;
+    tgo:spokenBy tg:Gimli,
+        tg:Thorin .
+
+tg:Noldor a tgo:Race ;
+    rdfs:label "Noldor"@en ;
+    tgo:raceIncludes tg:Galadriel,
+        tg:Glorfindel ;
+    rdfs:subClassOf tg:Elves .
+
+tg:Sindar a tgo:Race ;
+    rdfs:label "Sindar"@en ;
+    tgo:raceIncludes tg:Celeborn,
+        tg:Legolas ;
+    rdfs:subClassOf tg:Elves .
+
+tg:Arwen a schema1:Person ;
+    rdfs:label "Arwen"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Arwen> ;
+    schema1:birthDate ""@en ;
+    schema1:children tg:Eldarion ;
+    schema1:deathDate tg:1_March ;
+    schema1:gender "Female"@en ;
+    schema1:location tg:Cerin_Amroth,
+        tg:Rivendell ;
+    schema1:mentions tg:Half-elven,
+        tg:John_Howe,
+        tg:Lothlórien,
+        tg:Quenya,
+        tg:Reunited_Kingdom,
+        tg:Rivendell,
+        tg:Sindarin ;
+    schema1:name "Arwen"@en ;
+    schema1:parent tg:Elrond ;
+    schema1:relatedTo tg:Aragorn,
+        tg:Eldarion,
+        tg:Elladan ;
+    schema1:spouse tg:Aragorn ;
+    tgo:age "2,901"@en ;
+    tgo:belongsToRace tg:Half-elven ;
+    tgo:caption tg:John_Howe ;
+    tgo:clothing "Grey raiment with girdle of silver leaves; silver and blue mantle"@en ;
+    tgo:deathlocation tg:Cerin_Amroth ;
+    tgo:eyes "Grey"@en ;
+    tgo:hair "Dark"@en ;
+    tgo:hasConnectionTo tg:Cerin_Amroth ;
+    tgo:heritage tg:Half-elven ;
+    tgo:image "John Howe - Arwen.jpg"@en ;
+    tgo:language tg:Sindarin ;
+    tgo:location tg:Cerin_Amroth,
+        tg:Rivendell ;
+    tgo:notableFor tg:Gift_of_Ilúvatar ;
+    tgo:notablefor tg:Gift_of_Ilúvatar ;
+    tgo:othernames tg:Quenya ;
+    tgo:parentage tg:Elrond ;
+    tgo:people tg:Half-elven ;
+    tgo:pronun tg:Sindarin ;
+    tgo:rule_note "-"@en ;
+    tgo:siblings tg:Elladan ;
+    tgo:speaks tg:Sindarin ;
+    tgo:titles "Lady of RivendellQueen of Elves and MenQueen of Gondor and Arnor"@en .
+
+tg:Battle_of_the_Pelennor_Fields a schema1:Event ;
+    rdfs:label "Battle of the Pelennor Fields"@en ;
+    tgo:hasParticipant tg:Pelennor_Fields .
+
+tg:Elves a tgo:House ;
+    rdfs:label "Elves"@en ;
+    tgo:hasParticipant tg:Sauron ;
+    tgo:houseIncludes tg:Elrond ;
+    rdfs:subClassOf tg:FreePeoples .
+
+tg:House_of_Eorl a tgo:House ;
+    rdfs:label "House of Eorl"@en ;
+    tgo:houseIncludes tg:Théoden,
+        tg:Éomer,
+        tg:Éowyn .
+
+tg:Lothlórien a schema1:Place ;
+    rdfs:label "Lothlórien"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Lothlórien> ;
+    schema1:additionalType "Forest"@en ;
+    schema1:containedInPlace tg:Misty_Mountains ;
+    schema1:mentions tg:Celebrant,
+        tg:Dwimordene,
+        tg:Egladil,
+        tg:JRR_Tolkien,
+        tg:Lothlórien_disambiguation,
+        tg:Lórien_disambiguation,
+        tg:Lórinand,
+        tg:Misty_Mountains,
+        tg:Naith,
+        tg:mallorn ;
+    schema1:name "Lothlórien"@en ;
+    tgo:caption tg:JRR_Tolkien ;
+    tgo:description tg:mallorn ;
+    tgo:events tg:Quest_of_the_Ring ;
+    tgo:image "J.R.R. Tolkien - The Forest of Lothlorien in Spring.jpg"@en ;
+    tgo:inhabitants tg:Galadhrim ;
+    tgo:othernames tg:Lórinand ;
+    tgo:participatedIn tg:Assaults_on_Lothlórien,
+        tg:Quest_of_the_Ring ;
+    tgo:pronun ""@en ;
+    tgo:regions tg:Naith ;
+    tgo:towns tg:Caras_Galadhon .
+
+tg:Mordor a schema1:Event ;
+    rdfs:label "Mordor"@en ;
+    tgo:hasParticipant tg:Frodo_Baggins .
+
+tg:Ring-bearers a schema1:Organization ;
+    rdfs:label "Ring-bearers"@en ;
+    tgo:hasMember tg:Gollum .
+
+tg:Saruman a schema1:Person ;
+    rdfs:label "Saruman"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Saruman> ;
+    schema1:deathDate tg:3_November ;
+    schema1:gender "Male"@en ;
+    schema1:height "Tall"@en ;
+    schema1:location tg:Hobbiton,
+        tg:Orthanc ;
+    schema1:memberOf tg:Aulë,
+        tg:Istari,
+        tg:Sauron ;
+    schema1:mentions tg:John_Howe,
+        tg:Maiar,
+        tg:Many_Colours,
+        tg:Quenya,
+        tg:Ring-maker,
+        tg:Sindarin,
+        tg:Wizards,
+        tg:the_White,
+        tg:the_Wise ;
+    schema1:name "Saruman"@en ;
+    tgo:affiliation tg:Aulë ;
+    tgo:belongsTo tg:Ainur ;
+    tgo:belongsToRace tg:Maiar,
+        tg:Wizards ;
+    tgo:caption tg:John_Howe ;
+    tgo:clothing "White robes, shimmering with many colours"@en ;
+    tgo:deathlocation tg:Hobbiton ;
+    tgo:hair "White with strands of black"@en ;
+    tgo:hasConnectionTo tg:Hobbiton ;
+    tgo:image "John Howe - Saruman.jpg"@en ;
+    tgo:location tg:Hobbiton,
+        tg:Orthanc ;
+    tgo:othernames tg:Quenya ;
+    tgo:people tg:Maiar ;
+    tgo:people_duplicated tg:Maiar ;
+    tgo:position tg:Heren_Istarion ;
+    tgo:rule_note "-"@en ;
+    tgo:titles tg:Lord_of_Isengard ;
+    tgo:weapons "StaffKnife"@en .
+
+tg:Thorin_and_Company a schema1:Organization ;
+    rdfs:label "Thorin and Company"@en ;
+    tgo:hasMember tg:Bilbo_Baggins,
+        tg:Gandalf,
+        tg:Thorin .
+
+tg:Treebeard a schema1:Person ;
+    rdfs:label "Treebeard"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Treebeard> ;
+    schema1:birthDate tg:Years_of_the_Trees ;
+    schema1:gender "Male"@en ;
+    schema1:height "14 feet (4.2m)"@en ;
+    schema1:location tg:Eriador,
+        tg:Middle-earth ;
+    schema1:mentions tg:Beleriand,
+        tg:Ents,
+        tg:Eriador,
+        tg:Fangorn_Forest,
+        tg:Fangorn_disambiguation,
+        tg:First_Age,
+        tg:Sindarin,
+        tg:Third_Age,
+        tg:Treebeard_disambiguation,
+        tg:Treegarth_of_Orthanc ;
+    schema1:name "Treebeard"@en ;
+    schema1:relatedTo tg:Fimbrethil ;
+    schema1:spouse tg:Fimbrethil ;
+    tgo:belongsToRace tg:Ents ;
+    tgo:birthlocation tg:Middle-earth ;
+    tgo:caption "\"Treebeard\" by [https://jonathangebel.artstation.com/ Jonathan Gebel]"@en ;
+    tgo:eyes "Brown with green light"@en ;
+    tgo:hair "Grey beard"@en ;
+    tgo:hasConnectionTo tg:Middle-earth ;
+    tgo:image "Jonathan Gebel - Treebeard.jpg"@en ;
+    tgo:language tg:Westron ;
+    tgo:location tg:Eriador,
+        tg:Middle-earth ;
+    tgo:notableFor tg:Eldest,
+        tg:Ents ;
+    tgo:notablefor tg:Eldest ;
+    tgo:othernames tg:Sindarin ;
+    tgo:people tg:Ents ;
+    tgo:speaks tg:Entish,
+        tg:Westron .
+
+tg:Angmar a schema1:Event ;
+    rdfs:label "Angmar"@en ;
+    tgo:hasParticipant tg:Witch-king,
+        tg:Éowyn .
 
 tg:Celeborn a schema1:Person ;
     rdfs:label "Celeborn"@en ;
@@ -1074,6 +1476,8 @@ tg:Celeborn a schema1:Person ;
         tg:Galadriel,
         tg:Galathil ;
     schema1:spouse tg:Galadriel ;
+    tgo:belongsToHouse tg:Doriath ;
+    tgo:belongsToRace tg:Sindar ;
     tgo:caption tg:CategoryImages_by_Ebe_Kastein ;
     tgo:hair "Silver, long"@en ;
     tgo:house tg:Doriath ;
@@ -1088,325 +1492,210 @@ tg:Celeborn a schema1:Person ;
     tgo:sailedfrom tg:Grey_Havens ;
     tgo:sailedwest tg:Last_Ship ;
     tgo:siblings tg:Galathil ;
+    tgo:speaks tg:Sindarin,
+        tg:Westron ;
     tgo:titles tg:Galadhrim .
 
-tg:Denethor schema1:children tg:Boromir,
-        tg:Faramir ;
-    schema1:relatedTo tg:Boromir,
-        tg:Faramir .
-
-tg:Dwarves rdfs:subClassOf tg:FreePeoples .
-
-tg:Galadriel a schema1:Person ;
-    rdfs:label "Galadriel"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Galadriel> ;
+tg:Gimli a schema1:Person ;
+    rdfs:label "Gimli"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Gimli> ;
     schema1:birthDate ""@en ;
-    schema1:children tg:Celebrían ;
-    schema1:gender "Female"@en ;
-    schema1:height "6 feet, 4 inches (193 cm)"@en ;
-    schema1:location tg:Eldamar ;
-    schema1:mentions tg:Amilessë,
-        tg:CategoryImages_by_Matt_Stewart,
-        tg:Father-name,
-        tg:Galadriel_disambiguation,
-        tg:Noldor,
-        tg:Quenya,
-        tg:Sindarin,
-        tg:Telerin,
-        tg:epessë ;
-    schema1:name "Galadriel"@en ;
-    schema1:parent tg:Finarfin ;
-    schema1:relatedTo tg:Celeborn,
-        tg:Celebrían,
-        tg:Finrod ;
-    schema1:spouse tg:Celeborn ;
-    tgo:affiliation tg:White_Council ;
-    tgo:age tg:Years_of_the_Sun ;
-    tgo:birthlocation tg:Eldamar ;
+    schema1:gender "Male"@en ;
+    schema1:location tg:Thorins_Halls ;
+    schema1:memberOf tg:Fellowship_of_the_Ring ;
+    schema1:mentions tg:CategoryImages_by_Matt_Stewart,
+        tg:Dwarves,
+        tg:Elf-friend,
+        tg:Gimli_elf,
+        tg:Lockbearer,
+        tg:Lonely_Mountain,
+        tg:Lord_of_the_Glittering_Caves,
+        tg:The_Lord_of_the_Rings,
+        tg:The_Tale_of_Tinúviel,
+        tg:Thorins_Halls ;
+    schema1:name "Gimli"@en ;
+    schema1:parent tg:Glóin ;
+    tgo:affiliation tg:Fellowship_of_the_Ring ;
+    tgo:age "262"@en ;
+    tgo:belongsTo tg:DwarfKind ;
+    tgo:belongsToHouse tg:House_of_Durin ;
+    tgo:belongsToRace tg:Dwarves ;
+    tgo:birthlocation tg:Thorins_Halls ;
     tgo:caption tg:CategoryImages_by_Matt_Stewart ;
-    tgo:clothing "White robes"@en ;
-    tgo:hair tg:Hair_of_Galadriel ;
-    tgo:hasConnectionTo tg:Eldamar ;
-    tgo:house tg:House_of_Finarfin ;
-    tgo:image "Matt Stewart - Galadriel.jpg"@en ;
-    tgo:language tg:Quenya ;
-    tgo:location tg:Eldamar ;
+    tgo:clothing "Short shirt of steel ringscap of iron and leatherbelt, hood, boots, shield"@en ;
+    tgo:eyes "Dark"@en ;
+    tgo:hasConnectionTo tg:Thorins_Halls ;
+    tgo:house tg:House_of_Durin ;
+    tgo:image "Matt Stewart - Forty-Two.jpg"@en ;
+    tgo:language tg:Khuzdul ;
+    tgo:location tg:Thorins_Halls ;
+    tgo:memberOf tg:Fellowship_of_the_Ring ;
+    tgo:othernames tg:Elf-friend ;
+    tgo:parentage tg:Glóin ;
+    tgo:people tg:Dwarves ;
+    tgo:rides tg:Arod ;
+    tgo:rule tg:Fourth_Age ;
+    tgo:sailedfrom tg:Ithilien ;
+    tgo:sailedwest ""@en ;
+    tgo:speaks tg:Khuzdul,
+        tg:Westron ;
+    tgo:steed tg:Arod ;
+    tgo:titles tg:Lord_of_the_Glittering_Caves ;
+    tgo:weapons "Broad-bladed axe"@en .
+
+tg:Half-elven a tgo:Race ;
+    rdfs:label "Half-elven"@en ;
+    tgo:raceIncludes tg:Arwen,
+        tg:Elrond .
+
+tg:Legolas a schema1:Person ;
+    rdfs:label "Legolas"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Legolas> ;
+    schema1:gender "Male"@en ;
+    schema1:height "Over 6 feet (1.83 m), \"Heights\", p. 195"@en ;
+    schema1:location tg:Woodland_Realm ;
+    schema1:memberOf tg:Fellowship_of_the_Ring ;
+    schema1:mentions tg:CategoryImages_by_Līga_Kļaviņa,
+        tg:Fellowship_of_the_Ring,
+        tg:Ithilien,
+        tg:Legolas_elf_of_Gondolin,
+        tg:Quenya,
+        tg:Sindar,
+        tg:Sindarin,
+        tg:The_Fall_of_Gondolin_chapter,
+        tg:Woodland_Realm ;
+    schema1:name "Legolas"@en ;
+    schema1:parent tg:Thranduil ;
+    tgo:affiliation tg:Fellowship_of_the_Ring ;
+    tgo:belongsToRace tg:Sindar ;
+    tgo:caption tg:CategoryImages_by_Līga_Kļaviņa ;
+    tgo:clothing "Green and brown garb"@en ;
+    tgo:image "Līga Kļaviņa - Legolas (cropped).jpg"@en ;
+    tgo:language tg:Sindarin ;
+    tgo:location tg:Woodland_Realm ;
+    tgo:memberOf tg:Fellowship_of_the_Ring ;
     tgo:othernames tg:Quenya ;
-    tgo:parentage tg:Finarfin ;
-    tgo:people tg:Noldor ;
+    tgo:parentage tg:Thranduil ;
+    tgo:people tg:Sindar ;
     tgo:pronun tg:Sindarin ;
-    tgo:rule_note "-"@en ;
+    tgo:rides tg:Arod ;
+    tgo:sailedfrom tg:Ithilien ;
+    tgo:sailedwest ""@en ;
+    tgo:speaks tg:Sindarin,
+        tg:Westron ;
+    tgo:steed tg:Arod ;
+    tgo:titles tg:Woodland_Realm ;
+    tgo:weapons tg:Bow_of_the_Galadhrim ;
+    tgo:wields tg:Bow_of_the_Galadhrim .
+
+tg:Men a tgo:Race ;
+    rdfs:label "Men"@en ;
+    tgo:raceIncludes tg:Witch-king ;
+    rdfs:subClassOf tg:FreePeoples .
+
+tg:Spiders a tgo:Race ;
+    rdfs:label "Spiders"@en ;
+    schema1:relatedTo tg:Shelob ;
+    schema1:spouse tg:Shelob ;
+    tgo:raceIncludes tg:Shelob ;
+    rdfs:subClassOf tg:EvilCreatures .
+
+tg:Bilbo_Baggins a schema1:Person ;
+    rdfs:label "Bilbo Baggins"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Bilbo_Baggins> ;
+    schema1:birthDate tg:22_September ;
+    schema1:gender "Male"@en ;
+    schema1:height "Between 3' and 3'6''"@en ;
+    schema1:location tg:Bag_End ;
+    schema1:memberOf tg:Thorin_and_Company ;
+    schema1:mentions tg:Bag_End,
+        tg:Bilbo_Gardner,
+        tg:Hobbiton,
+        tg:Hobbits,
+        tg:Other_names,
+        tg:Ring-bearers,
+        tg:Rivendell,
+        tg:Samwise_Gamgee,
+        tg:Thorin_and_Company,
+        tg:Tol_Eressëa ;
+    schema1:name "Bilbo Baggins"@en ;
+    schema1:parent tg:Bungo_Baggins ;
+    tgo:affiliation tg:Thorin_and_Company ;
+    tgo:age "131"@en ;
+    tgo:belongsTo tg:HobbitKind ;
+    tgo:belongsToRace tg:Hobbits ;
+    tgo:caption "\"Bilbo Baggins\" by Mike Szabados."@en ;
+    tgo:childrenNote "None"@en ;
+    tgo:clothing tg:mithril_coat ;
+    tgo:family tg:Baggins_Family ;
+    tgo:hair "Brown, later White"@en ;
+    tgo:image "Mike Szabados - Bilbo Baggins.jpg"@en ;
+    tgo:language tg:Westron ;
+    tgo:location tg:Bag_End ;
+    tgo:maritalStatus "Never married"@en ;
+    tgo:notableFor tg:One_Ring,
+        tg:Quest_of_Erebor ;
+    tgo:notablefor tg:Quest_of_Erebor ;
+    tgo:othernames tg:Other_names ;
+    tgo:parentage tg:Bungo_Baggins ;
+    tgo:people tg:Hobbits ;
+    tgo:position tg:Ring-bearers ;
     tgo:sailedfrom tg:Grey_Havens ;
     tgo:sailedwest tg:29_September ;
-    tgo:siblings tg:Finrod ;
-    tgo:titles tg:Lady_of_Lórien .
-
-tg:Goldberry a schema1:Person ;
-    rdfs:label "Goldberry"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Goldberry> ;
-    schema1:gender "Female"@en ;
-    schema1:location tg:Underhill_house ;
-    schema1:mentions tg:Forest-folk,
-        tg:Frodo_Baggins,
-        tg:In_the_House_of_Tom_Bombadil,
-        tg:Jenny_Dolfen,
-        tg:Old_Forest,
-        tg:River-woman,
-        tg:Tom_Bombadil,
-        tg:Underhill_house,
+    tgo:speaks tg:Sindarin,
         tg:Westron ;
-    schema1:name "Goldberry"@en ;
-    schema1:parent tg:River-woman ;
-    schema1:relatedTo tg:Tom_Bombadil ;
-    schema1:spouse tg:Tom_Bombadil ;
-    tgo:affiliation tg:Forest-folk ;
-    tgo:caption tg:Jenny_Dolfen ;
-    tgo:hair "Golden"@en ;
-    tgo:image "Jenny Dolfen - Goldberry's Washing Day.jpg"@en ;
-    tgo:language tg:Westron ;
-    tgo:location tg:Underhill_house ;
-    tgo:othernames "The River-daughter"@en ;
-    tgo:parentage tg:River-woman ;
-    tgo:people_note "Unknown"@en ;
-    tgo:race_note "Unknown"@en .
+    tgo:weapons tg:Sting ;
+    tgo:wields tg:Sting .
 
-tg:Meriadoc_Brandybuck a schema1:Person ;
-    rdfs:label "Meriadoc Brandybuck"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Meriadoc_Brandybuck> ;
-    schema1:birthDate "Early"@en ;
-    schema1:deathDate "Between and"@en ;
-    schema1:gender "Male"@en ;
-    schema1:height "Taller than average Hobbit"@en ;
-    schema1:location tg:Brandy_Hall,
-        tg:Buckland,
-        tg:Gondor ;
-    schema1:mentions tg:Brandy_Hall,
-        tg:Buckland,
-        tg:Fellowship_of_the_Ring,
-        tg:Hobbits,
-        tg:Holdwine,
-        tg:Jenny_Dolfen,
-        tg:Kalimac_Brandagamba,
-        tg:Master_of_Buckland,
-        tg:Théoden ;
-    schema1:name "Meriadoc Brandybuck"@en ;
-    schema1:parent tg:Saradoc_Brandybuck ;
-    schema1:relatedTo tg:Estella_Bolger ;
-    schema1:spouse tg:Estella_Bolger ;
-    tgo:affiliation tg:Fellowship_of_the_Ring ;
-    tgo:age "103+"@en ;
-    tgo:belongsTo tg:HobbitKind ;
-    tgo:birthlocation tg:Buckland ;
-    tgo:caption tg:Jenny_Dolfen ;
-    tgo:childrenNote "At least one son"@en ;
-    tgo:deathlocation tg:Gondor ;
-    tgo:family tg:Brandybuck_Family ;
-    tgo:hair "Brown, curly"@en ;
-    tgo:hasConnectionTo tg:Buckland,
-        tg:Gondor ;
-    tgo:image "Jenny Dolfen - Master Holbytla.jpg"@en ;
-    tgo:location tg:Brandy_Hall,
-        tg:Buckland,
-        tg:Gondor ;
-    tgo:memberOf tg:Fellowship_of_the_Ring ;
-    tgo:notablefor tg:Frodo_Baggins ;
-    tgo:othernames tg:Kalimac_Brandagamba ;
-    tgo:parentage tg:Saradoc_Brandybuck ;
-    tgo:people tg:Hobbits ;
-    tgo:rule_note "-"@en ;
-    tgo:steed tg:Stybba ;
-    tgo:titles tg:Master_of_Buckland ;
-    tgo:weapons tg:Daggers_of_Westernesse .
+tg:Middle-earth a schema1:Event ;
+    rdfs:label "Middle-earth"@en ;
+    tgo:hasParticipant tg:Sauron .
 
-tg:Mount_Doom a schema1:Place ;
-    rdfs:label "Mount Doom"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Mount_Doom> ;
-    schema1:additionalType "Mountain"@en ;
-    schema1:containedInPlace tg:Mordor ;
-    schema1:mentions tg:Alan_Lee,
-        tg:Frodo,
-        tg:Mordor,
-        tg:Mount_Doom_chapter,
-        tg:Mount_Doom_disambiguation,
-        tg:Sam,
-        tg:Sindarin,
-        tg:The_Return_of_the_King,
-        tg:the_One_Ring ;
-    schema1:name "Mount Doom"@en ;
-    tgo:caption tg:Alan_Lee ;
-    tgo:events tg:the_One_Ring ;
-    tgo:image "Alan Lee - Mount Doom.jpg"@en ;
-    tgo:othernames tg:Sindarin ;
-    tgo:pronun tg:Sindarin .
+tg:Orcs a tgo:Race ;
+    rdfs:label "Orcs"@en ;
+    tgo:raceIncludes tg:Azog,
+        tg:Lurtz ;
+    rdfs:subClassOf tg:EvilCreatures .
 
-tg:Noldor rdfs:subClassOf tg:Elves .
-
-tg:Orthanc a schema1:Place ;
-    rdfs:label "Orthanc"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Orthanc> ;
-    schema1:additionalType "Tower"@en ;
-    schema1:containedInPlace tg:Isengard ;
-    schema1:mentions tg:Battle_of_Isengard,
-        tg:Dúnedain,
-        tg:Gondorians,
-        tg:Isengard,
-        tg:Misty_Mountains,
-        tg:Saruman,
-        tg:Second_Age,
-        tg:The_Two_Towers,
-        tg:The_Voice_of_Saruman ;
-    schema1:name "Orthanc"@en ;
-    tgo:created tg:Second_Age ;
-    tgo:description "Black-coloured stone tower of 500 feet"@en ;
-    tgo:events tg:Battle_of_Isengard ;
-    tgo:image "Alan Lee - The Voice of Saruman.jpg"@en ;
-    tgo:inhabitants tg:Dúnedain .
-
-tg:Pelennor_Fields a schema1:Place ;
-    rdfs:label "Pelennor Fields"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Pelennor_Fields> ;
-    schema1:additionalType "Farmlands"@en ;
-    schema1:containedInPlace tg:Minas_Tirith ;
-    schema1:mentions tg:Alan_Lee,
-        tg:Anduin,
-        tg:Battle_of_the_Pelennor_Fields,
-        tg:Gondor,
-        tg:Gondorians,
-        tg:Minas_Tirith,
-        tg:Osgiliath,
-        tg:Rammas_Echor,
-        tg:Sindarin ;
-    schema1:name "Pelennor Fields"@en ;
-    tgo:caption tg:Alan_Lee ;
-    tgo:description tg:Rammas_Echor ;
-    tgo:events tg:Battle_of_the_Pelennor_Fields ;
-    tgo:image "Alan Lee - The Last Debate.jpg"@en ;
-    tgo:inhabitants tg:Gondorians ;
-    tgo:pronun tg:Sindarin .
-
-tg:Peregrin_Took a schema1:Person ;
-    rdfs:label "Peregrin Took"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Peregrin_Took> ;
-    schema1:birthDate "Spring"@en ;
-    schema1:children tg:Faramir_Took_I ;
-    schema1:deathDate "Between and"@en ;
-    schema1:gender "Male"@en ;
-    schema1:location tg:Gondor,
-        tg:Great_Smials ;
-    schema1:mentions tg:Ernil_i_Pheriannath,
-        tg:Fellowship_of_the_Ring,
-        tg:Gondor,
-        tg:Great_Smials,
-        tg:Guard_of_the_Citadel,
-        tg:Hobbits,
-        tg:Peregrin_TookNames_and_Titles,
-        tg:Razanur_Tûk,
-        tg:Thain,
-        tg:Tuckborough ;
-    schema1:name "Peregrin Took"@en ;
-    schema1:parent tg:Paladin_Took_II ;
-    schema1:relatedTo tg:Diamond_of_Long_Cleeve,
-        tg:Faramir_Took_I,
-        tg:Pearl_Took ;
-    schema1:spouse tg:Diamond_of_Long_Cleeve ;
-    tgo:affiliation tg:Fellowship_of_the_Ring ;
-    tgo:age "95+"@en ;
-    tgo:belongsTo tg:HobbitKind ;
-    tgo:caption "\"Peregrin Took\" by Campbell White"@en ;
-    tgo:deathlocation tg:Gondor ;
-    tgo:family tg:Took_Family ;
-    tgo:hair "Almost golden, p. 115"@en ;
-    tgo:hasConnectionTo tg:Gondor ;
-    tgo:image "Campbell White - Peregrin Took.jpg"@en ;
-    tgo:location tg:Gondor,
-        tg:Great_Smials ;
-    tgo:memberOf tg:Fellowship_of_the_Ring ;
-    tgo:notablefor tg:Frodo_Baggins ;
-    tgo:othernames tg:Ernil_i_Pheriannath ;
-    tgo:parentage tg:Paladin_Took_II ;
-    tgo:people tg:Hobbits ;
-    tgo:rule_note "-"@en ;
-    tgo:siblings tg:Pearl_Took ;
-    tgo:titles tg:Thain ;
-    tgo:weapons tg:Daggers_of_Westernesse .
-
-tg:Sindar rdfs:subClassOf tg:Elves .
-
-tg:Turgon schema1:children tg:Glorfindel ;
-    schema1:relatedTo tg:Glorfindel .
-
-tg:Boromir a schema1:Person ;
-    rdfs:label "Boromir"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Boromir> ;
-    schema1:birthDate ""@en ;
-    schema1:deathDate tg:26_February ;
-    schema1:gender "Male"@en ;
-    schema1:height "c. 6ft 4in (1.93m), p. 272, citing from a note written by J.R.R. Tolkien approximately in 1969"@en ;
-    schema1:location tg:Amon_Hen,
-        tg:Gondor ;
-    schema1:mentions tg:26_February,
-        tg:Boromir_disambiguation,
-        tg:Captain-General,
-        tg:Captain_of_the_White_Tower,
-        tg:Catherine_Karina_Chmiel,
-        tg:Fellowship_of_the_Ring,
-        tg:Gondor,
-        tg:Gondorians,
-        tg:High_Warden_of_the_White_Tower,
-        tg:Westron ;
-    schema1:name "Boromir"@en ;
-    schema1:parent tg:Denethor ;
-    schema1:relatedTo tg:Faramir ;
-    tgo:affiliation tg:Fellowship_of_the_Ring ;
-    tgo:age "41"@en ;
-    tgo:belongsTo tg:Númenóreans ;
-    tgo:caption tg:Catherine_Karina_Chmiel ;
-    tgo:clothing tg:Great_Horn ;
-    tgo:deathlocation tg:Amon_Hen ;
-    tgo:eyes "Grey"@en ;
-    tgo:hair "Dark"@en ;
-    tgo:hasConnectionTo tg:Amon_Hen ;
-    tgo:house tg:House_of_Húrin ;
-    tgo:image "Catherine_Karina_Chmiel_-_Son_of_Gondor.jpg"@en ;
-    tgo:language tg:Westron ;
-    tgo:location tg:Amon_Hen,
-        tg:Gondor ;
-    tgo:memberOf tg:Fellowship_of_the_Ring ;
-    tgo:parentage tg:Denethor ;
-    tgo:people tg:Gondorians ;
-    tgo:position tg:Captain_of_the_White_Tower ;
-    tgo:siblings tg:Faramir ;
-    tgo:weapons "Sword"@en .
-
-tg:Elves rdfs:subClassOf tg:FreePeoples .
-
-tg:Lothlórien a schema1:Place ;
-    rdfs:label "Lothlórien"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Lothlórien> ;
-    schema1:additionalType "Forest"@en ;
-    schema1:containedInPlace tg:Misty_Mountains ;
-    schema1:mentions tg:Celebrant,
-        tg:Dwimordene,
-        tg:Egladil,
+tg:Rhovanion a schema1:Place ;
+    rdfs:label "Rhovanion"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Rhovanion> ;
+    schema1:additionalType "Region"@en ;
+    schema1:containedInPlace tg:Middle-earth ;
+    schema1:mentions tg:Caras_Galadhon,
+        tg:Dáins_Halls,
+        tg:Eastern_Eriador,
+        tg:Iron_Hills,
         tg:JRR_Tolkien,
-        tg:Lothlórien_disambiguation,
-        tg:Lórien_disambiguation,
-        tg:Lórinand,
-        tg:Misty_Mountains,
-        tg:Naith,
-        tg:mallorn ;
-    schema1:name "Lothlórien"@en ;
+        tg:Lothlórien,
+        tg:Middle-earth,
+        tg:Mirkwood,
+        tg:Vales_of_Anduin ;
+    schema1:name "Rhovanion"@en ;
+    tgo:audio ""@en ;
     tgo:caption tg:JRR_Tolkien ;
-    tgo:description tg:mallorn ;
-    tgo:events tg:Quest_of_the_Ring ;
-    tgo:image "J.R.R. Tolkien - The Forest of Lothlorien in Spring.jpg"@en ;
-    tgo:inhabitants tg:Galadhrim ;
-    tgo:othernames tg:Lórinand ;
-    tgo:pronun ""@en ;
-    tgo:regions tg:Naith ;
-    tgo:towns tg:Caras_Galadhon .
+    tgo:description tg:Mirkwood ;
+    tgo:events tg:Disaster_of_the_Gladden_Fields ;
+    tgo:image "J.R.R. Tolkien - Map of Wilderland.jpg"@en ;
+    tgo:inhabitants tg:Durins_Folk ;
+    tgo:othernames "Wilderland"@en ;
+    tgo:participatedIn tg:Battle_of_Dale,
+        tg:Battle_of_Five_Armies,
+        tg:Disaster_of_the_Gladden_Fields,
+        tg:Fall_of_Dol_Guldur,
+        tg:Fell_Winter_Third_Age,
+        tg:Great_Plague,
+        tg:Sack_of_Erebor,
+        tg:War_of_the_Dwarves_and_Dragons,
+        tg:War_of_the_Dwarves_and_Orcs ;
+    tgo:regions tg:Eastern_Eriador ;
+    tgo:settlements tg:Caras_Galadhon .
 
-tg:Númenóreans rdfs:label "Númenórean descendants"@en .
+tg:Rohanese a schema1:Language ;
+    rdfs:label "Rohanese"@en ;
+    tgo:spokenBy tg:Théoden,
+        tg:Éomer,
+        tg:Éowyn .
 
 tg:Shelob a schema1:Person ;
     rdfs:label "Shelob"@en ;
@@ -1427,19 +1716,266 @@ tg:Shelob a schema1:Person ;
     schema1:parent tg:Ungoliant ;
     schema1:relatedTo tg:Spiders ;
     schema1:spouse tg:Spiders ;
+    tgo:belongsToRace tg:Spiders ;
     tgo:birthlocation tg:Nan_Dungortheb ;
     tgo:caption tg:John_Howe ;
     tgo:hasConnectionTo tg:Nan_Dungortheb ;
     tgo:image "John Howe - Sam and Shelob.jpg"@en ;
     tgo:language tg:Westron ;
     tgo:location tg:Nan_Dungortheb ;
+    tgo:notableFor tg:Frodo_Baggins,
+        tg:Samwise_Gamgee ;
     tgo:notablefor tg:Frodo_Baggins ;
     tgo:othernames "She, Watcher"@en ;
     tgo:parentage tg:Ungoliant ;
     tgo:people tg:Spiders ;
     tgo:siblings tg:Spiders ;
+    tgo:speaks tg:Westron ;
     tgo:titles "Her LadyshipGreat"@en ;
     tgo:weapons "beak, sting, claws"@en .
+
+tg:Thorin a schema1:Person ;
+    rdfs:label "Thorin"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Thorin> ;
+    schema1:birthDate ""@en ;
+    schema1:deathDate "(aged 195)"@en ;
+    schema1:gender "Male"@en ;
+    schema1:location tg:Battle_of_Five_Armies,
+        tg:Dunland,
+        tg:Lonely_Mountain ;
+    schema1:memberOf tg:Thorin_and_Company ;
+    schema1:mentions tg:Dunland,
+        tg:Dwarves,
+        tg:Khuzdul,
+        tg:King_under_the_Mountain,
+        tg:Kings_of_Durins_Folk,
+        tg:Lonely_Mountain,
+        tg:Rodrigo_Machado,
+        tg:Thorin_and_Company,
+        tg:Thorin_disambiguation,
+        tg:Thorins_Halls ;
+    schema1:name "Thorin II"@en ;
+    schema1:parent tg:Thráin ;
+    schema1:relatedTo tg:Frerin ;
+    tgo:affiliation tg:Thorin_and_Company ;
+    tgo:belongsTo tg:DwarfKind ;
+    tgo:belongsToHouse tg:House_of_Durin ;
+    tgo:belongsToRace tg:Dwarves ;
+    tgo:birthlocation tg:Lonely_Mountain ;
+    tgo:caption tg:Rodrigo_Machado ;
+    tgo:clothing "Sky-blue hood with a long silver tassel, jacket, coat of gold-plated rings, belt crusted with scarlet stones, fine gold chain, possibly yellow stockings"@en ;
+    tgo:deathlocation tg:Battle_of_Five_Armies ;
+    tgo:hair "White beard"@en ;
+    tgo:hasConnectionTo tg:Battle_of_Five_Armies,
+        tg:Lonely_Mountain ;
+    tgo:house tg:House_of_Durin ;
+    tgo:image "Rodrigo Machado - Thorin Oakenshield.png"@en ;
+    tgo:language tg:Khuzdul ;
+    tgo:location tg:Battle_of_Five_Armies,
+        tg:Dunland,
+        tg:Lonely_Mountain ;
+    tgo:notableFor tg:Quest_of_Erebor ;
+    tgo:notablefor tg:Quest_of_Erebor ;
+    tgo:othernames "Thorin Oakenshield"@en ;
+    tgo:parentage tg:Thráin ;
+    tgo:people tg:Dwarves ;
+    tgo:rule tg:Third_Age_2850 ;
+    tgo:siblings tg:Frerin ;
+    tgo:speaks tg:Khuzdul,
+        tg:Westron ;
+    tgo:titles tg:Kings_of_Durins_Folk ;
+    tgo:weapons tg:Orcrist ;
+    tgo:wields tg:Orcrist .
+
+tg:Boromir a schema1:Person ;
+    rdfs:label "Boromir"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Boromir> ;
+    schema1:birthDate ""@en ;
+    schema1:deathDate tg:26_February ;
+    schema1:gender "Male"@en ;
+    schema1:height "c. 6ft 4in (1.93m), p. 272, citing from a note written by J.R.R. Tolkien approximately in 1969"@en ;
+    schema1:location tg:Amon_Hen,
+        tg:Gondor ;
+    schema1:memberOf tg:Fellowship_of_the_Ring ;
+    schema1:mentions tg:26_February,
+        tg:Boromir_disambiguation,
+        tg:Captain-General,
+        tg:Captain_of_the_White_Tower,
+        tg:Catherine_Karina_Chmiel,
+        tg:Fellowship_of_the_Ring,
+        tg:Gondor,
+        tg:Gondorians,
+        tg:High_Warden_of_the_White_Tower,
+        tg:Westron ;
+    schema1:name "Boromir"@en ;
+    schema1:parent tg:Denethor ;
+    schema1:relatedTo tg:Faramir ;
+    tgo:affiliation tg:Fellowship_of_the_Ring ;
+    tgo:age "41"@en ;
+    tgo:belongsTo tg:Númenóreans ;
+    tgo:belongsToHouse tg:House_of_Húrin ;
+    tgo:belongsToRace tg:Gondorians ;
+    tgo:caption tg:Catherine_Karina_Chmiel ;
+    tgo:clothing tg:Great_Horn ;
+    tgo:deathlocation tg:Amon_Hen ;
+    tgo:eyes "Grey"@en ;
+    tgo:hair "Dark"@en ;
+    tgo:hasConnectionTo tg:Amon_Hen ;
+    tgo:hasParticipant tg:Lurtz ;
+    tgo:house tg:House_of_Húrin ;
+    tgo:image "Catherine_Karina_Chmiel_-_Son_of_Gondor.jpg"@en ;
+    tgo:language tg:Westron ;
+    tgo:location tg:Amon_Hen,
+        tg:Gondor ;
+    tgo:memberOf tg:Fellowship_of_the_Ring ;
+    tgo:parentage tg:Denethor ;
+    tgo:people tg:Gondorians ;
+    tgo:position tg:Captain_of_the_White_Tower ;
+    tgo:siblings tg:Faramir ;
+    tgo:speaks tg:Westron ;
+    tgo:weapons "Sword"@en .
+
+tg:Isengard a schema1:Event,
+        schema1:Place ;
+    rdfs:label "Isengard"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Isengard> ;
+    schema1:additionalType "Fortress"@en ;
+    schema1:containedInPlace tg:Nan_Curunír ;
+    schema1:mentions tg:Dunlendings,
+        tg:Dúnedain,
+        tg:Isengard_disambiguation,
+        tg:Misty_Mountains,
+        tg:Nan_Curunír,
+        tg:Orthanc,
+        tg:Saruman,
+        tg:Sindarin,
+        tg:Ted_Nasmith,
+        tg:Treegarth_of_Orthanc ;
+    schema1:name "Isengard"@en ;
+    tgo:caption tg:Ted_Nasmith ;
+    tgo:created tg:Second_Age ;
+    tgo:description tg:Orthanc ;
+    tgo:events tg:Battle_of_Isengard ;
+    tgo:hasMember tg:Lurtz ;
+    tgo:hasParticipant tg:Peregrin_Took ;
+    tgo:image "Ted Nasmith - Orthanc in the Second Age.jpg"@en ;
+    tgo:inhabitants tg:Dúnedain ;
+    tgo:othernames tg:Sindarin ;
+    tgo:participatedIn tg:Battle_of_Isengard .
+
+tg:Faramir a schema1:Event,
+        schema1:Person ;
+    rdfs:label "Faramir"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Faramir> ;
+    schema1:birthDate ""@en ;
+    schema1:children tg:Elboron ;
+    schema1:deathDate ""@en ;
+    schema1:gender "Male"@en ;
+    schema1:height "Tall"@en ;
+    schema1:location tg:Ithilien ;
+    schema1:mentions tg:Anke_Eißmann,
+        tg:Captain_of_Gondor,
+        tg:Captain_of_the_White_Tower,
+        tg:Faramir_disambiguation,
+        tg:Gondor,
+        tg:Gondorians,
+        tg:Ithilien,
+        tg:Lord_of_Emyn_Arnen,
+        tg:Prince_of_Ithilien,
+        tg:Steward_of_Gondor ;
+    schema1:name "Faramir"@en ;
+    schema1:parent tg:Denethor ;
+    schema1:relatedTo tg:Boromir,
+        tg:Elboron,
+        tg:Éowyn ;
+    schema1:spouse tg:Éowyn ;
+    tgo:age "120"@en ;
+    tgo:belongsTo tg:Númenóreans ;
+    tgo:belongsToHouse tg:House_of_Húrin ;
+    tgo:belongsToRace tg:Gondorians ;
+    tgo:caption tg:Anke_Eißmann ;
+    tgo:clothing "Green gauntlets, green hood and mask, green and brown clothing"@en ;
+    tgo:eyes "Grey"@en ;
+    tgo:hair "Raven"@en ;
+    tgo:hasParticipant tg:Peregrin_Took ;
+    tgo:house tg:House_of_Húrin ;
+    tgo:image "Anke Eißmann - Faramir.jpg"@en ;
+    tgo:language tg:Westron ;
+    tgo:location tg:Ithilien ;
+    tgo:parentage tg:Denethor ;
+    tgo:people tg:Gondorians ;
+    tgo:position tg:Captain_of_Gondor ;
+    tgo:rule "- (84 years)"@en ;
+    tgo:siblings tg:Boromir ;
+    tgo:speaks tg:Sindarin,
+        tg:Westron ;
+    tgo:titles tg:Steward_of_Gondor ;
+    tgo:weapons "Sword, nail-knife,"@en .
+
+tg:Rohirrim a tgo:Race ;
+    rdfs:label "Rohirrim"@en ;
+    tgo:raceIncludes tg:Théoden,
+        tg:Éomer,
+        tg:Éowyn ;
+    rdfs:subClassOf tg:Men .
+
+tg:Glorfindel a schema1:Person ;
+    rdfs:label "Glorfindel"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Glorfindel> ;
+    schema1:birthDate tg:Years_of_the_Trees ;
+    schema1:deathDate tg:Midsummer ;
+    schema1:gender "Male"@en ;
+    schema1:height "Tall"@en ;
+    schema1:location tg:Aman,
+        tg:Cirith_Thoronath ;
+    schema1:memberOf tg:Elrond,
+        tg:Turgon ;
+    schema1:mentions tg:Aman,
+        tg:CategoryImages_by_Venlian,
+        tg:Gondolin,
+        tg:House_of_the_Golden_Flower,
+        tg:Nevrast,
+        tg:Noldor,
+        tg:Quenya,
+        tg:Rivendell,
+        tg:Sindarin,
+        tg:Turgon ;
+    schema1:name "Glorfindel"@en ;
+    schema1:parent tg:Turgon ;
+    tgo:affiliation tg:Turgon ;
+    tgo:belongsToHouse tg:House_of_the_Golden_Flower ;
+    tgo:belongsToRace tg:Noldor ;
+    tgo:birthlocation tg:Aman ;
+    tgo:caption tg:CategoryImages_by_Venlian ;
+    tgo:deathlocation tg:Cirith_Thoronath ;
+    tgo:hair "Golden (long)"@en ;
+    tgo:hasConnectionTo tg:Aman,
+        tg:Cirith_Thoronath ;
+    tgo:house tg:House_of_the_Golden_Flower ;
+    tgo:image "Venlian - Glorfindel Before the Storm.jpg"@en ;
+    tgo:language tg:Quenya ;
+    tgo:location tg:Aman,
+        tg:Cirith_Thoronath ;
+    tgo:notableFor tg:Balrog,
+        tg:Fall_of_Gondolin ;
+    tgo:notablefor tg:Balrog ;
+    tgo:othernames tg:Quenya ;
+    tgo:parentage tg:Turgon ;
+    tgo:people tg:Noldor ;
+    tgo:position tg:House_of_the_Golden_Flower ;
+    tgo:pronun tg:Sindarin ;
+    tgo:rides tg:Asfaloth ;
+    tgo:speaks tg:Quenya,
+        tg:Sindarin,
+        tg:Westron ;
+    tgo:steed tg:Asfaloth .
+
+tg:Maiar a tgo:Race ;
+    rdfs:label "Maiar"@en ;
+    tgo:raceIncludes tg:Gandalf,
+        tg:Saruman,
+        tg:Sauron ;
+    rdfs:subClassOf tg:Ainur .
 
 tg:Théoden a schema1:Person ;
     rdfs:label "Théoden"@en ;
@@ -1470,6 +2006,8 @@ tg:Théoden a schema1:Person ;
     schema1:spouse tg:Elfhild ;
     tgo:age "71"@en ;
     tgo:belongsTo tg:Northmen ;
+    tgo:belongsToHouse tg:House_of_Eorl ;
+    tgo:belongsToRace tg:Rohirrim ;
     tgo:birthlocation tg:Gondor ;
     tgo:caption tg:CategoryImages_by_Jenny_Dolfen ;
     tgo:deathlocation tg:Battle_of_the_Pelennor_Fields ;
@@ -1477,6 +2015,7 @@ tg:Théoden a schema1:Person ;
     tgo:hair "Long, thick, braided white hair"@en ;
     tgo:hasConnectionTo tg:Battle_of_the_Pelennor_Fields,
         tg:Gondor ;
+    tgo:hasParticipant tg:Witch-king ;
     tgo:house tg:House_of_Eorl ;
     tgo:image "Jenny Dolfen - Theoden King.jpg"@en ;
     tgo:language tg:Rohanese ;
@@ -1486,164 +2025,59 @@ tg:Théoden a schema1:Person ;
     tgo:othernames tg:Horsemaster ;
     tgo:parentage tg:Thengel ;
     tgo:people tg:Rohirrim ;
+    tgo:rides tg:Snowmane ;
     tgo:rule_note "-"@en ;
     tgo:siblings tg:Théodwyn ;
+    tgo:speaks tg:Rohanese,
+        tg:Sindarin,
+        tg:Westron ;
     tgo:steed tg:Snowmane ;
     tgo:titles tg:Kings_of_Rohan ;
-    tgo:weapons tg:Herugrim .
+    tgo:weapons tg:Herugrim ;
+    tgo:wields tg:Herugrim .
 
-tg:Éomund schema1:children tg:Éomer,
-        tg:Éowyn ;
-    schema1:relatedTo tg:Éomer,
-        tg:Éowyn .
-
-tg:Celebrían schema1:relatedTo tg:Elrond ;
-    schema1:spouse tg:Elrond .
-
-tg:Elrond a schema1:Person ;
-    rdfs:label "Elrond"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Elrond> ;
-    schema1:birthDate ", version C of the manuscript, year changed to [>532], p. 348"@en ;
-    schema1:children tg:Arwen,
-        tg:Elladan ;
+tg:Tom_Bombadil a schema1:Person ;
+    rdfs:label "Tom Bombadil"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Tom_Bombadil> ;
     schema1:gender "Male"@en ;
-    schema1:location tg:Havens_of_Sirion,
-        tg:Mouths_of_Sirion ;
-    schema1:mentions tg:CategoryImages_by_Tatyafinwe,
-        tg:Gil-galad,
-        tg:Half-elven,
-        tg:Mouths_of_Sirion,
-        tg:Quenya,
-        tg:Rivendell,
+    schema1:height "Short"@en ;
+    schema1:location tg:Underhill_house ;
+    schema1:memberOf tg:Forest-folk ;
+    schema1:mentions tg:Eldest,
+        tg:John_Howe,
+        tg:Master,
+        tg:Old_English,
+        tg:Old_Forest,
+        tg:Old_Norse,
         tg:Sindarin,
-        tg:Vilya ;
-    schema1:name "Elrond"@en ;
-    schema1:parent tg:Eärendil ;
-    schema1:relatedTo tg:Arwen,
-        tg:Celebrían,
-        tg:Elladan,
-        tg:Elros ;
-    schema1:spouse tg:Celebrían ;
-    tgo:affiliation tg:White_Council ;
-    tgo:age "6520"@en ;
-    tgo:birthlocation tg:Havens_of_Sirion ;
-    tgo:caption tg:CategoryImages_by_Tatyafinwe ;
-    tgo:clothing "Grey mantleSilver circlet"@en ;
-    tgo:eyes "Grey"@en ;
-    tgo:hair "Dark"@en ;
-    tgo:hasConnectionTo tg:Havens_of_Sirion ;
-    tgo:heritage tg:Half-elven ;
-    tgo:house tg:House_of_Hador ;
-    tgo:image "Tatyafinwe - Portrait of Elrond.jpg"@en ;
-    tgo:language tg:Sindarin ;
-    tgo:location tg:Havens_of_Sirion,
-        tg:Mouths_of_Sirion ;
-    tgo:othernames tg:Quenya ;
-    tgo:parentage tg:Eärendil ;
-    tgo:people tg:Half-elven ;
-    tgo:position tg:Vilya ;
-    tgo:pronun tg:Sindarin ;
-    tgo:rule "- (ruled 4765 years)"@en ;
-    tgo:sailedfrom tg:Grey_Havens ;
-    tgo:sailedwest tg:29_September ;
-    tgo:siblings tg:Elros ;
-    tgo:titles tg:Rivendell .
-
-tg:Faramir a schema1:Person ;
-    rdfs:label "Faramir"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Faramir> ;
-    schema1:birthDate ""@en ;
-    schema1:children tg:Elboron ;
-    schema1:deathDate ""@en ;
-    schema1:gender "Male"@en ;
-    schema1:height "Tall"@en ;
-    schema1:location tg:Ithilien ;
-    schema1:mentions tg:Anke_Eißmann,
-        tg:Captain_of_Gondor,
-        tg:Captain_of_the_White_Tower,
-        tg:Faramir_disambiguation,
-        tg:Gondor,
-        tg:Gondorians,
-        tg:Ithilien,
-        tg:Lord_of_Emyn_Arnen,
-        tg:Prince_of_Ithilien,
-        tg:Steward_of_Gondor ;
-    schema1:name "Faramir"@en ;
-    schema1:parent tg:Denethor ;
-    schema1:relatedTo tg:Boromir,
-        tg:Elboron,
-        tg:Éowyn ;
-    schema1:spouse tg:Éowyn ;
-    tgo:age "120"@en ;
-    tgo:belongsTo tg:Númenóreans ;
-    tgo:caption tg:Anke_Eißmann ;
-    tgo:clothing "Green gauntlets, green hood and mask, green and brown clothing"@en ;
-    tgo:eyes "Grey"@en ;
-    tgo:hair "Raven"@en ;
-    tgo:house tg:House_of_Húrin ;
-    tgo:image "Anke Eißmann - Faramir.jpg"@en ;
+        tg:Tom_BombadilNature,
+        tg:Tom_disambiguation,
+        tg:Underhill_house ;
+    schema1:name "Tom Bombadil"@en ;
+    schema1:relatedTo tg:Goldberry ;
+    schema1:spouse tg:Goldberry ;
+    tgo:affiliation tg:Forest-folk ;
+    tgo:belongsToRace tg:Tom_BombadilNature ;
+    tgo:caption tg:John_Howe ;
+    tgo:clothing "Blue jacket and hat, boots"@en ;
+    tgo:image "John Howe - Tom Bombadil.jpg"@en ;
     tgo:language tg:Westron ;
-    tgo:location tg:Ithilien ;
-    tgo:parentage tg:Denethor ;
-    tgo:people tg:Gondorians ;
-    tgo:position tg:Captain_of_Gondor ;
-    tgo:rule "- (84 years)"@en ;
-    tgo:siblings tg:Boromir ;
-    tgo:titles tg:Steward_of_Gondor ;
-    tgo:weapons "Sword, nail-knife,"@en .
-
-tg:HobbitKind rdfs:label "Hobbit-kind"@en .
-
-tg:Samwise_Gamgee a schema1:Person ;
-    rdfs:label "Samwise Gamgee"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Samwise_Gamgee> ;
-    schema1:birthDate tg:6_April ;
-    schema1:children tg:Elanor_Gardner ;
-    schema1:gender "Male"@en ;
-    schema1:location tg:Bagshot_Row,
-        tg:Shire ;
-    schema1:mentions tg:Bagshot_Row,
-        tg:Banazîr,
-        tg:CategoryImages_by_Nia_Kovalevski,
-        tg:Hobbitish,
-        tg:Hobbiton,
-        tg:Hobbits,
-        tg:Mayor_of_Michel_Delving,
-        tg:Perhael,
-        tg:Ring-bearers,
-        tg:Sindarin ;
-    schema1:name "Samwise Gamgee"@en ;
-    schema1:parent tg:Gaffer_Gamgee ;
-    schema1:relatedTo tg:Elanor_Gardner,
-        tg:Hamson_Gamgee,
-        tg:Rose_Cotton ;
-    schema1:spouse tg:Rose_Cotton ;
-    tgo:affiliation tg:Fellowship_of_the_Ring ;
-    tgo:age "102"@en ;
-    tgo:belongsTo tg:HobbitKind ;
-    tgo:birthlocation tg:Shire ;
-    tgo:caption tg:CategoryImages_by_Nia_Kovalevski ;
-    tgo:eyes "Brown"@en ;
-    tgo:family tg:Gamgee_Family ;
-    tgo:hasConnectionTo tg:Shire ;
-    tgo:image "Nia Kovalevski - Sam.jpg"@en ;
-    tgo:language tg:Westron ;
-    tgo:location tg:Bagshot_Row,
-        tg:Shire ;
-    tgo:memberOf tg:Fellowship_of_the_Ring ;
-    tgo:notablefor tg:Frodo_Baggins ;
-    tgo:othernames tg:Banazîr ;
-    tgo:parentage tg:Gaffer_Gamgee ;
-    tgo:people tg:Hobbits ;
-    tgo:position tg:Ring-bearers ;
-    tgo:rule_note "-"@en ;
-    tgo:sailedto tg:Grey_Havens ;
-    tgo:sailedwest "After"@en ;
-    tgo:siblings tg:Hamson_Gamgee ;
-    tgo:skin_colour "Brown-handed"@en ;
-    tgo:steed tg:Bill_the_Pony ;
-    tgo:titles tg:Mayor_of_Michel_Delving ;
-    tgo:weapons tg:Barrow-blades .
+    tgo:location tg:Underhill_house ;
+    tgo:notableFor tg:Barrow-wights,
+        tg:Frodo,
+        tg:Merry,
+        tg:Old_Man_Willow,
+        tg:Pippin,
+        tg:Sam ;
+    tgo:notablefor tg:Frodo ;
+    tgo:othernames tg:Sindarin ;
+    tgo:people tg:Tom_BombadilNature ;
+    tgo:race tg:Tom_BombadilNature ;
+    tgo:rides tg:Fatty_Lumpkin ;
+    tgo:speaks tg:Westron ;
+    tgo:steed tg:Fatty_Lumpkin ;
+    tgo:titles tg:Eldest ;
+    tgo:weapons "Song"@en .
 
 tg:Éomer a schema1:Person ;
     rdfs:label "Éomer"@en ;
@@ -1654,6 +2088,7 @@ tg:Éomer a schema1:Person ;
     schema1:gender "Male"@en ;
     schema1:height "Around 6' 6\""@en ;
     schema1:location tg:Rohan ;
+    schema1:memberOf tg:Oath_of_Eorl ;
     schema1:mentions tg:Angelo_Montanini,
         tg:House_of_Eorl,
         tg:Kings_of_Rohan,
@@ -1672,6 +2107,8 @@ tg:Éomer a schema1:Person ;
     schema1:spouse tg:Lothíriel ;
     tgo:affiliation tg:Oath_of_Eorl ;
     tgo:belongsTo tg:Northmen ;
+    tgo:belongsToHouse tg:House_of_Eorl ;
+    tgo:belongsToRace tg:Rohirrim ;
     tgo:caption tg:Angelo_Montanini ;
     tgo:house tg:House_of_Eorl ;
     tgo:image "Angelo Montanini - Éomer.jpg"@en ;
@@ -1681,11 +2118,15 @@ tg:Éomer a schema1:Person ;
     tgo:parentage tg:Éomund ;
     tgo:people tg:Rohirrim ;
     tgo:position tg:Third_Marshal_of_the_Riddermark ;
+    tgo:rides tg:Firefoot ;
     tgo:rule_note "-"@en ;
     tgo:siblings tg:Éowyn ;
+    tgo:speaks tg:Rohanese,
+        tg:Westron ;
     tgo:steed tg:Firefoot ;
     tgo:titles tg:Kings_of_Rohan ;
-    tgo:weapons tg:Gúthwinë .
+    tgo:weapons tg:Gúthwinë ;
+    tgo:wields tg:Gúthwinë .
 
 tg:Éowyn a schema1:Person ;
     rdfs:label "Éowyn"@en ;
@@ -1712,6 +2153,8 @@ tg:Éowyn a schema1:Person ;
         tg:Éomer ;
     schema1:spouse tg:Faramir ;
     tgo:belongsTo tg:Northmen ;
+    tgo:belongsToHouse tg:House_of_Eorl ;
+    tgo:belongsToRace tg:Rohirrim ;
     tgo:caption "\"Eowyn Before the Doors of Meduseld\" by [http://www.matthew-stewart.com/ Matt Stewart]"@en ;
     tgo:eyes "Grey"@en ;
     tgo:hair "Pale gold, long"@en ;
@@ -1719,46 +2162,247 @@ tg:Éowyn a schema1:Person ;
     tgo:image "Matt Stewart - Eowyn Before the Doors of Meduseld.jpg"@en ;
     tgo:language tg:Rohanese ;
     tgo:location tg:Rohan ;
+    tgo:notableFor tg:Angmar,
+        tg:Witch-king ;
     tgo:notablefor tg:Witch-king ;
     tgo:othernames "Dernhelm, White Lady of Rohan, Lady of the Shield-arm"@en ;
     tgo:parentage tg:Éomund ;
     tgo:people tg:Rohirrim ;
     tgo:pronun tg:Old_English ;
+    tgo:rides tg:Windfola ;
     tgo:siblings tg:Éomer ;
+    tgo:speaks tg:Rohanese,
+        tg:Westron ;
     tgo:steed tg:Windfola ;
     tgo:weapons "Sword"@en .
 
-tg:Isengard a schema1:Place ;
-    rdfs:label "Isengard"@en ;
-    dcterms:source <https://tolkiengateway.net/wiki/Isengard> ;
-    schema1:additionalType "Fortress"@en ;
-    schema1:containedInPlace tg:Nan_Curunír ;
-    schema1:mentions tg:Dunlendings,
-        tg:Dúnedain,
-        tg:Isengard_disambiguation,
-        tg:Misty_Mountains,
-        tg:Nan_Curunír,
-        tg:Orthanc,
-        tg:Saruman,
+tg:Gandalf a schema1:Person ;
+    rdfs:label "Gandalf"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Gandalf> ;
+    schema1:birthDate tg:Creation_of_the_Ainur ;
+    schema1:gender "Male"@en ;
+    schema1:height "5'6\", p. 49"@en ;
+    schema1:location tg:Timeless_Halls,
+        "No fixed abode"@en ;
+    schema1:memberOf tg:Fellowship_of_the_Ring,
+        tg:Five_Guardians,
+        tg:Order_of_Wizards,
+        tg:Thorin_and_Company,
+        tg:White_Council ;
+    schema1:mentions tg:CategoryImages_by_Matt_Stewart,
+        tg:Gandalf_disambiguation,
+        tg:Haradrim,
+        tg:Khuzdul,
+        tg:Maiar,
+        tg:Other_names,
+        tg:Quenya,
         tg:Sindarin,
-        tg:Ted_Nasmith,
-        tg:Treegarth_of_Orthanc ;
-    schema1:name "Isengard"@en ;
-    tgo:caption tg:Ted_Nasmith ;
-    tgo:created tg:Second_Age ;
-    tgo:description tg:Orthanc ;
-    tgo:events tg:Battle_of_Isengard ;
-    tgo:image "Ted Nasmith - Orthanc in the Second Age.jpg"@en ;
-    tgo:inhabitants tg:Dúnedain ;
-    tgo:othernames tg:Sindarin .
+        tg:Wizards ;
+    schema1:name "Gandalf"@en ;
+    tgo:affiliation tg:Five_Guardians ;
+    tgo:belongsTo tg:Ainur ;
+    tgo:belongsToRace tg:Maiar,
+        tg:Wizards ;
+    tgo:birthlocation tg:Timeless_Halls ;
+    tgo:caption tg:CategoryImages_by_Matt_Stewart ;
+    tgo:clothing "Grey robes (later white), blue hat, grey scarf, black boots"@en ;
+    tgo:eyes "Black that could become red"@en ;
+    tgo:hair "Long white, silver beard"@en ;
+    tgo:hasConnectionTo tg:Timeless_Halls ;
+    tgo:image "Matt Stewart - Gandalf - A Light in the Dark.jpg"@en ;
+    tgo:language tg:Valarin ;
+    tgo:location tg:Timeless_Halls,
+        "No fixed abode"@en ;
+    tgo:memberOf tg:Fellowship_of_the_Ring ;
+    tgo:othernames tg:Quenya ;
+    tgo:people tg:Maiar ;
+    tgo:people_duplicated tg:Maiar ;
+    tgo:rides tg:Shadowfax ;
+    tgo:sailedfrom tg:Grey_Havens ;
+    tgo:sailedwest tg:29_September ;
+    tgo:speaks tg:Elvish,
+        tg:Hobbitish,
+        tg:Valarin,
+        tg:Westron ;
+    tgo:steed tg:Shadowfax ;
+    tgo:titles tg:The_White ;
+    tgo:weapons tg:Glamdring ;
+    tgo:wields tg:Glamdring,
+        tg:Narya .
 
-tg:Men rdfs:subClassOf tg:FreePeoples .
+tg:Meriadoc_Brandybuck a schema1:Person ;
+    rdfs:label "Meriadoc Brandybuck"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Meriadoc_Brandybuck> ;
+    schema1:birthDate "Early"@en ;
+    schema1:deathDate "Between and"@en ;
+    schema1:gender "Male"@en ;
+    schema1:height "Taller than average Hobbit"@en ;
+    schema1:location tg:Brandy_Hall,
+        tg:Buckland,
+        tg:Gondor ;
+    schema1:memberOf tg:Fellowship_of_the_Ring ;
+    schema1:mentions tg:Brandy_Hall,
+        tg:Buckland,
+        tg:Fellowship_of_the_Ring,
+        tg:Hobbits,
+        tg:Holdwine,
+        tg:Jenny_Dolfen,
+        tg:Kalimac_Brandagamba,
+        tg:Master_of_Buckland,
+        tg:Théoden ;
+    schema1:name "Meriadoc Brandybuck"@en ;
+    schema1:parent tg:Saradoc_Brandybuck ;
+    schema1:relatedTo tg:Estella_Bolger ;
+    schema1:spouse tg:Estella_Bolger ;
+    tgo:affiliation tg:Fellowship_of_the_Ring ;
+    tgo:age "103+"@en ;
+    tgo:belongsTo tg:HobbitKind ;
+    tgo:belongsToRace tg:Hobbits ;
+    tgo:birthlocation tg:Buckland ;
+    tgo:caption tg:Jenny_Dolfen ;
+    tgo:childrenNote "At least one son"@en ;
+    tgo:deathlocation tg:Gondor ;
+    tgo:family tg:Brandybuck_Family ;
+    tgo:hair "Brown, curly"@en ;
+    tgo:hasConnectionTo tg:Buckland,
+        tg:Gondor ;
+    tgo:hasParticipant tg:Peregrin_Took ;
+    tgo:image "Jenny Dolfen - Master Holbytla.jpg"@en ;
+    tgo:location tg:Brandy_Hall,
+        tg:Buckland,
+        tg:Gondor ;
+    tgo:memberOf tg:Fellowship_of_the_Ring ;
+    tgo:notableFor tg:Battle_of_Bywater,
+        tg:Frodo_Baggins,
+        tg:Herblore_of_the_Shire,
+        tg:Peregrin_Took,
+        tg:Witch-King_of_Angmar ;
+    tgo:notablefor tg:Frodo_Baggins ;
+    tgo:othernames tg:Kalimac_Brandagamba ;
+    tgo:parentage tg:Saradoc_Brandybuck ;
+    tgo:people tg:Hobbits ;
+    tgo:rides tg:Stybba ;
+    tgo:rule_note "-"@en ;
+    tgo:steed tg:Stybba ;
+    tgo:titles tg:Master_of_Buckland ;
+    tgo:weapons tg:Daggers_of_Westernesse ;
+    tgo:wields tg:Daggers_of_Westernesse .
 
-tg:Orcs rdfs:subClassOf tg:EvilCreatures .
+tg:Peregrin_Took a schema1:Event,
+        schema1:Person ;
+    rdfs:label "Peregrin Took"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Peregrin_Took> ;
+    schema1:birthDate "Spring"@en ;
+    schema1:children tg:Faramir_Took_I ;
+    schema1:deathDate "Between and"@en ;
+    schema1:gender "Male"@en ;
+    schema1:location tg:Gondor,
+        tg:Great_Smials ;
+    schema1:memberOf tg:Fellowship_of_the_Ring ;
+    schema1:mentions tg:Ernil_i_Pheriannath,
+        tg:Fellowship_of_the_Ring,
+        tg:Gondor,
+        tg:Great_Smials,
+        tg:Guard_of_the_Citadel,
+        tg:Hobbits,
+        tg:Peregrin_TookNames_and_Titles,
+        tg:Razanur_Tûk,
+        tg:Thain,
+        tg:Tuckborough ;
+    schema1:name "Peregrin Took"@en ;
+    schema1:parent tg:Paladin_Took_II ;
+    schema1:relatedTo tg:Diamond_of_Long_Cleeve,
+        tg:Faramir_Took_I,
+        tg:Pearl_Took ;
+    schema1:spouse tg:Diamond_of_Long_Cleeve ;
+    tgo:affiliation tg:Fellowship_of_the_Ring ;
+    tgo:age "95+"@en ;
+    tgo:belongsTo tg:HobbitKind ;
+    tgo:belongsToRace tg:Hobbits ;
+    tgo:caption "\"Peregrin Took\" by Campbell White"@en ;
+    tgo:deathlocation tg:Gondor ;
+    tgo:family tg:Took_Family ;
+    tgo:hair "Almost golden, p. 115"@en ;
+    tgo:hasConnectionTo tg:Gondor ;
+    tgo:hasParticipant tg:Meriadoc_Brandybuck ;
+    tgo:image "Campbell White - Peregrin Took.jpg"@en ;
+    tgo:location tg:Gondor,
+        tg:Great_Smials ;
+    tgo:memberOf tg:Fellowship_of_the_Ring ;
+    tgo:notableFor tg:Battle_of_Bywater,
+        tg:Faramir,
+        tg:Frodo_Baggins,
+        tg:Isengard,
+        tg:Meriadoc_Brandybuck,
+        tg:Orthanc-stone ;
+    tgo:notablefor tg:Frodo_Baggins ;
+    tgo:othernames tg:Ernil_i_Pheriannath ;
+    tgo:parentage tg:Paladin_Took_II ;
+    tgo:people tg:Hobbits ;
+    tgo:rule_note "-"@en ;
+    tgo:siblings tg:Pearl_Took ;
+    tgo:titles tg:Thain ;
+    tgo:weapons tg:Daggers_of_Westernesse ;
+    tgo:wields tg:Daggers_of_Westernesse .
 
-tg:Spiders schema1:relatedTo tg:Shelob ;
-    schema1:spouse tg:Shelob ;
-    rdfs:subClassOf tg:EvilCreatures .
+tg:Samwise_Gamgee a schema1:Person ;
+    rdfs:label "Samwise Gamgee"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Samwise_Gamgee> ;
+    schema1:birthDate tg:6_April ;
+    schema1:children tg:Elanor_Gardner ;
+    schema1:gender "Male"@en ;
+    schema1:location tg:Bagshot_Row,
+        tg:Shire ;
+    schema1:memberOf tg:Fellowship_of_the_Ring ;
+    schema1:mentions tg:Bagshot_Row,
+        tg:Banazîr,
+        tg:CategoryImages_by_Nia_Kovalevski,
+        tg:Hobbitish,
+        tg:Hobbiton,
+        tg:Hobbits,
+        tg:Mayor_of_Michel_Delving,
+        tg:Perhael,
+        tg:Ring-bearers,
+        tg:Sindarin ;
+    schema1:name "Samwise Gamgee"@en ;
+    schema1:parent tg:Gaffer_Gamgee ;
+    schema1:relatedTo tg:Elanor_Gardner,
+        tg:Hamson_Gamgee,
+        tg:Rose_Cotton ;
+    schema1:spouse tg:Rose_Cotton ;
+    tgo:affiliation tg:Fellowship_of_the_Ring ;
+    tgo:age "102"@en ;
+    tgo:belongsTo tg:HobbitKind ;
+    tgo:belongsToRace tg:Hobbits ;
+    tgo:birthlocation tg:Shire ;
+    tgo:caption tg:CategoryImages_by_Nia_Kovalevski ;
+    tgo:eyes "Brown"@en ;
+    tgo:family tg:Gamgee_Family ;
+    tgo:hasConnectionTo tg:Shire ;
+    tgo:hasParticipant tg:Shelob ;
+    tgo:image "Nia Kovalevski - Sam.jpg"@en ;
+    tgo:language tg:Westron ;
+    tgo:location tg:Bagshot_Row,
+        tg:Shire ;
+    tgo:memberOf tg:Fellowship_of_the_Ring ;
+    tgo:notableFor tg:Frodo_Baggins ;
+    tgo:notablefor tg:Frodo_Baggins ;
+    tgo:othernames tg:Banazîr ;
+    tgo:parentage tg:Gaffer_Gamgee ;
+    tgo:people tg:Hobbits ;
+    tgo:position tg:Ring-bearers ;
+    tgo:rides tg:Bill_the_Pony ;
+    tgo:rule_note "-"@en ;
+    tgo:sailedto tg:Grey_Havens ;
+    tgo:sailedwest "After"@en ;
+    tgo:siblings tg:Hamson_Gamgee ;
+    tgo:skin_colour "Brown-handed"@en ;
+    tgo:speaks tg:Westron ;
+    tgo:steed tg:Bill_the_Pony ;
+    tgo:titles tg:Mayor_of_Michel_Delving ;
+    tgo:weapons tg:Barrow-blades ;
+    tgo:wields tg:Barrow-blades,
+        tg:Sting .
 
 tg:Eriador a schema1:Place ;
     rdfs:label "Eriador"@en ;
@@ -1782,8 +2426,265 @@ tg:Eriador a schema1:Place ;
     tgo:image "Stephen Raw - Middle-earth map (1 of 4).png"@en ;
     tgo:inhabitants tg:Inhabitants ;
     tgo:othernames "The Lone-lands"@en ;
+    tgo:participatedIn tg:ArnorHistory,
+        tg:Battle_of_Bywater,
+        tg:Fell_Winter_Third_Age,
+        tg:Great_Plague,
+        tg:HobbitsHistory,
+        tg:Rings_of_PowerThe_Creation_of_the_Rings_of_Power,
+        tg:War_of_the_Elves_and_Sauron ;
     tgo:regions tg:Angmar ;
     tgo:towns tg:Annúminas .
+
+tg:Galadriel a schema1:Person ;
+    rdfs:label "Galadriel"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Galadriel> ;
+    schema1:birthDate ""@en ;
+    schema1:children tg:Celebrían ;
+    schema1:gender "Female"@en ;
+    schema1:height "6 feet, 4 inches (193 cm)"@en ;
+    schema1:location tg:Eldamar ;
+    schema1:memberOf tg:White_Council ;
+    schema1:mentions tg:Amilessë,
+        tg:CategoryImages_by_Matt_Stewart,
+        tg:Father-name,
+        tg:Galadriel_disambiguation,
+        tg:Noldor,
+        tg:Quenya,
+        tg:Sindarin,
+        tg:Telerin,
+        tg:epessë ;
+    schema1:name "Galadriel"@en ;
+    schema1:parent tg:Finarfin ;
+    schema1:relatedTo tg:Celeborn,
+        tg:Celebrían,
+        tg:Finrod ;
+    schema1:spouse tg:Celeborn ;
+    tgo:affiliation tg:White_Council ;
+    tgo:age tg:Years_of_the_Sun ;
+    tgo:belongsToHouse tg:House_of_Finarfin ;
+    tgo:belongsToRace tg:Noldor ;
+    tgo:birthlocation tg:Eldamar ;
+    tgo:caption tg:CategoryImages_by_Matt_Stewart ;
+    tgo:clothing "White robes"@en ;
+    tgo:hair tg:Hair_of_Galadriel ;
+    tgo:hasConnectionTo tg:Eldamar ;
+    tgo:house tg:House_of_Finarfin ;
+    tgo:image "Matt Stewart - Galadriel.jpg"@en ;
+    tgo:language tg:Quenya ;
+    tgo:location tg:Eldamar ;
+    tgo:othernames tg:Quenya ;
+    tgo:parentage tg:Finarfin ;
+    tgo:people tg:Noldor ;
+    tgo:pronun tg:Sindarin ;
+    tgo:rule_note "-"@en ;
+    tgo:sailedfrom tg:Grey_Havens ;
+    tgo:sailedwest tg:29_September ;
+    tgo:siblings tg:Finrod ;
+    tgo:speaks tg:Quenya,
+        tg:Silvan_Elvish,
+        tg:Sindarin,
+        tg:Teleri,
+        tg:Telerin,
+        tg:Vanyar,
+        tg:Vanyarin,
+        tg:Westron ;
+    tgo:titles tg:Lady_of_Lórien .
+
+tg:Gondorians a tgo:Race ;
+    rdfs:label "Gondorians"@en ;
+    tgo:raceIncludes tg:Beregond,
+        tg:Boromir,
+        tg:Faramir ;
+    rdfs:subClassOf tg:Men .
+
+tg:Sauron a schema1:Person ;
+    rdfs:label "Sauron"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Sauron> ;
+    schema1:birthDate tg:Creation_of_the_Ainur ;
+    schema1:deathDate tg:25_March ;
+    schema1:gender "Male"@en ;
+    schema1:height tg:Physical_form ;
+    schema1:location tg:Barad-dûr,
+        tg:Timeless_Halls ;
+    schema1:memberOf tg:Aulë,
+        tg:Morgoth ;
+    schema1:mentions tg:Adûnaic,
+        tg:CategoryImages_by_Alaïs,
+        tg:Dark_Lord,
+        tg:Eye_of_Sauron,
+        tg:Maiar,
+        tg:Other_names,
+        tg:Quenya,
+        tg:Sindarin ;
+    schema1:name "Sauron"@en ;
+    tgo:affiliation tg:Aulë ;
+    tgo:age "Unquantifiable"@en ;
+    tgo:belongsTo tg:Ainur ;
+    tgo:belongsToRace tg:Maiar ;
+    tgo:birthlocation tg:Timeless_Halls ;
+    tgo:caption tg:CategoryImages_by_Alaïs ;
+    tgo:deathlocation tg:Barad-dûr ;
+    tgo:eyes tg:Eye_of_Sauron ;
+    tgo:hasConnectionTo tg:Barad-dûr,
+        tg:Timeless_Halls ;
+    tgo:hasMember tg:Saruman ;
+    tgo:image "Alaïs - Annatar.jpg"@en ;
+    tgo:language tg:Valarin ;
+    tgo:location tg:Barad-dûr,
+        tg:Timeless_Halls ;
+    tgo:notableFor tg:Downfall_of_Númenor,
+        tg:Elves,
+        tg:Middle-earth,
+        tg:Rings_of_Power,
+        tg:The_One_Ring ;
+    tgo:notablefor tg:Elves ;
+    tgo:othernames tg:Quenya ;
+    tgo:people tg:Maiar ;
+    tgo:position tg:Aulë ;
+    tgo:pronun tg:Quenya ;
+    tgo:rule_note "-"@en ;
+    tgo:speaks tg:Adûnaic,
+        tg:Black_Speech,
+        tg:Valarin,
+        tg:Westron ;
+    tgo:titles tg:Dark_Lord ;
+    tgo:weapons tg:The_One_Ring ;
+    tgo:wields tg:The_One_Ring .
+
+tg:Elrond a schema1:Person ;
+    rdfs:label "Elrond"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Elrond> ;
+    schema1:birthDate ", version C of the manuscript, year changed to [>532], p. 348"@en ;
+    schema1:children tg:Arwen,
+        tg:Elladan ;
+    schema1:gender "Male"@en ;
+    schema1:location tg:Havens_of_Sirion,
+        tg:Mouths_of_Sirion ;
+    schema1:memberOf tg:White_Council ;
+    schema1:mentions tg:CategoryImages_by_Tatyafinwe,
+        tg:Gil-galad,
+        tg:Half-elven,
+        tg:Mouths_of_Sirion,
+        tg:Quenya,
+        tg:Rivendell,
+        tg:Sindarin,
+        tg:Vilya ;
+    schema1:name "Elrond"@en ;
+    schema1:parent tg:Eärendil ;
+    schema1:relatedTo tg:Arwen,
+        tg:Celebrían,
+        tg:Elladan,
+        tg:Elros ;
+    schema1:spouse tg:Celebrían ;
+    tgo:affiliation tg:White_Council ;
+    tgo:age "6520"@en ;
+    tgo:belongsToHouse tg:Doom_of_Mandos,
+        tg:Edain,
+        tg:Elves,
+        tg:Elwë,
+        tg:House_of_Bëor,
+        tg:House_of_Fingolfin,
+        tg:House_of_Hador,
+        tg:House_of_Haleth ;
+    tgo:belongsToRace tg:Half-elven ;
+    tgo:birthlocation tg:Havens_of_Sirion ;
+    tgo:caption tg:CategoryImages_by_Tatyafinwe ;
+    tgo:clothing "Grey mantleSilver circlet"@en ;
+    tgo:eyes "Grey"@en ;
+    tgo:hair "Dark"@en ;
+    tgo:hasConnectionTo tg:Havens_of_Sirion ;
+    tgo:hasMember tg:Glorfindel ;
+    tgo:heritage tg:Half-elven ;
+    tgo:house tg:House_of_Hador ;
+    tgo:image "Tatyafinwe - Portrait of Elrond.jpg"@en ;
+    tgo:language tg:Sindarin ;
+    tgo:location tg:Havens_of_Sirion,
+        tg:Mouths_of_Sirion ;
+    tgo:othernames tg:Quenya ;
+    tgo:parentage tg:Eärendil ;
+    tgo:people tg:Half-elven ;
+    tgo:position tg:Vilya ;
+    tgo:pronun tg:Sindarin ;
+    tgo:rule "- (ruled 4765 years)"@en ;
+    tgo:sailedfrom tg:Grey_Havens ;
+    tgo:sailedwest tg:29_September ;
+    tgo:siblings tg:Elros ;
+    tgo:speaks tg:Quenya,
+        tg:Sindarin,
+        tg:Westron ;
+    tgo:titles tg:Rivendell .
+
+tg:Witch-king a schema1:Event,
+        schema1:Person ;
+    rdfs:label "Witch-king"@en ;
+    dcterms:source <https://tolkiengateway.net/wiki/Witch-king> ;
+    schema1:birthDate "Before"@en ;
+    schema1:deathDate tg:15_March ;
+    schema1:gender "Male"@en ;
+    schema1:height "Tallest of the Nazgûl"@en ;
+    schema1:location tg:Angmar,
+        tg:Pelennor_Fields ;
+    schema1:memberOf tg:Eye_of_Sauron,
+        tg:Nazgûl ;
+    schema1:mentions tg:15_March,
+        tg:Angmar,
+        tg:Black_Speech,
+        tg:CategoryImages_by_Melissa_Hitchcock,
+        tg:Dwimmerlaik,
+        tg:Eye_of_Sauron,
+        tg:Minas_Morgul,
+        tg:Nazgûl,
+        tg:Westron ;
+    schema1:name "Witch-king of Angmar"@en ;
+    tgo:affiliation tg:Nazgûl ;
+    tgo:age "4209+"@en ;
+    tgo:belongsToRace tg:Men,
+        tg:Wraiths ;
+    tgo:birthlocation_note "Unknown"@en ;
+    tgo:caption tg:CategoryImages_by_Melissa_Hitchcock ;
+    tgo:clothing "Crown"@en ;
+    tgo:deathlocation tg:Pelennor_Fields ;
+    tgo:eyes "Fiery red"@en ;
+    tgo:gallery "the Witch-king"@en ;
+    tgo:hair "Gleaming"@en ;
+    tgo:hasConnectionTo tg:Pelennor_Fields ;
+    tgo:hasParticipant tg:Éowyn ;
+    tgo:image "Melissa Hitchcock - The Black Captain.jpg"@en ;
+    tgo:language tg:Black_Speech ;
+    tgo:location tg:Angmar,
+        tg:Pelennor_Fields ;
+    tgo:notableFor tg:Angmar,
+        tg:ArnorThe_Fall_of_Arthedain,
+        tg:Boromir_Steward_of_Gondor,
+        tg:Eärnur,
+        tg:Frodo_Baggins,
+        tg:Minas_Ithil,
+        tg:Osgiliath,
+        tg:Théoden ;
+    tgo:notablefor tg:ArnorThe_Fall_of_Arthedain ;
+    tgo:othernames tg:Dwimmerlaik ;
+    tgo:people tg:Men ;
+    tgo:position tg:Nazgûl ;
+    tgo:rides tg:Fell_beasts ;
+    tgo:rule "- (in Angmar) - (in Minas Morgul)"@en ;
+    tgo:speaks tg:Black_Speech,
+        tg:Westron ;
+    tgo:steed tg:Fell_beasts ;
+    tgo:titles "King of AngmarLord of Minas Morgul"@en ;
+    tgo:weapons tg:Morgul-knife ;
+    tgo:wields tg:Black_Breath,
+        tg:Morgul-knife .
+
+tg:Hobbits a tgo:Race ;
+    rdfs:label "Hobbits"@en ;
+    tgo:raceIncludes tg:Bilbo_Baggins,
+        tg:Frodo_Baggins,
+        tg:Gollum,
+        tg:Meriadoc_Brandybuck,
+        tg:Peregrin_Took,
+        tg:Samwise_Gamgee ;
+    rdfs:subClassOf tg:FreePeoples .
 
 tg:Frodo_Baggins a schema1:Person ;
     rdfs:label "Frodo Baggins"@en ;
@@ -1792,6 +2693,7 @@ tg:Frodo_Baggins a schema1:Person ;
     schema1:gender "Male"@en ;
     schema1:height "Taller than some Hobbits"@en ;
     schema1:location tg:Brandy_Hall ;
+    schema1:memberOf tg:Fellowship_of_the_Ring ;
     schema1:mentions tg:Bag_End,
         tg:Brandy_Hall,
         tg:Buckland,
@@ -1807,16 +2709,25 @@ tg:Frodo_Baggins a schema1:Person ;
     tgo:affiliation tg:Fellowship_of_the_Ring ;
     tgo:age "53"@en ;
     tgo:belongsTo tg:HobbitKind ;
+    tgo:belongsToRace tg:Hobbits ;
     tgo:caption tg:CategoryImages_by_Matt_Stewart ;
     tgo:childrenNote "None"@en ;
     tgo:clothing tg:Mithril_coat ;
     tgo:family tg:Baggins_Family ;
     tgo:hair tg:Strider_chapter ;
+    tgo:hasParticipant tg:Meriadoc_Brandybuck,
+        tg:Peregrin_Took,
+        tg:Samwise_Gamgee,
+        tg:Shelob,
+        tg:Witch-king ;
     tgo:image "Matt Stewart - Frodo Baggins.webp"@en ;
     tgo:language tg:Westron ;
     tgo:location tg:Brandy_Hall ;
     tgo:maritalStatus "Never married"@en ;
     tgo:memberOf tg:Fellowship_of_the_Ring ;
+    tgo:notableFor tg:Cracks_of_Doom,
+        tg:Mordor,
+        tg:One_Ring ;
     tgo:notablefor tg:One_Ring ;
     tgo:othernames tg:Other_names ;
     tgo:parentage tg:Drogo_Baggins ;
@@ -1824,20 +2735,73 @@ tg:Frodo_Baggins a schema1:Person ;
     tgo:position tg:Ring-bearers ;
     tgo:ribboncolor "#90a26f"@en ;
     tgo:ribbonid "test"@en ;
+    tgo:rides tg:Strider_pony ;
     tgo:sailedfrom tg:Grey_Havens ;
     tgo:sailedwest tg:29_September ;
     tgo:skin "Fairer than most Hobbits"@en ;
+    tgo:speaks tg:Sindarin,
+        tg:Westron ;
     tgo:steed tg:Strider_pony ;
-    tgo:weapons tg:Sting .
+    tgo:weapons tg:Sting ;
+    tgo:wields tg:Sting .
 
-tg:Rohirrim rdfs:subClassOf tg:Men .
-
-tg:Maiar rdfs:subClassOf tg:Ainur .
-
-tg:Gondorians rdfs:subClassOf tg:Men .
-
-tg:Hobbits rdfs:subClassOf tg:FreePeoples .
+tg:Quenya a schema1:Language ;
+    rdfs:label "Quenya"@en ;
+    tgo:spokenBy tg:Elrond,
+        tg:Galadriel,
+        tg:Glorfindel .
 
 tg:Fellowship_of_the_Ring a schema1:Organization ;
-    rdfs:label "Fellowship of the Ring"@en .
+    rdfs:label "Fellowship of the Ring"@en ;
+    tgo:hasMember tg:Boromir,
+        tg:Frodo_Baggins,
+        tg:Gandalf,
+        tg:Gimli,
+        tg:Legolas,
+        tg:Meriadoc_Brandybuck,
+        tg:Peregrin_Took,
+        tg:Samwise_Gamgee .
+
+tg:Sindarin a schema1:Language ;
+    rdfs:label "Sindarin"@en ;
+    tgo:spokenBy tg:Arwen,
+        tg:Bilbo_Baggins,
+        tg:Celeborn,
+        tg:Elrond,
+        tg:Faramir,
+        tg:Frodo_Baggins,
+        tg:Galadriel,
+        tg:Glorfindel,
+        tg:Legolas,
+        tg:Théoden .
+
+tg:Westron a schema1:Language ;
+    rdfs:label "Westron"@en ;
+    tgo:spokenBy tg:Azog,
+        tg:Beregond,
+        tg:Bilbo_Baggins,
+        tg:Boromir,
+        tg:Celeborn,
+        tg:Elrond,
+        tg:Faramir,
+        tg:Frodo_Baggins,
+        tg:Galadriel,
+        tg:Gandalf,
+        tg:Gimli,
+        tg:Glorfindel,
+        tg:Goldberry,
+        tg:Gollum,
+        tg:Haldir,
+        tg:Legolas,
+        tg:Lurtz,
+        tg:Samwise_Gamgee,
+        tg:Sauron,
+        tg:Shelob,
+        tg:Thorin,
+        tg:Théoden,
+        tg:Tom_Bombadil,
+        tg:Treebeard,
+        tg:Witch-king,
+        tg:Éomer,
+        tg:Éowyn .
 
