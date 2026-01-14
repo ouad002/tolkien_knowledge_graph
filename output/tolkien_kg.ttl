@@ -4,9 +4,11 @@
 @prefix tg: <http://tolkiengateway.net/kg/resource/> .
 @prefix tgo: <http://tolkiengateway.net/kg/ontology/> .
 
-tg:Argonath a schema1:Thing ;
+tg:Argonath a schema1:Place ;
     rdfs:label "Argonath"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Argonath> ;
+    schema1:additionalType "Statues/Monuments"@en ;
+    schema1:containedInPlace tg:Nen_Hithoel ;
     schema1:mentions tg:Anduin,
         tg:Anárion,
         tg:Gondor,
@@ -14,15 +16,13 @@ tg:Argonath a schema1:Thing ;
         tg:John_Howe,
         tg:Nen_Hithoel,
         tg:Sindarin ;
+    schema1:name "The Argonath"@en ;
     tgo:caption tg:John_Howe ;
     tgo:created "Soon after"@en ;
     tgo:description tg:Isildur ;
     tgo:gallery "the Argonath"@en ;
     tgo:image "John Howe - The Argonath.jpg"@en ;
-    tgo:location tg:Nen_Hithoel ;
-    tgo:name "The Argonath"@en ;
-    tgo:othernames tg:Sindarin ;
-    tgo:type "Statues/Monuments"@en .
+    tgo:othernames tg:Sindarin .
 
 tg:Arwen a schema1:Person ;
     rdfs:label "Arwen"@en ;
@@ -154,9 +154,11 @@ tg:Bilbo_Baggins a schema1:Person ;
     tgo:sailedwest tg:29_September ;
     tgo:weapons tg:Sting .
 
-tg:Cirith_Ungol a schema1:Thing ;
+tg:Cirith_Ungol a schema1:Place ;
     rdfs:label "Cirith Ungol"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Cirith_Ungol> ;
+    schema1:additionalType "Pass"@en ;
+    schema1:containedInPlace tg:Ephel_Dúath ;
     schema1:mentions tg:Cirith_Ungol_disambiguation,
         tg:Ephel_Dúath,
         tg:FileJRR_Tolkien_-_Kirith_Ungoljpg,
@@ -166,18 +168,18 @@ tg:Cirith_Ungol a schema1:Thing ;
         tg:Quest_of_the_Ring,
         tg:Shelob,
         tg:Sindarin ;
+    schema1:name "Cirith Ungol"@en ;
     tgo:caption "\"Cirith Ungol\" by Rob Alexander"@en ;
     tgo:events tg:Quest_of_the_Ring ;
     tgo:image "Rob Alexander - Cirith Ungol.jpg"@en ;
     tgo:inhabitants tg:Men ;
-    tgo:location tg:Ephel_Dúath ;
-    tgo:name "Cirith Ungol"@en ;
-    tgo:pronun tg:Sindarin ;
-    tgo:type "Pass"@en .
+    tgo:pronun tg:Sindarin .
 
-tg:Dead_Marshes a schema1:Thing ;
+tg:Dead_Marshes a schema1:Place ;
     rdfs:label "Dead Marshes"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Dead_Marshes> ;
+    schema1:additionalType "Wetlands"@en ;
+    schema1:containedInPlace tg:Dagorlad ;
     schema1:mentions tg:Alan_Lee,
         tg:Battle_of_Dagorlad,
         tg:Dagorlad,
@@ -187,19 +189,19 @@ tg:Dead_Marshes a schema1:Thing ;
         tg:Frodo,
         tg:The_Passage_of_the_Marshes,
         tg:The_Two_Towers ;
+    schema1:name "Dead Marshes"@en ;
     tgo:caption tg:Alan_Lee ;
     tgo:created tg:Battle_of_Dagorlad ;
     tgo:description "Network of pools creating marshes, filled with dead faces"@en ;
     tgo:gallery "the Dead Marshes"@en ;
     tgo:image "Alan Lee - The Passage of the Marshes.jpg"@en ;
-    tgo:inhabitants tg:Dead_faces ;
-    tgo:location tg:Dagorlad ;
-    tgo:name "Dead Marshes"@en ;
-    tgo:type "Wetlands"@en .
+    tgo:inhabitants tg:Dead_faces .
 
-tg:Edoras a schema1:Thing ;
+tg:Edoras a schema1:Place ;
     rdfs:label "Edoras"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Edoras> ;
+    schema1:additionalType "City"@en ;
+    schema1:containedInPlace tg:Harrowdale ;
     schema1:mentions tg:Aldburg,
         tg:Folde,
         tg:Harrowdale,
@@ -208,14 +210,12 @@ tg:Edoras a schema1:Thing ;
         tg:Rohan,
         tg:Rohirrim,
         tg:White_Mountains ;
+    schema1:name "Edoras"@en ;
     tgo:caption tg:Jed_Murray ;
     tgo:created ""@en ;
     tgo:description tg:Meduseld ;
     tgo:image "Jef Murray - Edoras.jpg"@en ;
-    tgo:inhabitants tg:Rohirrim ;
-    tgo:location tg:Harrowdale ;
-    tgo:name "Edoras"@en ;
-    tgo:type "City"@en .
+    tgo:inhabitants tg:Rohirrim .
 
 tg:Gandalf a schema1:Person ;
     rdfs:label "Gandalf"@en ;
@@ -505,9 +505,11 @@ tg:Peregrin_Took a schema1:Person ;
     tgo:titles tg:Thain ;
     tgo:weapons tg:Daggers_of_Westernesse .
 
-tg:Rhovanion a schema1:Thing ;
+tg:Rhovanion a schema1:Place ;
     rdfs:label "Rhovanion"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Rhovanion> ;
+    schema1:additionalType "Region"@en ;
+    schema1:containedInPlace tg:Middle-earth ;
     schema1:mentions tg:Caras_Galadhon,
         tg:Dáins_Halls,
         tg:Eastern_Eriador,
@@ -517,18 +519,16 @@ tg:Rhovanion a schema1:Thing ;
         tg:Middle-earth,
         tg:Mirkwood,
         tg:Vales_of_Anduin ;
+    schema1:name "Rhovanion"@en ;
     tgo:audio ""@en ;
     tgo:caption tg:JRR_Tolkien ;
     tgo:description tg:Mirkwood ;
     tgo:events tg:Disaster_of_the_Gladden_Fields ;
     tgo:image "J.R.R. Tolkien - Map of Wilderland.jpg"@en ;
     tgo:inhabitants tg:Durins_Folk ;
-    tgo:location tg:Middle-earth ;
-    tgo:name "Rhovanion"@en ;
     tgo:othernames "Wilderland"@en ;
     tgo:regions tg:Eastern_Eriador ;
-    tgo:settlements tg:Caras_Galadhon ;
-    tgo:type "Region"@en .
+    tgo:settlements tg:Caras_Galadhon .
 
 tg:Thorin a schema1:Person ;
     rdfs:label "Thorin"@en ;
@@ -595,9 +595,11 @@ tg:Treebeard a schema1:Person ;
     tgo:othernames tg:Sindarin ;
     tgo:people tg:Ents .
 
-tg:Weathertop a schema1:Thing ;
+tg:Weathertop a schema1:Place ;
     rdfs:label "Weathertop"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Weathertop> ;
+    schema1:additionalType "Hill"@en ;
+    schema1:containedInPlace tg:Eriador ;
     schema1:mentions tg:Arnor,
         tg:Arthedain,
         tg:East_Road,
@@ -608,18 +610,18 @@ tg:Weathertop a schema1:Thing ;
         tg:Sindarin,
         tg:Weather_Hills,
         tg:Weathertop_disambiguation ;
+    schema1:name "Weathertop"@en ;
     tgo:caption tg:Jef_Murray ;
     tgo:description "Hill with tower/ruins of tower"@en ;
-    tgo:destroyed tg:Fall_of_Amon_Sûl ;
+    tgo:destructionDate tg:Fall_of_Amon_Sûl ;
     tgo:image "Jef Murray - Amon Sûl.jpg"@en ;
-    tgo:location tg:Eriador ;
-    tgo:name "Weathertop"@en ;
-    tgo:othernames "Amon Sûl"@en ;
-    tgo:type "Hill"@en .
+    tgo:othernames "Amon Sûl"@en .
 
-tg:Barad-dûr a schema1:Thing ;
+tg:Barad-dûr a schema1:Place ;
     rdfs:label "Barad-dûr"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Barad-dûr> ;
+    schema1:additionalType "Tower"@en ;
+    schema1:containedInPlace tg:Mordor ;
     schema1:mentions tg:Black_Speech,
         tg:Downfall_of_Barad-dûr,
         tg:JRR_Tolkien,
@@ -630,22 +632,22 @@ tg:Barad-dûr a schema1:Thing ;
         tg:Quenya,
         tg:Sauron,
         tg:Siege_of_Barad-dur ;
+    schema1:name "Barad-dûr"@en ;
     tgo:caption tg:JRR_Tolkien ;
     tgo:created "c."@en ;
     tgo:description "Gargantuan tower"@en ;
-    tgo:destroyed ""@en ;
+    tgo:destructionDate ""@en ;
     tgo:events tg:Siege_of_Barad-dur ;
     tgo:image "J.R.R. Tolkien - Barad-dur.jpg"@en ;
     tgo:inhabitants tg:Sauron ;
-    tgo:location tg:Mordor ;
-    tgo:name "Barad-dûr"@en ;
     tgo:othernames tg:Black_Speech ;
-    tgo:rebuilt_note "-"@en ;
-    tgo:type "Tower"@en .
+    tgo:rebuilt_note "-"@en .
 
-tg:Bree a schema1:Thing ;
+tg:Bree a schema1:Place ;
     rdfs:label "Bree"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Bree> ;
+    schema1:additionalType "Village"@en ;
+    schema1:containedInPlace tg:Bree-hill ;
     schema1:mentions tg:Bree-hill,
         tg:Bree-land,
         tg:CategoryImages_by_Darek_Zabrocki,
@@ -654,12 +656,10 @@ tg:Bree a schema1:Thing ;
         tg:Greenway,
         tg:Hobbits,
         tg:Men ;
+    schema1:name "Bree"@en ;
     tgo:caption tg:CategoryImages_by_Darek_Zabrocki ;
     tgo:image "Darek Zabrocki - Morning.jpg"@en ;
-    tgo:inhabitants tg:Men ;
-    tgo:location tg:Bree-hill ;
-    tgo:name "Bree"@en ;
-    tgo:type "Village"@en .
+    tgo:inhabitants tg:Men .
 
 tg:Celeborn a schema1:Person ;
     rdfs:label "Celeborn"@en ;
@@ -735,9 +735,11 @@ tg:Elrond a schema1:Person ;
     tgo:siblings tg:Elros ;
     tgo:titles tg:Rivendell .
 
-tg:Emyn_Muil a schema1:Thing ;
+tg:Emyn_Muil a schema1:Place ;
     rdfs:label "Emyn Muil"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Emyn_Muil> ;
+    schema1:additionalType "Hills"@en ;
+    schema1:containedInPlace tg:Brown_Lands ;
     schema1:mentions tg:Anduin,
         tg:Breaking_of_the_Fellowship,
         tg:Brown_Lands,
@@ -745,14 +747,12 @@ tg:Emyn_Muil a schema1:Thing ;
         tg:Nindalf,
         tg:Rauros,
         tg:Ted_Nasmith ;
+    schema1:name "Emyn Muil"@en ;
     tgo:caption tg:Ted_Nasmith ;
     tgo:description "A treacherous labyrinth of hills"@en ;
     tgo:events tg:Breaking_of_the_Fellowship ;
     tgo:gallery "the Emyn Muil"@en ;
-    tgo:image "Ted Nasmith - No Way Down.jpg"@en ;
-    tgo:location tg:Brown_Lands ;
-    tgo:name "Emyn Muil"@en ;
-    tgo:type "Hills"@en .
+    tgo:image "Ted Nasmith - No Way Down.jpg"@en .
 
 tg:Galadriel a schema1:Person ;
     rdfs:label "Galadriel"@en ;
@@ -818,9 +818,11 @@ tg:Goldberry a schema1:Person ;
     tgo:people_note "Unknown"@en ;
     tgo:race_note "Unknown"@en .
 
-tg:Mount_Doom a schema1:Thing ;
+tg:Mount_Doom a schema1:Place ;
     rdfs:label "Mount Doom"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Mount_Doom> ;
+    schema1:additionalType "Mountain"@en ;
+    schema1:containedInPlace tg:Mordor ;
     schema1:mentions tg:Alan_Lee,
         tg:Frodo,
         tg:Mordor,
@@ -830,18 +832,18 @@ tg:Mount_Doom a schema1:Thing ;
         tg:Sindarin,
         tg:The_Return_of_the_King,
         tg:the_One_Ring ;
+    schema1:name "Mount Doom"@en ;
     tgo:caption tg:Alan_Lee ;
     tgo:events tg:the_One_Ring ;
     tgo:image "Alan Lee - Mount Doom.jpg"@en ;
-    tgo:location tg:Mordor ;
-    tgo:name "Mount Doom"@en ;
     tgo:othernames tg:Sindarin ;
-    tgo:pronun tg:Sindarin ;
-    tgo:type "Mountain"@en .
+    tgo:pronun tg:Sindarin .
 
-tg:Osgiliath a schema1:Thing ;
+tg:Osgiliath a schema1:Place ;
     rdfs:label "Osgiliath"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Osgiliath> ;
+    schema1:additionalType "City"@en ;
+    schema1:containedInPlace tg:Anduin ;
     schema1:mentions tg:Alan_Lee,
         tg:Anduin,
         tg:Anárions_defence_of_Osgiliath,
@@ -851,22 +853,22 @@ tg:Osgiliath a schema1:Thing ;
         tg:Minas_Tirith,
         tg:Ruin_of_Osgiliath,
         tg:War_of_the_Ring ;
+    schema1:name "Osgiliath"@en ;
     tgo:caption tg:Alan_Lee ;
     tgo:created "c."@en ;
     tgo:description tg:Anduin ;
-    tgo:destroyed tg:Ruin_of_Osgiliath ;
+    tgo:destructionDate tg:Ruin_of_Osgiliath ;
     tgo:events tg:Anárions_defence_of_Osgiliath ;
     tgo:image "Alan Lee - The Window on the West.jpg"@en ;
     tgo:inhabitants tg:Gondorians ;
-    tgo:location tg:Anduin ;
-    tgo:name "Osgiliath"@en ;
     tgo:othernames "Old Gondor, City of Ghosts"@en ;
-    tgo:pronun ""@en ;
-    tgo:type "City"@en .
+    tgo:pronun ""@en .
 
-tg:Pelennor_Fields a schema1:Thing ;
+tg:Pelennor_Fields a schema1:Place ;
     rdfs:label "Pelennor Fields"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Pelennor_Fields> ;
+    schema1:additionalType "Farmlands"@en ;
+    schema1:containedInPlace tg:Minas_Tirith ;
     schema1:mentions tg:Alan_Lee,
         tg:Anduin,
         tg:Battle_of_the_Pelennor_Fields,
@@ -876,15 +878,13 @@ tg:Pelennor_Fields a schema1:Thing ;
         tg:Osgiliath,
         tg:Rammas_Echor,
         tg:Sindarin ;
+    schema1:name "Pelennor Fields"@en ;
     tgo:caption tg:Alan_Lee ;
     tgo:description tg:Rammas_Echor ;
     tgo:events tg:Battle_of_the_Pelennor_Fields ;
     tgo:image "Alan Lee - The Last Debate.jpg"@en ;
     tgo:inhabitants tg:Gondorians ;
-    tgo:location tg:Minas_Tirith ;
-    tgo:name "Pelennor Fields"@en ;
-    tgo:pronun tg:Sindarin ;
-    tgo:type "Farmlands"@en .
+    tgo:pronun tg:Sindarin .
 
 tg:Shelob a schema1:Person ;
     rdfs:label "Shelob"@en ;
@@ -915,9 +915,11 @@ tg:Shelob a schema1:Person ;
     tgo:titles "Her LadyshipGreat"@en ;
     tgo:weapons "beak, sting, claws"@en .
 
-tg:The_Shire a schema1:Thing ;
+tg:The_Shire a schema1:Place ;
     rdfs:label "The Shire"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/The_Shire> ;
+    schema1:additionalType tg:Region ;
+    schema1:containedInPlace tg:Eriador ;
     schema1:mentions tg:Eastfarthing,
         tg:Eriador,
         tg:Northfarthing,
@@ -928,18 +930,16 @@ tg:The_Shire a schema1:Thing ;
         tg:Ted_Nasmith,
         tg:Westfarthing,
         tg:Westron ;
+    schema1:name "The Shire"@en ;
     tgo:caption tg:Ted_Nasmith ;
     tgo:created tg:Westmarch ;
     tgo:events tg:Battle_of_Greenfields ;
     tgo:gallery "the Shire"@en ;
     tgo:image "Ted Nasmith - Green Hill Morning.jpg"@en ;
     tgo:inhabitants tg:Hobbits ;
-    tgo:location tg:Eriador ;
-    tgo:name "The Shire"@en ;
     tgo:othernames tg:Sûza ;
     tgo:regions tg:Eastfarthing ;
-    tgo:settlements tg:Bywater ;
-    tgo:type tg:Region .
+    tgo:settlements tg:Bywater .
 
 tg:Théoden a schema1:Person ;
     rdfs:label "Théoden"@en ;
@@ -1088,9 +1088,11 @@ tg:Faramir a schema1:Person ;
     tgo:titles tg:Steward_of_Gondor ;
     tgo:weapons "Sword, nail-knife,"@en .
 
-tg:Mirkwood a schema1:Thing ;
+tg:Mirkwood a schema1:Place ;
     rdfs:label "Mirkwood"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Mirkwood> ;
+    schema1:additionalType "Forest"@en ;
+    schema1:containedInPlace tg:Misty_Mountains ;
     schema1:mentions tg:Amon_Lanc,
         tg:Dol_Guldur,
         tg:East_Lórien,
@@ -1101,17 +1103,15 @@ tg:Mirkwood a schema1:Thing ;
         tg:Misty_Mountains,
         tg:Narrows,
         tg:Woodland_Realm ;
+    schema1:name "Mirkwood"@en ;
     tgo:caption tg:JRR_Tolkien ;
     tgo:description "Deep, thick, dark forest"@en ;
     tgo:events tg:Battle_under_the_trees ;
     tgo:image "J.R.R. Tolkien - Mirkwood.jpg"@en ;
     tgo:inhabitants tg:Spiders ;
-    tgo:location tg:Misty_Mountains ;
-    tgo:name "Mirkwood"@en ;
     tgo:othernames tg:Eryn_Lasgalen ;
     tgo:regions tg:East_Lórien ;
-    tgo:towns tg:Amon_Lanc ;
-    tgo:type "Forest"@en .
+    tgo:towns tg:Amon_Lanc .
 
 tg:Samwise_Gamgee a schema1:Person ;
     rdfs:label "Samwise Gamgee"@en ;
@@ -1323,9 +1323,11 @@ tg:Éowyn a schema1:Person ;
     tgo:steed tg:Windfola ;
     tgo:weapons "Sword"@en .
 
-tg:Bag_End a schema1:Thing ;
+tg:Bag_End a schema1:Place ;
     rdfs:label "Bag End"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Bag_End> ;
+    schema1:additionalType tg:Smials ;
+    schema1:containedInPlace tg:Hobbiton ;
     schema1:mentions tg:An_Unexpected_Party,
         tg:Baggins_Family,
         tg:Gardner_Family,
@@ -1336,19 +1338,19 @@ tg:Bag_End a schema1:Thing ;
         tg:Scouring_of_the_Shire,
         tg:Smials,
         tg:The_Shire ;
+    schema1:name "Bag End"@en ;
     tgo:caption tg:JRR_Tolkien ;
     tgo:created "Around"@en ;
     tgo:description "The most luxurious hobbit-hole in the local area"@en ;
     tgo:events tg:An_Unexpected_Party ;
     tgo:image "J.R.R. Tolkien - The Hall at Bag-End, Residence of B. Baggins Esquire (Colored by H.E. Riddett).jpg"@en ;
-    tgo:inhabitants tg:Baggins_Family ;
-    tgo:location tg:Hobbiton ;
-    tgo:name "Bag End"@en ;
-    tgo:type tg:Smials .
+    tgo:inhabitants tg:Baggins_Family .
 
-tg:Minas_Tirith a schema1:Thing ;
+tg:Minas_Tirith a schema1:Place ;
     rdfs:label "Minas Tirith"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Minas_Tirith> ;
+    schema1:additionalType "City"@en ;
+    schema1:containedInPlace tg:White_Mountains ;
     schema1:mentions tg:Anduin,
         tg:Gondorians,
         tg:Minas_TirithHistory,
@@ -1359,20 +1361,20 @@ tg:Minas_Tirith a schema1:Thing ;
         tg:Tower_of_Ecthelion,
         tg:White_Mountains,
         tg:White_Tree_of_Gondor ;
+    schema1:name "Minas Tirith"@en ;
     tgo:caption tg:Ralph_Damiani ;
     tgo:created ""@en ;
     tgo:description "White city of seven levels"@en ;
     tgo:events tg:Siege_of_Minas_Tirith ;
     tgo:image "Ralph Damiani - Across Middle-earth - The White City.png"@en ;
     tgo:inhabitants tg:Gondorians ;
-    tgo:location tg:White_Mountains ;
-    tgo:name "Minas Tirith"@en ;
-    tgo:othernames tg:Minas_TirithHistory ;
-    tgo:type "City"@en .
+    tgo:othernames tg:Minas_TirithHistory .
 
-tg:Orthanc a schema1:Thing ;
+tg:Orthanc a schema1:Place ;
     rdfs:label "Orthanc"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Orthanc> ;
+    schema1:additionalType "Tower"@en ;
+    schema1:containedInPlace tg:Isengard ;
     schema1:mentions tg:Battle_of_Isengard,
         tg:Dúnedain,
         tg:Gondorians,
@@ -1382,18 +1384,18 @@ tg:Orthanc a schema1:Thing ;
         tg:Second_Age,
         tg:The_Two_Towers,
         tg:The_Voice_of_Saruman ;
+    schema1:name "Orthanc"@en ;
     tgo:created tg:Second_Age ;
     tgo:description "Black-coloured stone tower of 500 feet"@en ;
     tgo:events tg:Battle_of_Isengard ;
     tgo:image "Alan Lee - The Voice of Saruman.jpg"@en ;
-    tgo:inhabitants tg:Dúnedain ;
-    tgo:location tg:Isengard ;
-    tgo:name "Orthanc"@en ;
-    tgo:type "Tower"@en .
+    tgo:inhabitants tg:Dúnedain .
 
-tg:Lothlórien a schema1:Thing ;
+tg:Lothlórien a schema1:Place ;
     rdfs:label "Lothlórien"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Lothlórien> ;
+    schema1:additionalType "Forest"@en ;
+    schema1:containedInPlace tg:Misty_Mountains ;
     schema1:mentions tg:Celebrant,
         tg:Dwimordene,
         tg:Egladil,
@@ -1404,22 +1406,22 @@ tg:Lothlórien a schema1:Thing ;
         tg:Misty_Mountains,
         tg:Naith,
         tg:mallorn ;
+    schema1:name "Lothlórien"@en ;
     tgo:caption tg:JRR_Tolkien ;
     tgo:description tg:mallorn ;
     tgo:events tg:Quest_of_the_Ring ;
     tgo:image "J.R.R. Tolkien - The Forest of Lothlorien in Spring.jpg"@en ;
     tgo:inhabitants tg:Galadhrim ;
-    tgo:location tg:Misty_Mountains ;
-    tgo:name "Lothlórien"@en ;
     tgo:othernames tg:Lórinand ;
     tgo:pronun ""@en ;
     tgo:regions tg:Naith ;
-    tgo:towns tg:Caras_Galadhon ;
-    tgo:type "Forest"@en .
+    tgo:towns tg:Caras_Galadhon .
 
-tg:Isengard a schema1:Thing ;
+tg:Isengard a schema1:Place ;
     rdfs:label "Isengard"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Isengard> ;
+    schema1:additionalType "Fortress"@en ;
+    schema1:containedInPlace tg:Nan_Curunír ;
     schema1:mentions tg:Dunlendings,
         tg:Dúnedain,
         tg:Isengard_disambiguation,
@@ -1430,16 +1432,14 @@ tg:Isengard a schema1:Thing ;
         tg:Sindarin,
         tg:Ted_Nasmith,
         tg:Treegarth_of_Orthanc ;
+    schema1:name "Isengard"@en ;
     tgo:caption tg:Ted_Nasmith ;
     tgo:created tg:Second_Age ;
     tgo:description tg:Orthanc ;
     tgo:events tg:Battle_of_Isengard ;
     tgo:image "Ted Nasmith - Orthanc in the Second Age.jpg"@en ;
     tgo:inhabitants tg:Dúnedain ;
-    tgo:location tg:Nan_Curunír ;
-    tgo:name "Isengard"@en ;
-    tgo:othernames tg:Sindarin ;
-    tgo:type "Fortress"@en .
+    tgo:othernames tg:Sindarin .
 
 tg:Frodo_Baggins a schema1:Person ;
     rdfs:label "Frodo Baggins"@en ;
@@ -1482,9 +1482,11 @@ tg:Frodo_Baggins a schema1:Person ;
     tgo:steed tg:Strider_pony ;
     tgo:weapons tg:Sting .
 
-tg:Eriador a schema1:Thing ;
+tg:Eriador a schema1:Place ;
     rdfs:label "Eriador"@en ;
     dcterms:source <https://tolkiengateway.net/wiki/Eriador> ;
+    schema1:additionalType "Region"@en ;
+    schema1:containedInPlace tg:Middle-earth ;
     schema1:mentions tg:Angmar,
         tg:Annúminas,
         tg:Arnor,
@@ -1495,15 +1497,13 @@ tg:Eriador a schema1:Thing ;
         tg:Middle-earth,
         tg:Misty_Mountains,
         tg:Stephen_Raw ;
+    schema1:name "Eriador"@en ;
     tgo:caption tg:Stephen_Raw ;
     tgo:description "Large region scattered with hills and forests"@en ;
     tgo:events tg:ArnorHistory ;
     tgo:image "Stephen Raw - Middle-earth map (1 of 4).png"@en ;
     tgo:inhabitants tg:Inhabitants ;
-    tgo:location tg:Middle-earth ;
-    tgo:name "Eriador"@en ;
     tgo:othernames "The Lone-lands"@en ;
     tgo:regions tg:Angmar ;
-    tgo:towns tg:Annúminas ;
-    tgo:type "Region"@en .
+    tgo:towns tg:Annúminas .
 

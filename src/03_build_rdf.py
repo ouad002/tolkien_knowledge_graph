@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 """
 Steps 5-6: Build RDF Knowledge Graph from parsed templates
 Outputs: output/tolkien_kg.ttl
@@ -25,14 +26,31 @@ DBO = Namespace(DBPEDIA_ONTOLOGY)
 
 # Template to schema.org class mappings
 TEMPLATE_TO_CLASS = {
+    # Both orders supported (infobox character vs character)
     'infobox character': SCHEMA.Person,
+    'character': SCHEMA.Person,
+    
     'infobox location': SCHEMA.Place,
+    'location infobox': SCHEMA.Place,  # ← FIX: Support reversed order
+    'location': SCHEMA.Place,
+    
     'infobox book': SCHEMA.Book,
+    'book': SCHEMA.Book,
+    
     'infobox event': SCHEMA.Event,
+    'event': SCHEMA.Event,
+    
     'infobox item': SCHEMA.Thing,
+    'item': SCHEMA.Thing,
+    
     'infobox language': SCHEMA.Language,
+    'language': SCHEMA.Language,
+    
     'infobox weapon': SCHEMA.Product,
-    'infobox organization': SCHEMA.Organization
+    'weapon': SCHEMA.Product,
+    
+    'infobox organization': SCHEMA.Organization,
+    'organization': SCHEMA.Organization
 }
 
 # Property mappings for character infoboxes
@@ -96,17 +114,13 @@ def clean_wikitext_value(value):
     # Remove wikilinks: [[target|text]] -> text or [[target]] -> target
     value = re.sub(r'\[\[([^\]|]+)\|([^\]]+)\]\]', r'\2', value)
     value = re.sub(r'\[\[([^\]]+)\]\]', r'\1', value)
-    
     # Remove bold/italic markers
     value = re.sub(r"'''([^']+)'''", r'\1', value)
     value = re.sub(r"''([^']+)''", r'\1', value)
-    
     # Remove HTML tags
     value = re.sub(r'<[^>]+>', '', value)
-    
     # Remove templates (simplified)
     value = re.sub(r'\{\{[^\}]+\}\}', '', value)
-    
     # Clean whitespace
     value = re.sub(r'\s+', ' ', value).strip()
     return value
@@ -127,7 +141,7 @@ def is_descriptive_value(value):
     These are informative but cannot be used as relationship targets
     """
     descriptive_patterns = [
-        'never married', 'unmarried', 'never', 
+        'never married', 'unmarried', 'never',
         'none', 'unknown', 'n/a', '-',
         'no children', 'no spouse', 'childless',
         'none known', 'not applicable',
@@ -136,17 +150,14 @@ def is_descriptive_value(value):
     ]
     
     value_lower = value.lower().strip()
-    
     # Check exact matches
     if value_lower in descriptive_patterns:
         return True
-    
     # Check if starts with descriptive phrases
     descriptive_prefixes = ['at least', 'possibly', 'unknown', 'none']
     for prefix in descriptive_prefixes:
         if value_lower.startswith(prefix):
             return True
-    
     return False
 
 def get_descriptive_property(param_name):
@@ -161,7 +172,6 @@ def get_descriptive_property(param_name):
         'house': TGO.houseNote,
         'affiliation': TGO.affiliationNote,
     }
-    
     return descriptive_map.get(param_name, TGO[param_name + '_note'])
 
 def map_infobox_to_rdf(page_title, infobox, graph):
@@ -177,7 +187,7 @@ def map_infobox_to_rdf(page_title, infobox, graph):
         URIRef of created entity
     """
     entity_uri = create_entity_uri(page_title)
-    template_type = infobox['name']
+    template_type = infobox['name'].lower().strip()  # Normalize to lowercase
     
     # Map template to RDF class
     rdf_class = TEMPLATE_TO_CLASS.get(template_type, SCHEMA.Thing)
@@ -187,11 +197,11 @@ def map_infobox_to_rdf(page_title, infobox, graph):
     graph.add((entity_uri, RDFS.label, Literal(page_title, lang='en')))
     
     # Select appropriate property map
-    if template_type == 'infobox character':
+    if 'character' in template_type:
         property_map = CHARACTER_PROPERTY_MAP
-    elif template_type == 'infobox location':
+    elif 'location' in template_type:
         property_map = LOCATION_PROPERTY_MAP
-    elif template_type == 'infobox book':
+    elif 'book' in template_type:
         property_map = BOOK_PROPERTY_MAP
     else:
         property_map = {}
@@ -206,6 +216,7 @@ def map_infobox_to_rdf(page_title, infobox, graph):
         
         # Get RDF property for relationships
         rdf_property = property_map.get(param_name)
+        
         if not rdf_property:
             # Use custom property in TGO namespace
             safe_param = re.sub(r'[^\w]', '_', param_name)
@@ -246,7 +257,6 @@ def process_wikilinks(page_title, wikilinks, graph):
     for link in wikilinks:
         target_title = link['target']
         target_uri = create_entity_uri(target_title)
-        
         # Add generic "links to" relationship
         graph.add((source_uri, SCHEMA.mentions, target_uri))
 
@@ -297,6 +307,7 @@ def build_knowledge_graph(pages_data):
                 process_wikilinks(page['title'], page['wikilinks'][:10], g)
     
     stats['total_triples'] = len(g)
+    
     return g, stats
 
 def main():
@@ -317,7 +328,6 @@ def main():
     graph, stats = build_knowledge_graph(pages_data)
     
     # Save to Turtle format
-    import os
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     
     print(f"\n✓ Serializing to Turtle format...")
