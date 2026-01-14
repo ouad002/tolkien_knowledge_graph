@@ -39,9 +39,7 @@ class TolkienReasoner:
         """Define class hierarchies and property relationships"""
         print("Defining ontology axioms...")
         
-        # ============================================================
         # RACE/SPECIES HIERARCHY
-        # ============================================================
         print("  → Defining race hierarchy...")
         
         # Elven races
@@ -68,9 +66,7 @@ class TolkienReasoner:
         self.graph.add((TG.Orcs, RDFS.subClassOf, TG.EvilCreatures))
         self.graph.add((TG.Spiders, RDFS.subClassOf, TG.EvilCreatures))
         
-        # ============================================================
         # PROPERTY HIERARCHIES
-        # ============================================================
         print("  → Defining property hierarchies...")
         
         # Family relationships
@@ -98,9 +94,11 @@ class TolkienReasoner:
         # Rule 1: Shared parentage → siblings
         parent_children = {}
         for s, p, o in self.graph.triples((None, TGO.parentage, None)):
-            if o not in parent_children:
-                parent_children[o] = []
-            parent_children[o].append(s)
+            # Only process if parent is a URI
+            if isinstance(o, URIRef):
+                if o not in parent_children:
+                    parent_children[o] = []
+                parent_children[o].append(s)
         
         for parent, children in parent_children.items():
             if len(children) > 1:
@@ -111,17 +109,19 @@ class TolkienReasoner:
                             self.graph.add((child2, TGO.siblings, child1))
                             inferred += 2
         
-        # Rule 2: Inverse parentage (parent → child)
+        # Rule 2: Inverse parentage (parent → child) - FIX: Check if 'o' is URI
         for s, p, o in list(self.graph.triples((None, TGO.parentage, None))):
-            if (o, SCHEMA.children, s) not in self.graph:
-                self.graph.add((o, SCHEMA.children, s))
-                inferred += 1
+            if isinstance(o, URIRef):  # Only create inverse if parent is a URI
+                if (o, SCHEMA.children, s) not in self.graph:
+                    self.graph.add((o, SCHEMA.children, s))
+                    inferred += 1
         
-        # Rule 3: Spouse symmetry
+        # Rule 3: Spouse symmetry - FIX: Check if 'o' is URI
         for s, p, o in list(self.graph.triples((None, SCHEMA.spouse, None))):
-            if (o, SCHEMA.spouse, s) not in self.graph:
-                self.graph.add((o, SCHEMA.spouse, s))
-                inferred += 1
+            if isinstance(o, URIRef):  # Only create inverse if spouse is a URI
+                if (o, SCHEMA.spouse, s) not in self.graph:
+                    self.graph.add((o, SCHEMA.spouse, s))
+                    inferred += 1
         
         print(f"  ✓ Inferred {inferred} family relationships\n")
         return inferred
@@ -188,14 +188,14 @@ class TolkienReasoner:
         for iteration in range(max_iterations):
             new_triples = 0
             
-            # SubClassOf transitivity: if X subClassOf Y and a rdf:type X, then a rdf:type Y
+            # SubClassOf transitivity
             for subclass, _, superclass in list(self.graph.triples((None, RDFS.subClassOf, None))):
                 for instance, _, _ in list(self.graph.triples((None, RDF.type, subclass))):
                     if (instance, RDF.type, superclass) not in self.graph:
                         self.graph.add((instance, RDF.type, superclass))
                         new_triples += 1
             
-            # SubPropertyOf: if p1 subPropertyOf p2 and (a, p1, b), then (a, p2, b)
+            # SubPropertyOf
             for subprop, _, superprop in list(self.graph.triples((None, RDFS.subPropertyOf, None))):
                 for s, _, o in list(self.graph.triples((None, subprop, None))):
                     if (s, superprop, o) not in self.graph:
@@ -214,17 +214,19 @@ class TolkienReasoner:
         print("Inferring location associations...")
         inferred = 0
         
-        # Birth locations
+        # Birth locations - FIX: Check if location is URI
         for char, _, loc in list(self.graph.triples((None, TGO.birthlocation, None))):
-            if (char, TGO.hasConnectionTo, loc) not in self.graph:
-                self.graph.add((char, TGO.hasConnectionTo, loc))
-                inferred += 1
+            if isinstance(loc, URIRef):
+                if (char, TGO.hasConnectionTo, loc) not in self.graph:
+                    self.graph.add((char, TGO.hasConnectionTo, loc))
+                    inferred += 1
         
-        # Death locations
+        # Death locations - FIX: Check if location is URI
         for char, _, loc in list(self.graph.triples((None, TGO.deathlocation, None))):
-            if (char, TGO.hasConnectionTo, loc) not in self.graph:
-                self.graph.add((char, TGO.hasConnectionTo, loc))
-                inferred += 1
+            if isinstance(loc, URIRef):
+                if (char, TGO.hasConnectionTo, loc) not in self.graph:
+                    self.graph.add((char, TGO.hasConnectionTo, loc))
+                    inferred += 1
         
         print(f"  ✓ Inferred {inferred} location associations\n")
         return inferred
@@ -244,7 +246,7 @@ class TolkienReasoner:
         print(f"Final triples:       {final_triples:,}")
         print(f"New inferred:        {new_triples:,} (+{100*new_triples/self.initial_triples:.1f}%)")
         print(f"\n✓ Saved to: {output_file}")
-        
+    
     def generate_statistics(self):
         """Generate statistics about the reasoned graph"""
         print(f"\n{'='*60}")
@@ -317,7 +319,7 @@ def main():
     print(f"\n{'='*60}\n")
     print("✅ Reasoning complete!")
     print(f"\nNext steps:")
-    print(f"  1. Reload into Fuseki: python src/05_load_fuseki.py")
+    print(f"  1. Reload into Fuseki: python src/05_load_fuseki.py --force")
     print(f"  2. Test SPARQL queries with inferred facts")
     print(f"  3. Build web interface (Steps 8-9)")
 

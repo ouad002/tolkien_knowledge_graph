@@ -1,6 +1,6 @@
 Validation Report
 Conforms: False
-Results (134):
+Results (135):
 Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#NodeKindConstraintComponent):
 	Severity: sh:Violation
 	Source Shape: [ sh:message Literal("Location must reference a valid entity (IRI)") ; sh:nodeKind sh:IRI ; sh:path tgo:location ]
@@ -10,695 +10,9 @@ Constraint Violation in NodeKindConstraintComponent (http://www.w3.org/ns/shacl#
 	Message: Location must reference a valid entity (IRI)
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
 	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Arwen
-	Value Node: Literal("Arwen", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Éowyn
-	Value Node: Literal("Éowyn", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Azog
-	Value Node: Literal("Azog", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Goldberry
-	Value Node: Literal("Goldberry", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Beregond
-	Value Node: Literal("Beregond", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Galadriel
-	Value Node: Literal("Galadriel", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Gollum
-	Value Node: Literal("Gollum", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Samwise_Gamgee
-	Value Node: Literal("Samwise Gamgee", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Bilbo_Baggins
-	Value Node: Literal("Bilbo Baggins", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Sauron
-	Value Node: Literal("Sauron", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Gandalf
-	Value Node: Literal("Gandalf", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Théoden
-	Value Node: Literal("Théoden", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Éomer
-	Value Node: Literal("Éomer", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Meriadoc_Brandybuck
-	Value Node: Literal("Meriadoc Brandybuck", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Celeborn
-	Value Node: Literal("Celeborn", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Peregrin_Took
-	Value Node: Literal("Peregrin Took", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Witch-king
-	Value Node: Literal("Witch-king of Angmar", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Boromir
-	Value Node: Literal("Boromir", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Shelob
-	Value Node: Literal("Shelob", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Legolas
-	Value Node: Literal("Legolas", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Thorin
-	Value Node: Literal("Thorin II", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Tom_Bombadil
-	Value Node: Literal("Tom Bombadil", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Lurtz
-	Value Node: Literal("Lurtz", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Frodo_Baggins
-	Value Node: Literal("Frodo Baggins", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Glorfindel
-	Value Node: Literal("Glorfindel", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Saruman
-	Value Node: Literal("Saruman", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Treebeard
-	Value Node: Literal("Treebeard", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Gimli
-	Value Node: Literal("Gimli", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Elrond
-	Value Node: Literal("Elrond", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Haldir
-	Value Node: Literal("Haldir", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
-	Focus Node: tg:Faramir
-	Value Node: Literal("Faramir", lang=en)
-	Result Path: schema1:name
-	Message: Character must have exactly one name (schema:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Arwen
-	Value Node: Literal("Arwen", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Éowyn
-	Value Node: Literal("Éowyn", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Azog
-	Value Node: Literal("Azog", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Goldberry
-	Value Node: Literal("Goldberry", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Beregond
-	Value Node: Literal("Beregond", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Galadriel
-	Value Node: Literal("Galadriel", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Gollum
-	Value Node: Literal("Gollum", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Samwise_Gamgee
-	Value Node: Literal("Samwise Gamgee", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Bilbo_Baggins
-	Value Node: Literal("Bilbo Baggins", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Sauron
-	Value Node: Literal("Sauron", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Gandalf
-	Value Node: Literal("Gandalf", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Théoden
-	Value Node: Literal("Théoden", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Éomer
-	Value Node: Literal("Éomer", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Meriadoc_Brandybuck
-	Value Node: Literal("Meriadoc Brandybuck", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Celeborn
-	Value Node: Literal("Celeborn", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Peregrin_Took
-	Value Node: Literal("Peregrin Took", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Witch-king
-	Value Node: Literal("Witch-king", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Boromir
-	Value Node: Literal("Boromir", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Shelob
-	Value Node: Literal("Shelob", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Legolas
-	Value Node: Literal("Legolas", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Thorin
-	Value Node: Literal("Thorin", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Tom_Bombadil
-	Value Node: Literal("Tom Bombadil", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Lurtz
-	Value Node: Literal("Lurtz", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Frodo_Baggins
-	Value Node: Literal("Frodo Baggins", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Glorfindel
-	Value Node: Literal("Glorfindel", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Saruman
-	Value Node: Literal("Saruman", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Treebeard
-	Value Node: Literal("Treebeard", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Gimli
-	Value Node: Literal("Gimli", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Elrond
-	Value Node: Literal("Elrond", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Haldir
-	Value Node: Literal("Haldir", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Faramir
-	Value Node: Literal("Faramir", lang=en)
-	Result Path: rdfs:label
-	Message: Character must have an rdfs:label
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Arwen
-	Value Node: Literal("Female", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Éowyn
-	Value Node: Literal("Female", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Azog
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Goldberry
-	Value Node: Literal("Female", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Beregond
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Galadriel
-	Value Node: Literal("Female", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Gollum
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Samwise_Gamgee
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Bilbo_Baggins
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Sauron
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Gandalf
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Théoden
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Éomer
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Meriadoc_Brandybuck
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Celeborn
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Peregrin_Took
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Witch-king
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Boromir
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Shelob
-	Value Node: Literal("Female", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Legolas
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Thorin
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Tom_Bombadil
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Lurtz
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Frodo_Baggins
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Glorfindel
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Saruman
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Treebeard
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Gimli
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Elrond
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Haldir
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
-	Focus Node: tg:Faramir
-	Value Node: Literal("Male", lang=en)
-	Result Path: schema1:gender
-	Message: Gender must be 'Male', 'Female', or 'Unknown'
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
-	Focus Node: tg:Weathertop
-	Value Node: Literal("Weathertop", lang=en)
-	Result Path: tgo:name
-	Message: Location must have exactly one name (tgo:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
-	Focus Node: tg:The_Shire
-	Value Node: Literal("The Shire", lang=en)
-	Result Path: tgo:name
-	Message: Location must have exactly one name (tgo:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
-	Focus Node: tg:Barad-dûr
-	Value Node: Literal("Barad-dûr", lang=en)
-	Result Path: tgo:name
-	Message: Location must have exactly one name (tgo:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
-	Focus Node: tg:Mirkwood
-	Value Node: Literal("Mirkwood", lang=en)
-	Result Path: tgo:name
-	Message: Location must have exactly one name (tgo:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
 	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
 	Focus Node: tg:Emyn_Muil
 	Value Node: Literal("Emyn Muil", lang=en)
-	Result Path: tgo:name
-	Message: Location must have exactly one name (tgo:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
-	Focus Node: tg:Eriador
-	Value Node: Literal("Eriador", lang=en)
 	Result Path: tgo:name
 	Message: Location must have exactly one name (tgo:name)
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
@@ -711,22 +25,8 @@ Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
 	Severity: sh:Violation
 	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
-	Focus Node: tg:Edoras
-	Value Node: Literal("Edoras", lang=en)
-	Result Path: tgo:name
-	Message: Location must have exactly one name (tgo:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
-	Focus Node: tg:Isengard
-	Value Node: Literal("Isengard", lang=en)
-	Result Path: tgo:name
-	Message: Location must have exactly one name (tgo:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
-	Focus Node: tg:Bree
-	Value Node: Literal("Bree", lang=en)
+	Focus Node: tg:Cirith_Ungol
+	Value Node: Literal("Cirith Ungol", lang=en)
 	Result Path: tgo:name
 	Message: Location must have exactly one name (tgo:name)
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
@@ -739,43 +39,8 @@ Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
 	Severity: sh:Violation
 	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
-	Focus Node: tg:Mount_Doom
-	Value Node: Literal("Mount Doom", lang=en)
-	Result Path: tgo:name
-	Message: Location must have exactly one name (tgo:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
-	Focus Node: tg:Lothlórien
-	Value Node: Literal("Lothlórien", lang=en)
-	Result Path: tgo:name
-	Message: Location must have exactly one name (tgo:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
-	Focus Node: tg:Minas_Tirith
-	Value Node: Literal("Minas Tirith", lang=en)
-	Result Path: tgo:name
-	Message: Location must have exactly one name (tgo:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
-	Focus Node: tg:Rhovanion
-	Value Node: Literal("Rhovanion", lang=en)
-	Result Path: tgo:name
-	Message: Location must have exactly one name (tgo:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
-	Focus Node: tg:Cirith_Ungol
-	Value Node: Literal("Cirith Ungol", lang=en)
-	Result Path: tgo:name
-	Message: Location must have exactly one name (tgo:name)
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
-	Focus Node: tg:Bag_End
-	Value Node: Literal("Bag End", lang=en)
+	Focus Node: tg:The_Shire
+	Value Node: Literal("The Shire", lang=en)
 	Result Path: tgo:name
 	Message: Location must have exactly one name (tgo:name)
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
@@ -788,8 +53,29 @@ Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
 	Severity: sh:Violation
 	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
-	Focus Node: tg:Pelennor_Fields
-	Value Node: Literal("Pelennor Fields", lang=en)
+	Focus Node: tg:Weathertop
+	Value Node: Literal("Weathertop", lang=en)
+	Result Path: tgo:name
+	Message: Location must have exactly one name (tgo:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
+	Focus Node: tg:Rhovanion
+	Value Node: Literal("Rhovanion", lang=en)
+	Result Path: tgo:name
+	Message: Location must have exactly one name (tgo:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
+	Focus Node: tg:Lothlórien
+	Value Node: Literal("Lothlórien", lang=en)
+	Result Path: tgo:name
+	Message: Location must have exactly one name (tgo:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
+	Focus Node: tg:Mirkwood
+	Value Node: Literal("Mirkwood", lang=en)
 	Result Path: tgo:name
 	Message: Location must have exactly one name (tgo:name)
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
@@ -801,44 +87,72 @@ Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#
 	Message: Location must have exactly one name (tgo:name)
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
 	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Weathertop
-	Value Node: Literal("Weathertop", lang=en)
-	Result Path: rdfs:label
-	Message: Location must have an rdfs:label
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
+	Focus Node: tg:Pelennor_Fields
+	Value Node: Literal("Pelennor Fields", lang=en)
+	Result Path: tgo:name
+	Message: Location must have exactly one name (tgo:name)
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
 	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:The_Shire
-	Value Node: Literal("The Shire", lang=en)
-	Result Path: rdfs:label
-	Message: Location must have an rdfs:label
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
+	Focus Node: tg:Bree
+	Value Node: Literal("Bree", lang=en)
+	Result Path: tgo:name
+	Message: Location must have exactly one name (tgo:name)
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
 	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
+	Focus Node: tg:Edoras
+	Value Node: Literal("Edoras", lang=en)
+	Result Path: tgo:name
+	Message: Location must have exactly one name (tgo:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
+	Focus Node: tg:Bag_End
+	Value Node: Literal("Bag End", lang=en)
+	Result Path: tgo:name
+	Message: Location must have exactly one name (tgo:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
+	Focus Node: tg:Mount_Doom
+	Value Node: Literal("Mount Doom", lang=en)
+	Result Path: tgo:name
+	Message: Location must have exactly one name (tgo:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
+	Focus Node: tg:Minas_Tirith
+	Value Node: Literal("Minas Tirith", lang=en)
+	Result Path: tgo:name
+	Message: Location must have exactly one name (tgo:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
 	Focus Node: tg:Barad-dûr
 	Value Node: Literal("Barad-dûr", lang=en)
-	Result Path: rdfs:label
-	Message: Location must have an rdfs:label
+	Result Path: tgo:name
+	Message: Location must have exactly one name (tgo:name)
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
 	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Mirkwood
-	Value Node: Literal("Mirkwood", lang=en)
-	Result Path: rdfs:label
-	Message: Location must have an rdfs:label
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
+	Focus Node: tg:Isengard
+	Value Node: Literal("Isengard", lang=en)
+	Result Path: tgo:name
+	Message: Location must have exactly one name (tgo:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Location must have exactly one name (tgo:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:name ]
+	Focus Node: tg:Eriador
+	Value Node: Literal("Eriador", lang=en)
+	Result Path: tgo:name
+	Message: Location must have exactly one name (tgo:name)
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
 	Severity: sh:Violation
 	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
 	Focus Node: tg:Emyn_Muil
 	Value Node: Literal("Emyn Muil", lang=en)
-	Result Path: rdfs:label
-	Message: Location must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Eriador
-	Value Node: Literal("Eriador", lang=en)
 	Result Path: rdfs:label
 	Message: Location must have an rdfs:label
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
@@ -851,22 +165,8 @@ Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
 	Severity: sh:Violation
 	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Edoras
-	Value Node: Literal("Edoras", lang=en)
-	Result Path: rdfs:label
-	Message: Location must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Isengard
-	Value Node: Literal("Isengard", lang=en)
-	Result Path: rdfs:label
-	Message: Location must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Bree
-	Value Node: Literal("Bree", lang=en)
+	Focus Node: tg:Cirith_Ungol
+	Value Node: Literal("Cirith Ungol", lang=en)
 	Result Path: rdfs:label
 	Message: Location must have an rdfs:label
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
@@ -879,43 +179,8 @@ Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
 	Severity: sh:Violation
 	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Mount_Doom
-	Value Node: Literal("Mount Doom", lang=en)
-	Result Path: rdfs:label
-	Message: Location must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Lothlórien
-	Value Node: Literal("Lothlórien", lang=en)
-	Result Path: rdfs:label
-	Message: Location must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Minas_Tirith
-	Value Node: Literal("Minas Tirith", lang=en)
-	Result Path: rdfs:label
-	Message: Location must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Rhovanion
-	Value Node: Literal("Rhovanion", lang=en)
-	Result Path: rdfs:label
-	Message: Location must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Cirith_Ungol
-	Value Node: Literal("Cirith Ungol", lang=en)
-	Result Path: rdfs:label
-	Message: Location must have an rdfs:label
-Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
-	Severity: sh:Violation
-	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Bag_End
-	Value Node: Literal("Bag End", lang=en)
+	Focus Node: tg:The_Shire
+	Value Node: Literal("The Shire", lang=en)
 	Result Path: rdfs:label
 	Message: Location must have an rdfs:label
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
@@ -928,8 +193,29 @@ Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
 	Severity: sh:Violation
 	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
-	Focus Node: tg:Pelennor_Fields
-	Value Node: Literal("Pelennor Fields", lang=en)
+	Focus Node: tg:Weathertop
+	Value Node: Literal("Weathertop", lang=en)
+	Result Path: rdfs:label
+	Message: Location must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Rhovanion
+	Value Node: Literal("Rhovanion", lang=en)
+	Result Path: rdfs:label
+	Message: Location must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Lothlórien
+	Value Node: Literal("Lothlórien", lang=en)
+	Result Path: rdfs:label
+	Message: Location must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Mirkwood
+	Value Node: Literal("Mirkwood", lang=en)
 	Result Path: rdfs:label
 	Message: Location must have an rdfs:label
 Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
@@ -939,3 +225,723 @@ Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#
 	Value Node: Literal("Osgiliath", lang=en)
 	Result Path: rdfs:label
 	Message: Location must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Pelennor_Fields
+	Value Node: Literal("Pelennor Fields", lang=en)
+	Result Path: rdfs:label
+	Message: Location must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Bree
+	Value Node: Literal("Bree", lang=en)
+	Result Path: rdfs:label
+	Message: Location must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Edoras
+	Value Node: Literal("Edoras", lang=en)
+	Result Path: rdfs:label
+	Message: Location must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Bag_End
+	Value Node: Literal("Bag End", lang=en)
+	Result Path: rdfs:label
+	Message: Location must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Mount_Doom
+	Value Node: Literal("Mount Doom", lang=en)
+	Result Path: rdfs:label
+	Message: Location must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Minas_Tirith
+	Value Node: Literal("Minas Tirith", lang=en)
+	Result Path: rdfs:label
+	Message: Location must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Barad-dûr
+	Value Node: Literal("Barad-dûr", lang=en)
+	Result Path: rdfs:label
+	Message: Location must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Isengard
+	Value Node: Literal("Isengard", lang=en)
+	Result Path: rdfs:label
+	Message: Location must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Location must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Eriador
+	Value Node: Literal("Eriador", lang=en)
+	Result Path: rdfs:label
+	Message: Location must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Gollum
+	Value Node: Literal("Gollum", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Elrond
+	Value Node: Literal("Elrond", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Gandalf
+	Value Node: Literal("Gandalf", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Meriadoc_Brandybuck
+	Value Node: Literal("Meriadoc Brandybuck", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Frodo_Baggins
+	Value Node: Literal("Frodo Baggins", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Arwen
+	Value Node: Literal("Arwen", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Haldir
+	Value Node: Literal("Haldir", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Legolas
+	Value Node: Literal("Legolas", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Éowyn
+	Value Node: Literal("Éowyn", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Bilbo_Baggins
+	Value Node: Literal("Bilbo Baggins", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Faramir
+	Value Node: Literal("Faramir", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Celeborn
+	Value Node: Literal("Celeborn", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Beregond
+	Value Node: Literal("Beregond", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Gimli
+	Value Node: Literal("Gimli", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Samwise_Gamgee
+	Value Node: Literal("Samwise Gamgee", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Azog
+	Value Node: Literal("Azog", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Shelob
+	Value Node: Literal("Shelob", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Thorin
+	Value Node: Literal("Thorin II", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Galadriel
+	Value Node: Literal("Galadriel", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Lurtz
+	Value Node: Literal("Lurtz", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Peregrin_Took
+	Value Node: Literal("Peregrin Took", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Saruman
+	Value Node: Literal("Saruman", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Sauron
+	Value Node: Literal("Sauron", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Boromir
+	Value Node: Literal("Boromir", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Treebeard
+	Value Node: Literal("Treebeard", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Tom_Bombadil
+	Value Node: Literal("Tom Bombadil", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Witch-king
+	Value Node: Literal("Witch-king of Angmar", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Glorfindel
+	Value Node: Literal("Glorfindel", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Goldberry
+	Value Node: Literal("Goldberry", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Théoden
+	Value Node: Literal("Théoden", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Character must have exactly one name (schema:name)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:name ]
+	Focus Node: tg:Éomer
+	Value Node: Literal("Éomer", lang=en)
+	Result Path: schema1:name
+	Message: Character must have exactly one name (schema:name)
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Gollum
+	Value Node: Literal("Gollum", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Elrond
+	Value Node: Literal("Elrond", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Gandalf
+	Value Node: Literal("Gandalf", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Meriadoc_Brandybuck
+	Value Node: Literal("Meriadoc Brandybuck", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Frodo_Baggins
+	Value Node: Literal("Frodo Baggins", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Arwen
+	Value Node: Literal("Arwen", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Haldir
+	Value Node: Literal("Haldir", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Legolas
+	Value Node: Literal("Legolas", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Éowyn
+	Value Node: Literal("Éowyn", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Bilbo_Baggins
+	Value Node: Literal("Bilbo Baggins", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Faramir
+	Value Node: Literal("Faramir", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Celeborn
+	Value Node: Literal("Celeborn", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Beregond
+	Value Node: Literal("Beregond", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Gimli
+	Value Node: Literal("Gimli", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Samwise_Gamgee
+	Value Node: Literal("Samwise Gamgee", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Azog
+	Value Node: Literal("Azog", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Shelob
+	Value Node: Literal("Shelob", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Thorin
+	Value Node: Literal("Thorin", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Galadriel
+	Value Node: Literal("Galadriel", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Lurtz
+	Value Node: Literal("Lurtz", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Peregrin_Took
+	Value Node: Literal("Peregrin Took", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Saruman
+	Value Node: Literal("Saruman", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Sauron
+	Value Node: Literal("Sauron", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Boromir
+	Value Node: Literal("Boromir", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Treebeard
+	Value Node: Literal("Treebeard", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Tom_Bombadil
+	Value Node: Literal("Tom Bombadil", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Witch-king
+	Value Node: Literal("Witch-king", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Glorfindel
+	Value Node: Literal("Glorfindel", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Goldberry
+	Value Node: Literal("Goldberry", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Théoden
+	Value Node: Literal("Théoden", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in DatatypeConstraintComponent (http://www.w3.org/ns/shacl#DatatypeConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Character must have an rdfs:label") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path rdfs:label ]
+	Focus Node: tg:Éomer
+	Value Node: Literal("Éomer", lang=en)
+	Result Path: rdfs:label
+	Message: Character must have an rdfs:label
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Gollum
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Elrond
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Gandalf
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Meriadoc_Brandybuck
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Frodo_Baggins
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Arwen
+	Value Node: Literal("Female", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Haldir
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Legolas
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Éowyn
+	Value Node: Literal("Female", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Bilbo_Baggins
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Faramir
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Celeborn
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Beregond
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Gimli
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Samwise_Gamgee
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Azog
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Shelob
+	Value Node: Literal("Female", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Thorin
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Galadriel
+	Value Node: Literal("Female", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Lurtz
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Peregrin_Took
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Saruman
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Sauron
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Boromir
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Treebeard
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Tom_Bombadil
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Witch-king
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Glorfindel
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Goldberry
+	Value Node: Literal("Female", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Théoden
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in InConstraintComponent (http://www.w3.org/ns/shacl#InConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:in ( Literal("Male") Literal("Female") Literal("Unknown") ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gender must be 'Male', 'Female', or 'Unknown'") ; sh:path schema1:gender ]
+	Focus Node: tg:Éomer
+	Value Node: Literal("Male", lang=en)
+	Result Path: schema1:gender
+	Message: Gender must be 'Male', 'Female', or 'Unknown'
+Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+	Severity: sh:Violation
+	Source Shape: [ sh:message Literal("Character must have a race/people (tgo:people)") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path tgo:people ]
+	Focus Node: tg:Goldberry
+	Result Path: tgo:people
+	Message: Character must have a race/people (tgo:people)

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Tolkien Knowledge Graph{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">
+                <a href="{{ url_for('index') }}">🗡️ Tolkien KG</a>
+            </h1>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}">Browse</a>
+                <a href="http://localhost:3030/#/dataset/tolkien/query" target="_blank">SPARQL</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        <p>Tolkien Knowledge Graph | Data from <a href="https://tolkiengateway.net" target="_blank">Tolkien Gateway</a></p>
+        <p>Built with RDF, SPARQL, and Flask | École des Mines de Saint-Étienne</p>
+    </footer>
+</body>
+</html>

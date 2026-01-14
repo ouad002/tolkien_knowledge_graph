@@ -1,15 +1,15 @@
 {
-  "timestamp": "2026-01-09T16:30:41.506339",
+  "timestamp": "2026-01-14T16:18:50.869321",
   "data_file": "output/tolkien_kg.ttl",
   "shapes_file": "shapes\\tolkien_shapes.ttl",
   "data_triples": 1452,
   "shapes_triples": 99,
   "validation": {
     "conforms": false,
-    "violations": 134,
+    "violations": 135,
     "warnings": 0,
     "infos": 0,
-    "total_issues": 134,
+    "total_issues": 135,
     "violation_details": [
       {
         "type": "violation",
@@ -26,99 +26,99 @@
         "type": "violation",
         "details": [
           "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Character must have exactly one name (schema:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:name ]",
-          "Focus Node: tg:Arwen",
-          "Value Node: Literal(\"Arwen\", lang=en)",
-          "Result Path: schema1:name",
-          "Message: Character must have exactly one name (schema:name)"
+          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
+          "Focus Node: tg:Emyn_Muil",
+          "Value Node: Literal(\"Emyn Muil\", lang=en)",
+          "Result Path: tgo:name",
+          "Message: Location must have exactly one name (tgo:name)"
         ]
       },
       {
         "type": "violation",
         "details": [
           "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Character must have exactly one name (schema:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:name ]",
-          "Focus Node: tg:Éowyn",
-          "Value Node: Literal(\"Éowyn\", lang=en)",
-          "Result Path: schema1:name",
-          "Message: Character must have exactly one name (schema:name)"
+          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
+          "Focus Node: tg:Argonath",
+          "Value Node: Literal(\"The Argonath\", lang=en)",
+          "Result Path: tgo:name",
+          "Message: Location must have exactly one name (tgo:name)"
         ]
       },
       {
         "type": "violation",
         "details": [
           "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Character must have exactly one name (schema:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:name ]",
-          "Focus Node: tg:Azog",
-          "Value Node: Literal(\"Azog\", lang=en)",
-          "Result Path: schema1:name",
-          "Message: Character must have exactly one name (schema:name)"
+          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
+          "Focus Node: tg:Cirith_Ungol",
+          "Value Node: Literal(\"Cirith Ungol\", lang=en)",
+          "Result Path: tgo:name",
+          "Message: Location must have exactly one name (tgo:name)"
         ]
       },
       {
         "type": "violation",
         "details": [
           "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Character must have exactly one name (schema:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:name ]",
-          "Focus Node: tg:Goldberry",
-          "Value Node: Literal(\"Goldberry\", lang=en)",
-          "Result Path: schema1:name",
-          "Message: Character must have exactly one name (schema:name)"
+          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
+          "Focus Node: tg:Orthanc",
+          "Value Node: Literal(\"Orthanc\", lang=en)",
+          "Result Path: tgo:name",
+          "Message: Location must have exactly one name (tgo:name)"
         ]
       },
       {
         "type": "violation",
         "details": [
           "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Character must have exactly one name (schema:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:name ]",
-          "Focus Node: tg:Beregond",
-          "Value Node: Literal(\"Beregond\", lang=en)",
-          "Result Path: schema1:name",
-          "Message: Character must have exactly one name (schema:name)"
+          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
+          "Focus Node: tg:The_Shire",
+          "Value Node: Literal(\"The Shire\", lang=en)",
+          "Result Path: tgo:name",
+          "Message: Location must have exactly one name (tgo:name)"
         ]
       },
       {
         "type": "violation",
         "details": [
           "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Character must have exactly one name (schema:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:name ]",
-          "Focus Node: tg:Galadriel",
-          "Value Node: Literal(\"Galadriel\", lang=en)",
-          "Result Path: schema1:name",
-          "Message: Character must have exactly one name (schema:name)"
+          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
+          "Focus Node: tg:Dead_Marshes",
+          "Value Node: Literal(\"Dead Marshes\", lang=en)",
+          "Result Path: tgo:name",
+          "Message: Location must have exactly one name (tgo:name)"
         ]
       },
       {
         "type": "violation",
         "details": [
           "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Character must have exactly one name (schema:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:name ]",
-          "Focus Node: tg:Gollum",
-          "Value Node: Literal(\"Gollum\", lang=en)",
-          "Result Path: schema1:name",
-          "Message: Character must have exactly one name (schema:name)"
+          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
+          "Focus Node: tg:Weathertop",
+          "Value Node: Literal(\"Weathertop\", lang=en)",
+          "Result Path: tgo:name",
+          "Message: Location must have exactly one name (tgo:name)"
         ]
       },
       {
         "type": "violation",
         "details": [
           "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Character must have exactly one name (schema:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:name ]",
-          "Focus Node: tg:Samwise_Gamgee",
-          "Value Node: Literal(\"Samwise Gamgee\", lang=en)",
-          "Result Path: schema1:name",
-          "Message: Character must have exactly one name (schema:name)"
+          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
+          "Focus Node: tg:Rhovanion",
+          "Value Node: Literal(\"Rhovanion\", lang=en)",
+          "Result Path: tgo:name",
+          "Message: Location must have exactly one name (tgo:name)"
         ]
       },
       {
         "type": "violation",
         "details": [
           "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Character must have exactly one name (schema:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:name ]",
-          "Focus Node: tg:Bilbo_Baggins",
-          "Value Node: Literal(\"Bilbo Baggins\", lang=en)",
-          "Result Path: schema1:name",
-          "Message: Character must have exactly one name (schema:name)"
+          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
+          "Focus Node: tg:Lothlórien",
+          "Value Node: Literal(\"Lothlórien\", lang=en)",
+          "Result Path: tgo:name",
+          "Message: Location must have exactly one name (tgo:name)"
         ]
       }
     ],

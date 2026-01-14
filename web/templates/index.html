@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Browse Entities - Tolkien KG{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>Browse Entities</h2>
+    <p>Explore the Tolkien Knowledge Graph with {{ entities|length }} entities</p>
+</div>
+
+<div class="search-box">
+    <form action="{{ url_for('search') }}" method="get">
+        <input type="text" name="q" placeholder="Search for characters, places..." autofocus>
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<div class="entity-grid">
+    {% for entity in entities %}
+    <div class="entity-card">
+        <a href="{{ url_for('entity', entity_name=entity.local_name) }}">
+            <h3>{{ entity.label }}</h3>
+            <span class="entity-type">{{ entity.type.split('/')[-1] }}</span>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% if entities|length == 0 %}
+<div class="empty-state">
+    <p>No entities found. Make sure Fuseki is running with data loaded.</p>
+</div>
+{% endif %}
+{% endblock %}

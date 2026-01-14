@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Search: {{ query }} - Tolkien KG{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>Search Results for "{{ query }}"</h2>
+    <p>Found {{ entities|length }} results</p>
+</div>
+
+<div class="search-box">
+    <form action="{{ url_for('search') }}" method="get">
+        <input type="text" name="q" value="{{ query }}" placeholder="Search for characters, places..." autofocus>
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+{% if entities|length > 0 %}
+<div class="entity-list">
+    {% for entity in entities %}
+    <div class="entity-item">
+        <a href="{{ url_for('entity', entity_name=entity.local_name) }}">
+            <h3>{{ entity.label }}</h3>
+            <span class="entity-type">{{ entity.type.split('/')[-1] }}</span>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="empty-state">
+    <p>No entities found matching "{{ query }}". Try a different search term.</p>
+    <a href="{{ url_for('index') }}" class="btn">← Back to Browse</a>
+</div>
+{% endif %}
+{% endblock %}

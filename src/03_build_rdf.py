@@ -11,6 +11,7 @@ from rdflib.namespace import FOAF, DCTERMS, XSD
 from tqdm import tqdm
 import sys
 import os
+
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, project_root)
 from config import *
@@ -77,7 +78,6 @@ BOOK_PROPERTY_MAP = {
 def create_entity_uri(page_title):
     """
     Create URI-safe entity identifier from page title
-    
     Example: "Gandalf the Grey" -> http://tolkiengateway.net/kg/resource/Gandalf_the_Grey
     """
     # Remove special characters, replace spaces with underscores
@@ -88,7 +88,6 @@ def create_entity_uri(page_title):
 def clean_wikitext_value(value):
     """
     Clean wikitext markup from values
-    
     Examples:
         [[Gandalf]] -> Gandalf
         [[Gandalf|Gandalf the Grey]] -> Gandalf the Grey
@@ -110,19 +109,60 @@ def clean_wikitext_value(value):
     
     # Clean whitespace
     value = re.sub(r'\s+', ' ', value).strip()
-    
     return value
 
 def extract_wikilink_target(value):
     """
     Extract target page from wikilink
-    
     Example: [[Gandalf the Grey]] -> Gandalf the Grey
     """
     match = re.search(r'\[\[([^\]|]+)', value)
     if match:
         return match.group(1).strip()
     return None
+
+def is_descriptive_value(value):
+    """
+    Check if value is a descriptive note rather than entity reference
+    These are informative but cannot be used as relationship targets
+    """
+    descriptive_patterns = [
+        'never married', 'unmarried', 'never', 
+        'none', 'unknown', 'n/a', '-',
+        'no children', 'no spouse', 'childless',
+        'none known', 'not applicable',
+        'at least one', 'several', 'many', 'some',
+        'disputed', 'unclear', 'possibly'
+    ]
+    
+    value_lower = value.lower().strip()
+    
+    # Check exact matches
+    if value_lower in descriptive_patterns:
+        return True
+    
+    # Check if starts with descriptive phrases
+    descriptive_prefixes = ['at least', 'possibly', 'unknown', 'none']
+    for prefix in descriptive_prefixes:
+        if value_lower.startswith(prefix):
+            return True
+    
+    return False
+
+def get_descriptive_property(param_name):
+    """
+    Map relationship properties to their descriptive equivalents
+    """
+    descriptive_map = {
+        'spouse': TGO.maritalStatus,
+        'children': TGO.childrenNote,
+        'parentage': TGO.parentageNote,
+        'siblings': TGO.siblingsNote,
+        'house': TGO.houseNote,
+        'affiliation': TGO.affiliationNote,
+    }
+    
+    return descriptive_map.get(param_name, TGO[param_name + '_note'])
 
 def map_infobox_to_rdf(page_title, infobox, graph):
     """
@@ -164,7 +204,7 @@ def map_infobox_to_rdf(page_title, infobox, graph):
         if not param_value or param_value.strip() == '':
             continue
         
-        # Get RDF property
+        # Get RDF property for relationships
         rdf_property = property_map.get(param_name)
         if not rdf_property:
             # Use custom property in TGO namespace
@@ -176,13 +216,20 @@ def map_infobox_to_rdf(page_title, infobox, graph):
         
         # Check if value is a wikilink (entity reference)
         target = extract_wikilink_target(param_value)
+        
         if target:
-            # Create URI reference to linked entity
+            # It's a relationship to another entity - use relationship property
             target_uri = create_entity_uri(target)
             graph.add((entity_uri, rdf_property, target_uri))
         else:
-            # Add as literal value
-            graph.add((entity_uri, rdf_property, Literal(clean_value, lang='en')))
+            # It's a literal value - decide which property to use
+            if is_descriptive_value(clean_value):
+                # Use descriptive property (won't be inverted during reasoning)
+                descriptive_property = get_descriptive_property(param_name)
+                graph.add((entity_uri, descriptive_property, Literal(clean_value, lang='en')))
+            else:
+                # Use standard property for normal literal values
+                graph.add((entity_uri, rdf_property, Literal(clean_value, lang='en')))
     
     # Add source information
     source_url = f"https://tolkiengateway.net/wiki/{page_title.replace(' ', '_')}"
@@ -250,7 +297,6 @@ def build_knowledge_graph(pages_data):
                 process_wikilinks(page['title'], page['wikilinks'][:10], g)
     
     stats['total_triples'] = len(g)
-    
     return g, stats
 
 def main():
@@ -297,7 +343,7 @@ def main():
             break
         print(f"{s}")
         print(f"  {p}")
-        print(f"    {o}\n")
+        print(f"  {o}\n")
 
 if __name__ == "__main__":
     main()

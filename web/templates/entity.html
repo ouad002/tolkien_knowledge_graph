@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}{{ entity_label }} - Tolkien KG{% endblock %}
+
+{% block content %}
+{% if error %}
+<div class="error-box">
+    <h2>{{ error }}</h2>
+    <p>Entity URI: <code>{{ entity_uri }}</code></p>
+    <a href="{{ url_for('index') }}" class="btn">← Back to Browse</a>
+</div>
+{% else %}
+<div class="entity-header">
+    <h2>{{ entity_label }}</h2>
+    {% if entity_type %}
+    <span class="entity-type-badge">{{ entity_type }}</span>
+    {% endif %}
+</div>
+
+<div class="entity-meta">
+    <p><strong>URI:</strong> <code>{{ entity_uri }}</code></p>
+    <p><strong>Alternative formats:</strong> 
+        <a href="{{ request.path }}" class="format-link" 
+           onclick="event.preventDefault(); fetch('{{ request.path }}', {headers: {'Accept': 'text/turtle'}}).then(r => r.text()).then(data => { let w = window.open(); w.document.write('<pre>' + data + '</pre>'); })">
+            Turtle (RDF)
+        </a>
+    </p>
+</div>
+
+<div class="properties-section">
+    <h3>Properties</h3>
+    
+    {% for prop_name, values in properties.items() %}
+    {% if prop_name not in ['Type', 'Label'] %}
+    <div class="property-row">
+        <div class="property-name">{{ prop_name }}</div>
+        <div class="property-values">
+            {% for val in values %}
+            {% if val.is_uri %}
+                <a href="{{ url_for('entity', entity_name=val.local_name) }}" class="value-link">
+                    {{ val.label }}
+                </a>
+            {% else %}
+                <span class="value-literal">{{ val.value }}</span>
+            {% endif %}
+            {% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="actions">
+    <a href="{{ url_for('index') }}" class="btn">← Back to Browse</a>
+    <a href="http://localhost:3030/#/dataset/tolkien/query?query=DESCRIBE%20%3C{{ entity_uri }}%3E" 
+       target="_blank" class="btn btn-secondary">Query in Fuseki</a>
+</div>
+{% endif %}
+{% endblock %}
