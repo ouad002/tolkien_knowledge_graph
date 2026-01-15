@@ -349,19 +349,3 @@ pip install -r requirements.txt --force-reinstall
 - [RDFLib Documentation](https://rdflib.readthedocs.io/) - RDF library
 - [Schema.org](https://schema.org/) - Vocabulary
 
-## 📄 License
-
-This project is for educational purposes. Tolkien Gateway content is used under fair use for academic research.
-
-## 👤 Author
-
-Developed as part of semantic web coursework at **Mines Saint-Étienne**.
-
-## 🙏 Acknowledgments
-
-- Tolkien Gateway community for maintaining the wiki
-- Apache Jena team for Fuseki
-- RDFLib developers
-```
-
-This README provides a complete overview of your Tolkien Knowledge Graph project, including installation instructions, usage guide, architecture explanation, and all the key components of the semantic web pipeline you've built. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/119332933/bfc2b665-b1b8-459d-9fe0-b239fa7a005e/01_fetch_pages.py)
