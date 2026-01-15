@@ -1,403 +1,368 @@
-# Tolkien Knowledge Graph
+# Tolkien Gateway Knowledge Graph
 
-A semantic web application that automatically builds a comprehensive knowledge graph from Tolkien Gateway wiki pages, featuring advanced reasoning algorithms and a web interface for exploring J.R.R. Tolkien's Middle-earth universe.
+A semantic web project that transforms data from [Tolkien Gateway](https://tolkiengateway.net) into a linked data knowledge graph using RDF, RDFS/OWL reasoning, SHACL validation, and Apache Fuseki triplestore.
 
-## Overview
+## 📋 Overview
 
-This project extracts structured data from [Tolkien Gateway](https://tolkiengateway.net), constructs an RDF knowledge graph using semantic web standards (RDF, RDFS, OWL), applies sophisticated reasoning algorithms to infer new relationships, validates the data using SHACL constraints, and serves it through a Flask web interface with SPARQL query capabilities.
+This project extracts structured information about J.R.R. Tolkien's literary universe from Tolkien Gateway's MediaWiki API, converts it into RDF triples, enriches it through semantic reasoning, and serves it as Linked Data with content negotiation support.
 
 ### Key Features
 
-- **Automated data extraction** from MediaWiki API
-- **Template parsing** to extract structured information
-- **RDF knowledge graph construction** using Schema.org and custom ontologies
-- **Advanced reasoning engine** with multiple inference algorithms
-- **SHACL validation** for data quality assurance
-- **Apache Fuseki integration** for RDF storage and SPARQL querying
-- **Web interface** with content negotiation (HTML/Turtle)
-- **Interactive exploration** of characters, locations, events, and relationships
+- **Data Extraction**: Fetches 60+ entities (characters, locations, events) from Tolkien Gateway
+- **RDF Transformation**: Converts MediaWiki infobox templates to RDF using Schema.org and custom ontology
+- **Semantic Reasoning**: Infers new relationships using RDFS/OWL reasoning rules
+- **SHACL Validation**: Validates data quality against predefined constraints
+- **Triple Store**: Stores and queries data using Apache Fuseki
+- **Linked Data Interface**: Flask web application with content negotiation (HTML/Turtle)
 
-## Architecture
-
-The project follows a pipeline architecture with six main stages:
+## 🏗️ Architecture
 
 ```
-1. Fetch Pages      →  2. Parse Templates  →  3. Build RDF
-       ↓                      ↓                     ↓
-   JSON data          Structured data         Base graph
-       
-4. Validate SHACL   →  5. Load Fuseki     →  6. Apply Reasoning
-       ↓                      ↓                     ↓
-   Quality check        Triple store         Enhanced graph
+Tolkien Gateway API
+    ↓
+01_fetch_pages.py → tolkien_pages.json
+    ↓
+02_parse_templates.py → parsed_templates.json
+    ↓
+03_build_rdf.py → tolkien_kg.ttl
+    ↓
+04_validate_shacl.py → validation reports
+    ↓
+05_load_fuseki.py → Apache Fuseki
+    ↓
+06_apply_reasoning.py → tolkien_kg_reasoned.ttl
+    ↓
+app.py (Flask) → Web Interface
 ```
 
-### Technology Stack
-
-- **RDF/Semantic Web**: RDFLib, SPARQL, OWL-RL, PySHACL
-- **MediaWiki**: mwclient, mwparserfromhell
-- **Web Framework**: Flask, Flask-CORS
-- **Triple Store**: Apache Fuseki
-- **Data Processing**: pandas, requests
-- **Standards**: Schema.org, RDFS, OWL, SHACL
-
-## Enhanced Reasoning Algorithms
-
-The reasoning engine (`06_apply_reasoning.py`) implements multiple sophisticated inference algorithms to enrich the knowledge graph:
-
-### 1. Ontology Definition
-- **Class Hierarchies**: Defines taxonomies for races (Elves → Noldor, Sindar), peoples (FreePeoples, EvilCreatures), and divine beings (Ainur → Maiar → Wizards)
-- **Property Hierarchies**: Establishes relationships between properties (e.g., `tgo:parentage` → `schema:parent`)
-- **Symmetric Properties**: Declares bidirectional relationships (`schema:spouse`, `tgo:siblings`)
-- **Inverse Properties**: Defines 9 inverse relationship types for bidirectional navigation
-
-### 2. Family Relationship Inference
-- **Sibling Discovery**: Infers sibling relationships from shared parentage
-- **Inverse Parentage**: Generates child → parent relationships from parent → child
-- **Spouse Symmetry**: Ensures bidirectional marriage relationships
-
-### 3. Fellowship Membership
-- Automatically tags the nine members of the Fellowship of the Ring
-- Creates organizational structure linking characters to groups
-
-### 4. Inverse Relationship Inference ⭐ *Enhanced Feature*
-This powerful algorithm creates navigable inverse relationships, enabling queries from both directions:
-
-- **Organization Membership**: `X memberOf Y` → `Y hasMember X`
-- **Race Inclusion**: `X belongsToRace R` → `R raceIncludes X`
-- **House Affiliation**: `X belongsToHouse H` → `H houseIncludes X`
-- **Artifact Wielding**: `X wields A` → `A wieldedBy X`
-- **Event Participation**: `X participatedIn E` → `E hasParticipant X`
-- **Mount Riding**: `X rides C` → `C riddenBy X`
-- **Language Speaking**: `X speaks L` → `L spokenBy X`
-
-**Example Impact**: When Aragorn wields Andúril, the reasoner automatically infers that Andúril is wielded by Aragorn, allowing queries like "Show all artifacts and their wielders" to work seamlessly.
-
-### 5. Race-Based Group Membership
-- Maps specific races to broader cultural groups
-- Example: Gondorians → Númenórean descendants
-
-### 6. RDFS Entailment
-- **Transitive Subclass Inference**: If `Noldor subClassOf Elves` and `Galadriel type Noldor`, infers `Galadriel type Elves`
-- **Subproperty Propagation**: Propagates values through property hierarchies
-- **Iterative Convergence**: Runs until no new inferences possible (typically 3-5 iterations)
-
-### 7. Location Associations
-- Infers connections between characters and places based on birth/death locations
-- Creates `hasConnectionTo` relationships for geographical context
-
-### Reasoning Impact
-
-The reasoning engine typically enriches the graph by **15-25%**, adding thousands of inferred triples:
-
-```
-Initial triples:   ~8,000
-Final triples:     ~10,000
-New inferred:      ~2,000 (+25%)
-```
-
-This dramatically improves query capabilities, allowing users to discover:
-- All members of a race or house (via inverse relationships)
-- Extended family networks (via sibling inference)
-- Cultural groupings (via class hierarchies)
-- Comprehensive character affiliations (via multiple inference paths)
-
-## Project Structure
-
-```
-tolkien_knowledge_graph/
-├── config.py                      # Central configuration
-├── requirements.txt               # Python dependencies
-├── data/                          # Raw and processed data
-│   ├── tolkien_pages.json        # Fetched wiki pages
-│   └── parsed_templates.json     # Extracted templates
-├── output/                        # Generated RDF files
-│   ├── tolkien_kg.ttl            # Base knowledge graph
-│   ├── tolkien_kg_reasoned.ttl   # Graph with inferred triples
-│   ├── shacl_validation_report.json
-│   └── shacl_validation_details.txt
-├── shapes/                        # SHACL constraint definitions
-│   └── tolkien_shapes.ttl
-├── src/                           # Pipeline scripts
-│   ├── 01_fetch_pages.py         # Download wiki pages via API
-│   ├── 02_parse_templates.py     # Extract structured data
-│   ├── 03_build_rdf.py           # Generate RDF triples
-│   ├── 04_validate_shacl.py      # Quality validation
-│   ├── 05_load_fuseki.py         # Load to triple store
-│   ├── 06_apply_reasoning.py     # Run inference algorithms
-│   └── inspect_data.py           # Data exploration utilities
-└── web/                           # Flask application
-    ├── app.py                     # Web server
-    ├── templates/                 # HTML templates
-    │   ├── index.html            # Homepage
-    │   ├── entity.html           # Entity detail view
-    │   ├── search.html           # Search interface
-    │   └── base.html             # Base template
-    └── static/
-        └── style.css             # Styling
-```
-
-## Installation
+## 🚀 Installation
 
 ### Prerequisites
 
 - Python 3.8+
-- Apache Jena Fuseki (for SPARQL endpoint)
-- Git (optional)
+- Apache Jena Fuseki (for triplestore)
+- pip (Python package manager)
 
-### Step 1: Clone Repository
+### Setup
 
+1. **Clone the repository**
 ```bash
-git clone <repository-url>
-cd tolkien_knowledge_graph
+git clone <your-repo-url>
+cd tolkien-kg
 ```
 
-### Step 2: Create Virtual Environment
-
-```bash
-# Windows
-python -m venv venv
-venv\Scripts\activate
-
-# macOS/Linux
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### Step 3: Install Dependencies
-
+2. **Install Python dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 4: Download and Start Apache Fuseki
-
+3. **Download and run Apache Fuseki**
 ```bash
 # Download from https://jena.apache.org/download/
 # Extract and run:
-cd apache-jena-fuseki-x.x.x
 ./fuseki-server
-# Or on Windows:
-fuseki-server.bat
 ```
 
-Fuseki will start on `http://localhost:3030`
+The server will start on `http://localhost:3030`
 
-## Usage
+## 📦 Dependencies
 
-### Running the Complete Pipeline
-
-Execute the scripts in order:
-
-#### 1. Fetch Pages from Tolkien Gateway
-```bash
-python src/01_fetch_pages.py
 ```
-Downloads wiki pages for ~50 major Tolkien entities via MediaWiki API. Output: `data/tolkien_pages.json`
+Core RDF and Semantic Web:
+- rdflib (7.0.0) - RDF graph manipulation
+- SPARQLWrapper (2.0.0) - SPARQL queries
+- owlrl (6.0.2) - OWL reasoning
+- pyshacl (0.25.0) - SHACL validation
 
-#### 2. Parse Templates
-```bash
-python src/02_parse_templates.py
+MediaWiki:
+- mwclient (0.10.1) - MediaWiki API client
+- mwparserfromhell (0.6.6) - Wikitext parser
+
+Web Framework:
+- Flask (3.0.0) - Web application
+- Flask-CORS (4.0.0) - Cross-origin support
+
+Utilities:
+- pandas (2.1.4) - Data processing
+- requests (2.31.0) - HTTP requests
+- tqdm (4.66.1) - Progress bars
 ```
-Extracts infoboxes and structured data from wikitext. Output: `data/parsed_templates.json`
 
-#### 3. Build RDF Knowledge Graph
+## 🎯 Usage
+
+### Step 1: Fetch Pages from Tolkien Gateway
+
 ```bash
-python src/03_build_rdf.py
+python 01_fetch_pages.py
 ```
-Converts parsed data to RDF triples using Schema.org vocabulary. Output: `output/tolkien_kg.ttl`
 
-#### 4. Validate with SHACL (Optional)
+Fetches wikitext for 60+ entities including:
+- Characters: Gandalf, Frodo, Aragorn, Legolas, etc.
+- Locations: Rivendell, Minas Tirith, Mordor, etc.
+- Regions: Gondor, Rohan, The Shire, etc.
+
+**Output**: `data/tolkien_pages.json`
+
+### Step 2: Parse Wikitext Templates
+
 ```bash
-python src/04_validate_shacl.py
+python 02_parse_templates.py
 ```
-Validates data quality against SHACL constraints. Output: `output/shacl_validation_report.json`
 
-#### 5. Apply Reasoning ⭐
+Extracts structured data from MediaWiki templates (infoboxes).
+
+**Output**: `data/parsed_templates.json`
+
+### Step 3: Build RDF Knowledge Graph
+
 ```bash
-python src/06_apply_reasoning.py
+python 03_build_rdf.py
 ```
-Runs all inference algorithms to enrich the graph. Output: `output/tolkien_kg_reasoned.ttl`
 
-**This is the key step for the enhanced reasoning features!**
+Converts parsed templates to RDF using:
+- **Schema.org** for common types (Person, Place, Event)
+- **Custom ontology** for Tolkien-specific concepts (Race, House, Artifact)
 
-#### 6. Load into Fuseki
+**Output**: `output/tolkien_kg.ttl`
+
+### Step 4: Validate with SHACL (Optional)
+
 ```bash
-python src/05_load_fuseki.py
+python 04_validate_shacl.py
 ```
-Uploads the reasoned graph to Apache Fuseki triple store.
 
-### Launching the Web Interface
+Validates RDF data against SHACL shapes for data quality.
+
+**Output**: `output/shacl_validation_report.json`
+
+### Step 5: Load into Fuseki
 
 ```bash
-cd web
+python 05_load_fuseki.py
+```
+
+Creates dataset and uploads RDF to Apache Fuseki triplestore.
+
+### Step 6: Apply Reasoning
+
+```bash
+python 06_apply_reasoning.py
+```
+
+Enriches the knowledge graph with inferred relationships:
+- Family relationships (siblings, parent-child)
+- Inverse properties (memberOf ↔ hasMember)
+- Fellowship membership
+- Race-based groupings
+
+**Output**: `output/tolkien_kg_reasoned.ttl`
+
+### Step 7: Launch Web Interface
+
+```bash
 python app.py
 ```
 
-Access at `http://localhost:5000`
+Visit `http://localhost:5000` to explore the knowledge graph.
 
-Features:
-- Browse all entities (characters, locations, events, organizations)
-- Search by name
-- View detailed entity information with all properties
-- Explore inverse relationships (e.g., "Members of House of Elrond")
-- Content negotiation: add `Accept: text/turtle` header for RDF
+## 🌐 Web Interface
 
-### Example SPARQL Queries
+The Flask application provides:
 
-Access Fuseki's query interface at `http://localhost:3030/tolkien/sparql` or use the web app.
+- **Home Page**: Browse all entities
+- **Search**: Find entities by name
+- **Entity Pages**: Detailed information with linked relationships
+- **Content Negotiation**: 
+  - HTML for browsers
+  - Turtle (text/turtle) for RDF clients
+- **API Endpoint**: `/api/stats` for statistics
 
-#### Find all members of the Fellowship
+### Example URLs
+
+```
+http://localhost:5000/
+http://localhost:5000/search?q=Gandalf
+http://localhost:5000/resource/Frodo_Baggins
+```
+
+## 📊 Ontology
+
+### Classes
+
+| Class | Description | Schema |
+|-------|-------------|--------|
+| Person | Characters | schema:Person |
+| Place | Locations | schema:Place |
+| Event | Historical events | schema:Event |
+| Organization | Groups, fellowships | schema:Organization |
+| Race | Peoples (Elves, Hobbits, etc.) | tgo:Race |
+| House | Noble houses | tgo:House |
+| Artifact | Weapons, items | tgo:Artifact |
+| Creature | Mounts, animals | tgo:Creature |
+
+### Key Properties
+
+**Relationships**:
+- `schema:spouse`, `tgo:siblings`, `tgo:parentage`
+- `schema:memberOf` ↔ `tgo:hasMember`
+- `tgo:belongsToRace` ↔ `tgo:raceIncludes`
+- `tgo:wields` ↔ `tgo:wieldedBy`
+
+**Attributes**:
+- `schema:name`, `schema:birthDate`, `schema:deathDate`
+- `tgo:race`, `tgo:realm`, `tgo:house`
+
+## 🔍 Example SPARQL Queries
+
+### Find all members of the Fellowship
+
 ```sparql
 PREFIX tgo: <http://tolkiengateway.net/kg/ontology/>
-PREFIX tg: <http://tolkiengateway.net/kg/resource/>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?name WHERE {
+  ?member tgo:memberOf <http://tolkiengateway.net/kg/resource/Fellowship_of_the_Ring> ;
+          schema:name ?name .
+}
+```
+
+### Find all Hobbits
+
+```sparql
+PREFIX tgo: <http://tolkiengateway.net/kg/ontology/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?member ?name WHERE {
-  ?member tgo:memberOf tg:Fellowship_of_the_Ring ;
+SELECT ?name WHERE {
+  ?person tgo:belongsToRace <http://tolkiengateway.net/kg/resource/Hobbits> ;
           rdfs:label ?name .
 }
 ```
 
-#### Find all wielders of artifacts (using inverse inference)
+### Find all wielders of artifacts
+
 ```sparql
 PREFIX tgo: <http://tolkiengateway.net/kg/ontology/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?artifact ?artifactName ?wielder ?wielderName WHERE {
-  ?artifact tgo:wieldedBy ?wielder ;
-            rdfs:label ?artifactName .
-  ?wielder rdfs:label ?wielderName .
+SELECT ?person ?artifact WHERE {
+  ?artifact tgo:wieldedBy ?person .
 }
 ```
 
-#### Find all Elves and their subclasses (using RDFS inference)
-```sparql
-PREFIX tg: <http://tolkiengateway.net/kg/resource/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+## 📁 Project Structure
 
-SELECT ?elf ?name WHERE {
-  ?elf rdf:type tg:Elves ;
-       rdfs:label ?name .
-}
+```
+tolkien-kg/
+├── 01_fetch_pages.py       # MediaWiki data extraction
+├── 02_parse_templates.py   # Wikitext template parser
+├── 03_build_rdf.py          # RDF graph builder
+├── 04_validate_shacl.py     # SHACL validator
+├── 05_load_fuseki.py        # Fuseki loader
+├── 06_apply_reasoning.py    # Semantic reasoning engine
+├── app.py                   # Flask web application
+├── config.py                # Configuration settings
+├── requirements.txt         # Python dependencies
+├── data/
+│   ├── tolkien_pages.json
+│   └── parsed_templates.json
+├── output/
+│   ├── tolkien_kg.ttl
+│   ├── tolkien_kg_reasoned.ttl
+│   └── shacl_validation_report.json
+├── shapes/
+│   └── tolkien_shapes.ttl
+└── templates/
+    ├── base.html
+    ├── index.html
+    ├── search.html
+    └── entity.html
 ```
 
-## Configuration
+## 🧪 Reasoning Rules
+
+The reasoning engine applies:
+
+1. **RDFS Entailment**: Subclass and subproperty inference
+2. **Family Relationships**: Sibling inference from shared parents
+3. **Inverse Properties**: Bidirectional relationships (e.g., memberOf ↔ hasMember)
+4. **Fellowship Membership**: Automatic tagging of the nine companions
+5. **Location Associations**: Birth/death location connections
+6. **Symmetric Properties**: Spouse and sibling symmetry
+
+## 📈 Statistics
+
+After reasoning, the knowledge graph contains approximately:
+- **1,500+** RDF triples
+- **60+** entities
+- **200+** relationships
+- **15+** property types
+
+## 🎓 Academic Context
+
+This project was developed for **Mines Saint-Étienne** as a semantic web technologies demonstration, showcasing:
+- RDF/RDFS/OWL standards
+- Linked Data principles
+- SPARQL queries
+- Semantic reasoning
+- Data integration from external sources
+
+## 📝 Configuration
 
 Edit `config.py` to customize:
 
-- **Data limits**: `MAX_PAGES` (set to `None` for all pages)
-- **API settings**: User agent, request delays
-- **Fuseki endpoints**: Host, port, dataset name
-- **Flask settings**: Host, port, debug mode
-- **Namespace URIs**: Base URIs for resources and ontologies
-
-## Development
-
-### Adding New Reasoning Rules
-
-Edit [src/06_apply_reasoning.py](src/06_apply_reasoning.py):
-
 ```python
-def infer_custom_rule(self):
-    """Your custom inference logic"""
-    inferred = 0
-    
-    for s, p, o in self.graph.triples((None, YOUR_PROPERTY, None)):
-        # Inference logic here
-        self.graph.add((s, NEW_PROPERTY, o))
-        inferred += 1
-    
-    return inferred
+# MediaWiki API
+WIKI_DOMAIN = "tolkiengateway.net"
 
-# Add to main() function
-reasoner.infer_custom_rule()
+# Namespaces
+NAMESPACE_BASE = "http://tolkiengateway.net/kg/"
+
+# Apache Fuseki
+FUSEKI_HOST = "http://localhost:3030"
+FUSEKI_DATASET = "tolkien"
+
+# Flask Server
+FLASK_PORT = 5000
 ```
 
-### Extending Entity Types
-
-Add new template mappings in [src/03_build_rdf.py](src/03_build_rdf.py):
-
-```python
-TEMPLATE_TO_CLASS = {
-    'infobox your_type': SCHEMA.YourType,
-    # ...
-}
-```
-
-## Data Quality
-
-- **SHACL Validation**: Ensures required properties, data types, and constraints
-- **Automated Testing**: Template parsing validates against known patterns
-- **Inference Verification**: Reasoning statistics track triple growth
-- **Manual Review**: Output files are human-readable Turtle format
-
-## Performance
-
-- **Pages Processed**: ~50 entities (configurable)
-- **Triples Generated**: ~8,000 base + ~2,000 inferred
-- **Reasoning Time**: ~2-3 seconds
-- **Query Response**: <100ms for typical SPARQL queries
-
-## Troubleshooting
+## 🛠️ Troubleshooting
 
 ### Fuseki Connection Error
-```
-Error: Could not connect to Fuseki
-```
-**Solution**: Ensure Fuseki is running on port 3030: `./fuseki-server`
+```bash
+# Ensure Fuseki is running
+./fuseki-server
 
-### Missing Data Files
+# Check http://localhost:3030
 ```
-Error: Input file not found
-```
-**Solution**: Run pipeline scripts in order (01 → 02 → 03 → 06 → 05)
+
+### SHACL Validation Fails
+This is informational - the knowledge graph will still work. Review `output/shacl_validation_details.txt` for specific issues.
 
 ### Import Errors
+```bash
+# Reinstall dependencies
+pip install -r requirements.txt --force-reinstall
 ```
-ModuleNotFoundError: No module named 'rdflib'
+
+## 🔗 Resources
+
+- [Tolkien Gateway](https://tolkiengateway.net) - Data source
+- [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/) - Triple store
+- [RDFLib Documentation](https://rdflib.readthedocs.io/) - RDF library
+- [Schema.org](https://schema.org/) - Vocabulary
+
+## 📄 License
+
+This project is for educational purposes. Tolkien Gateway content is used under fair use for academic research.
+
+## 👤 Author
+
+Developed as part of semantic web coursework at **Mines Saint-Étienne**.
+
+## 🙏 Acknowledgments
+
+- Tolkien Gateway community for maintaining the wiki
+- Apache Jena team for Fuseki
+- RDFLib developers
 ```
-**Solution**: Activate virtual environment and reinstall: `pip install -r requirements.txt`
 
-### Web App 404 Errors
-**Solution**: Ensure Fuseki is loaded with data: `python src/05_load_fuseki.py`
-
-## Future Enhancements
-
-- [ ] Entity resolution and owl:sameAs linking to DBpedia
-- [ ] Temporal reasoning (timeline inference)
-- [ ] Geospatial reasoning (location hierarchies)
-- [ ] Multi-language support
-- [ ] REST API with OpenAPI documentation
-- [ ] Graph visualization dashboard
-- [ ] Incremental updates from Tolkien Gateway
-
-## Contributing
-
-Contributions welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch
-3. Add tests for new reasoning rules
-4. Submit a pull request
-
-## License
-
-This project is for educational purposes. Tolkien Gateway content is used under their terms of service.
-
-## Acknowledgments
-
-- **Tolkien Gateway** for comprehensive Middle-earth knowledge
-- **Schema.org** for semantic vocabulary standards
-- **Apache Jena** for SPARQL infrastructure
-- **RDFLib** for Python RDF processing
-
-## Contact
-
-For questions or collaboration:
-- Project: Mines Saint-Étienne University
-- Purpose: Semantic Web & Knowledge Graph Research
-
----
-
-**Built with semantic web technologies to preserve and explore the legendarium of J.R.R. Tolkien** 🧙‍♂️
+This README provides a complete overview of your Tolkien Knowledge Graph project, including installation instructions, usage guide, architecture explanation, and all the key components of the semantic web pipeline you've built. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/119332933/bfc2b665-b1b8-459d-9fe0-b239fa7a005e/01_fetch_pages.py)
