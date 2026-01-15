@@ -27,9 +27,9 @@ Tolkien Gateway API
     ↓
 04_validate_shacl.py → validation reports
     ↓
-05_load_fuseki.py → Apache Fuseki
-    ↓
 06_apply_reasoning.py → tolkien_kg_reasoned.ttl
+    ↓
+05_load_fuseki.py → Apache Fuseki
     ↓
 app.py (Flask) → Web Interface
 ```
