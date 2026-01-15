@@ -4,6 +4,8 @@
 @prefix schema: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
 # ============================================================
 # CHARACTER SHAPES
@@ -13,104 +15,164 @@ tgo:CharacterShape
     a sh:NodeShape ;
     sh:targetClass schema:Person ;
     sh:name "Character Validation Shape" ;
-    sh:description "Validates Tolkien characters have required properties" ;
+    sh:description "Validates Tolkien characters" ;
     
-    # Every character MUST have a name
-    sh:property [
-        sh:path schema:name ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:string ;
-        sh:message "Character must have exactly one name (schema:name)" ;
-    ] ;
-    
-    # Every character MUST have a label
     sh:property [
         sh:path rdfs:label ;
         sh:minCount 1 ;
-        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
         sh:message "Character must have an rdfs:label" ;
     ] ;
     
-    # Gender must be one of: Male, Female, or Unknown
+    sh:property [
+        sh:path schema:name ;
+        sh:maxCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Character should have a schema:name" ;
+    ] ;
+    
     sh:property [
         sh:path schema:gender ;
         sh:maxCount 1 ;
-        sh:in ("Male" "Female" "Unknown") ;
-        sh:message "Gender must be 'Male', 'Female', or 'Unknown'" ;
+        sh:severity sh:Info ;
+        sh:message "Gender may be specified if known" ;
     ] ;
     
-    # People/race is required
     sh:property [
         sh:path tgo:people ;
-        sh:minCount 1 ;
-        sh:message "Character must have a race/people (tgo:people)" ;
+        sh:severity sh:Warning ;
+        sh:message "Character should have a race or people" ;
     ] ;
     
-    # Birth date if present should be valid
     sh:property [
         sh:path schema:birthDate ;
         sh:maxCount 1 ;
+        sh:severity sh:Violation ;
         sh:message "Character can have at most one birth date" ;
     ] ;
     
-    # Death date if present should be valid
     sh:property [
         sh:path schema:deathDate ;
         sh:maxCount 1 ;
+        sh:severity sh:Violation ;
         sh:message "Character can have at most one death date" ;
     ] .
 
 # ============================================================
-# LOCATION SHAPES
+# PLACE SHAPES
 # ============================================================
 
-tgo:LocationShape
+tgo:PlaceShape
     a sh:NodeShape ;
-    sh:targetClass schema:Thing ;
-    sh:name "Location Validation Shape" ;
-    sh:description "Validates Tolkien locations have required properties" ;
+    sh:targetClass schema:Place ;
+    sh:name "Place Validation Shape" ;
+    sh:description "Validates geographical locations" ;
     
-    # Every location MUST have a name
-    sh:property [
-        sh:path tgo:name ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:string ;
-        sh:message "Location must have exactly one name (tgo:name)" ;
-    ] ;
-    
-    # Every location MUST have a label
     sh:property [
         sh:path rdfs:label ;
         sh:minCount 1 ;
-        sh:datatype xsd:string ;
-        sh:message "Location must have an rdfs:label" ;
+        sh:severity sh:Violation ;
+        sh:message "Place must have an rdfs:label" ;
     ] ;
     
-    # Type is recommended
     sh:property [
-        sh:path tgo:type ;
+        sh:path schema:name ;
+        sh:maxCount 1 ;
         sh:severity sh:Warning ;
-        sh:minCount 1 ;
-        sh:message "Location should have a type (e.g., City, Mountain, Forest)" ;
+        sh:message "Place should have a schema:name" ;
+    ] ;
+    
+    sh:property [
+        sh:path schema:additionalType ;
+        sh:severity sh:Info ;
+        sh:message "Place may have a type" ;
+    ] ;
+    
+    sh:property [
+        sh:path schema:containedInPlace ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Info ;
+        sh:message "Place may be contained in another place" ;
     ] .
 
 # ============================================================
-# GENERAL DATA QUALITY CONSTRAINTS
+# GENERIC ENTITY SHAPES
 # ============================================================
 
-tgo:EntitySourceShape
+tgo:ThingShape
     a sh:NodeShape ;
-    sh:targetSubjectsOf rdfs:label ;
-    sh:name "Source Attribution Shape" ;
-    sh:description "Every entity should cite its source" ;
+    sh:targetClass schema:Thing ;
+    sh:name "Generic Entity Validation" ;
+    sh:description "Minimal validation for unclassified entities" ;
     
     sh:property [
-        sh:path <http://purl.org/dc/terms/source> ;
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Entity must have an rdfs:label" ;
+    ] ;
+    
+    sh:property [
+        sh:path dcterms:source ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        sh:message "Entity should have a dcterms:source citing TolkienGateway" ;
+        sh:message "Entity should cite its source" ;
+    ] .
+
+# ============================================================
+# ENTITY INTEGRITY
+# ============================================================
+
+tgo:EntityIntegrityShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf rdfs:label ;
+    sh:name "Entity Integrity Validation" ;
+    
+    sh:property [
+        sh:path rdf:type ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Entity must have at least one rdf:type" ;
+    ] .
+
+# ============================================================
+# RELATIONSHIP CONSTRAINTS
+# ============================================================
+
+tgo:ParentageIntegrityShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf tgo:parentage ;
+    sh:name "Parentage Validation" ;
+    
+    sh:property [
+        sh:path tgo:parentage ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Warning ;
+        sh:message "Parentage should reference an entity URI" ;
+    ] .
+
+tgo:AffiliationIntegrityShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf tgo:affiliation ;
+    sh:name "Affiliation Validation" ;
+    
+    sh:property [
+        sh:path tgo:affiliation ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Warning ;
+        sh:message "Affiliation should reference an entity URI" ;
+    ] .
+
+tgo:LocationIntegrityShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf tgo:location ;
+    sh:name "Location Reference Validation" ;
+    
+    sh:property [
+        sh:path tgo:location ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Warning ;
+        sh:message "Location should reference an entity URI" ;
     ] .
 
 # ============================================================
@@ -125,42 +187,24 @@ tgo:LanguageTagShape
     sh:property [
         sh:path rdfs:label ;
         sh:languageIn ("en") ;
-        sh:message "Labels must have @en language tag" ;
+        sh:severity sh:Warning ;
+        sh:message "Labels should have language tags" ;
     ] .
 
 # ============================================================
-# RELATIONSHIP CONSTRAINTS
+# SOURCE ATTRIBUTION
 # ============================================================
 
-tgo:ParentageShape
+tgo:SourceAttributionShape
     a sh:NodeShape ;
-    sh:targetSubjectsOf tgo:parentage ;
-    sh:name "Parentage Relationship Validation" ;
+    sh:targetClass schema:Person, schema:Place, schema:Event ;
+    sh:name "Source Attribution Validation" ;
+    sh:description "Ensures traceability of entities" ;
     
     sh:property [
-        sh:path tgo:parentage ;
+        sh:path dcterms:source ;
+        sh:minCount 1 ;
         sh:nodeKind sh:IRI ;
-        sh:message "Parentage must reference a valid entity (IRI)" ;
-    ] .
-
-tgo:AffiliationShape
-    a sh:NodeShape ;
-    sh:targetSubjectsOf tgo:affiliation ;
-    sh:name "Affiliation Relationship Validation" ;
-    
-    sh:property [
-        sh:path tgo:affiliation ;
-        sh:nodeKind sh:IRI ;
-        sh:message "Affiliation must reference a valid entity (IRI)" ;
-    ] .
-
-tgo:LocationReferenceShape
-    a sh:NodeShape ;
-    sh:targetSubjectsOf tgo:location ;
-    sh:name "Location Reference Validation" ;
-    
-    sh:property [
-        sh:path tgo:location ;
-        sh:nodeKind sh:IRI ;
-        sh:message "Location must reference a valid entity (IRI)" ;
+        sh:severity sh:Warning ;
+        sh:message "Entity should have a source attribution" ;
     ] .

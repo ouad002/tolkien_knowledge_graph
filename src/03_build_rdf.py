@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
-
 """
 Steps 5-6: Build RDF Knowledge Graph from parsed templates
 Outputs: output/tolkien_kg.ttl
 """
-
 import json
 import re
 from rdflib import Graph, Namespace, URIRef, Literal, RDF, RDFS, OWL
@@ -17,38 +15,29 @@ project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, project_root)
 from config import *
 
-# Define namespaces
+# Define namespaces (DBpedia removed - schema.org only)
 TG = Namespace(RESOURCE_NS)
 TGO = Namespace(ONTOLOGY_NS)
 SCHEMA = Namespace(SCHEMA_ORG)
-DBP = Namespace(DBPEDIA_RESOURCE)
-DBO = Namespace(DBPEDIA_ONTOLOGY)
 
 # Template to schema.org class mappings
 TEMPLATE_TO_CLASS = {
     # Both orders supported
     'infobox character': SCHEMA.Person,
     'character': SCHEMA.Person,
-    
     'infobox location': SCHEMA.Place,
     'location infobox': SCHEMA.Place,
     'location': SCHEMA.Place,
-    
     'infobox book': SCHEMA.Book,
     'book': SCHEMA.Book,
-    
     'infobox event': SCHEMA.Event,
     'event': SCHEMA.Event,
-    
     'infobox item': SCHEMA.Thing,
     'item': SCHEMA.Thing,
-    
     'infobox language': SCHEMA.Language,
     'language': SCHEMA.Language,
-    
     'infobox weapon': SCHEMA.Product,
     'weapon': SCHEMA.Product,
-    
     'infobox organization': SCHEMA.Organization,
     'organization': SCHEMA.Organization
 }
@@ -107,22 +96,27 @@ def clean_wikitext_value(value):
     """
     Clean wikitext markup from values
     Examples:
-        [[Gandalf]] -> Gandalf
-        [[Gandalf|Gandalf the Grey]] -> Gandalf the Grey
-        '''bold''' -> bold
+      [[Gandalf]] -> Gandalf
+      [[Gandalf|Gandalf the Grey]] -> Gandalf the Grey
+      '''bold''' -> bold
     """
     # Remove wikilinks: [[target|text]] -> text or [[target]] -> target
     value = re.sub(r'\[\[([^\]|]+)\|([^\]]+)\]\]', r'\2', value)
     value = re.sub(r'\[\[([^\]]+)\]\]', r'\1', value)
+    
     # Remove bold/italic markers
     value = re.sub(r"'''([^']+)'''", r'\1', value)
     value = re.sub(r"''([^']+)''", r'\1', value)
+    
     # Remove HTML tags
     value = re.sub(r'<[^>]+>', '', value)
+    
     # Remove templates (simplified)
     value = re.sub(r'\{\{[^\}]+\}\}', '', value)
+    
     # Clean whitespace
     value = re.sub(r'\s+', ' ', value).strip()
+    
     return value
 
 def extract_wikilink_target(value):
@@ -163,14 +157,17 @@ def is_descriptive_value(value):
     ]
     
     value_lower = value.lower().strip()
+    
     # Check exact matches
     if value_lower in descriptive_patterns:
         return True
+    
     # Check if starts with descriptive phrases
     descriptive_prefixes = ['at least', 'possibly', 'unknown', 'none']
     for prefix in descriptive_prefixes:
         if value_lower.startswith(prefix):
             return True
+    
     return False
 
 def get_descriptive_property(param_name):
@@ -214,7 +211,6 @@ def extract_embedded_entities(entity_uri, params, graph):
     Extract entities embedded in properties (events, organizations, races, weapons)
     and create them as standalone entities with relationships
     """
-    
     # 1. EVENTS - from 'events' property (locations) or 'notablefor' (characters)
     if 'events' in params:
         event_names = extract_all_wikilinks(params['events'])
@@ -289,6 +285,17 @@ def map_infobox_to_rdf(page_title, infobox, graph):
     
     # Map template to RDF class
     rdf_class = TEMPLATE_TO_CLASS.get(template_type, SCHEMA.Thing)
+    
+    # AUTO-DETECTION: If no template match but has location-indicating properties
+    if rdf_class == SCHEMA.Thing:
+        params = infobox['params']
+        location_indicators = ['location', 'inhabitants', 'type', 'founded', 
+                              'destroyed', 'capital', 'regions', 'settlements']
+        
+        if any(indicator in params for indicator in location_indicators):
+            rdf_class = SCHEMA.Place
+            print(f"  → Auto-detected as Place: {page_title}")
+    
     graph.add((entity_uri, RDF.type, rdf_class))
     
     # Add rdfs:label
@@ -314,7 +321,6 @@ def map_infobox_to_rdf(page_title, infobox, graph):
         
         # Get RDF property for relationships
         rdf_property = property_map.get(param_name)
-        
         if not rdf_property:
             # Use custom property in TGO namespace
             safe_param = re.sub(r'[^\w]', '_', param_name)
@@ -340,7 +346,7 @@ def map_infobox_to_rdf(page_title, infobox, graph):
                 # Use standard property for normal literal values
                 graph.add((entity_uri, rdf_property, Literal(clean_value, lang='en')))
     
-    # ✨ NEW: Extract embedded entities from properties
+    # ✨ Extract embedded entities from properties
     extract_embedded_entities(entity_uri, infobox['params'], graph)
     
     # Add source information
@@ -358,6 +364,7 @@ def process_wikilinks(page_title, wikilinks, graph):
     for link in wikilinks:
         target_title = link['target']
         target_uri = create_entity_uri(target_title)
+        
         # Add generic "links to" relationship
         graph.add((source_uri, SCHEMA.mentions, target_uri))
 
@@ -370,17 +377,15 @@ def build_knowledge_graph(pages_data):
     """
     g = Graph()
     
-    # Bind namespaces
+    # Bind namespaces (DBpedia removed)
     g.bind("tg", TG)
     g.bind("tgo", TGO)
     g.bind("schema", SCHEMA)
-    g.bind("dbp", DBP)
-    g.bind("dbo", DBO)
     g.bind("owl", OWL)
     g.bind("dcterms", DCTERMS)
     g.bind("foaf", FOAF)
     
-    print("\nBuilding RDF Knowledge Graph...")
+    print("\nBuilding RDF Knowledge Graph (schema.org only)...")
     
     stats = {
         'total_pages': 0,
@@ -399,7 +404,6 @@ def build_knowledge_graph(pages_data):
         # Process infoboxes
         if page['infoboxes']:
             stats['pages_with_infoboxes'] += 1
-            
             for infobox in page['infoboxes']:
                 entity_uri = map_infobox_to_rdf(page['title'], infobox, g)
                 if entity_uri:
@@ -424,7 +428,7 @@ def build_knowledge_graph(pages_data):
 def main():
     """Main execution function"""
     print("="*60)
-    print("Tolkien Gateway RDF Builder (Enhanced)")
+    print("Tolkien Gateway RDF Builder (schema.org only)")
     print("="*60)
     
     # Load parsed templates
@@ -440,7 +444,6 @@ def main():
     
     # Save to Turtle format
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    
     print(f"\n✓ Serializing to Turtle format...")
     graph.serialize(destination=RDF_OUTPUT_FILE, format='turtle')
     
@@ -452,13 +455,14 @@ def main():
     print(f"Pages with infoboxes: {stats['pages_with_infoboxes']}")
     print(f"Entities created: {stats['entities_created']}")
     print(f"\n📊 Extracted Entities:")
-    print(f"  - Events: {stats['events_extracted']}")
-    print(f"  - Organizations: {stats['organizations_extracted']}")
-    print(f"  - Races: {stats['races_extracted']}")
-    print(f"  - Artifacts: {stats['artifacts_extracted']}")
+    print(f"   - Events: {stats['events_extracted']}")
+    print(f"   - Organizations: {stats['organizations_extracted']}")
+    print(f"   - Races: {stats['races_extracted']}")
+    print(f"   - Artifacts: {stats['artifacts_extracted']}")
     print(f"\nTotal triples: {stats['total_triples']:,}")
     print(f"\nOutput file: {RDF_OUTPUT_FILE}")
     print(f"File size: {os.path.getsize(RDF_OUTPUT_FILE) / (1024*1024):.2f} MB")
+    print("\n✅ Using schema.org vocabulary only (DBpedia removed)")
 
 if __name__ == "__main__":
     main()

@@ -1,127 +1,16 @@
 {
-  "timestamp": "2026-01-14T16:18:50.869321",
+  "timestamp": "2026-01-15T18:34:26.567259",
   "data_file": "output/tolkien_kg.ttl",
   "shapes_file": "shapes\\tolkien_shapes.ttl",
-  "data_triples": 1452,
-  "shapes_triples": 99,
+  "data_triples": 1999,
+  "shapes_triples": 126,
   "validation": {
     "conforms": false,
-    "violations": 135,
+    "violations": 0,
     "warnings": 0,
     "infos": 0,
-    "total_issues": 135,
-    "violation_details": [
-      {
-        "type": "violation",
-        "details": [
-          "Severity: sh:Violation",
-          "Source Shape: [ sh:message Literal(\"Location must reference a valid entity (IRI)\") ; sh:nodeKind sh:IRI ; sh:path tgo:location ]",
-          "Focus Node: tg:Gandalf",
-          "Value Node: Literal(\"No fixed abode\", lang=en)",
-          "Result Path: tgo:location",
-          "Message: Location must reference a valid entity (IRI)"
-        ]
-      },
-      {
-        "type": "violation",
-        "details": [
-          "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
-          "Focus Node: tg:Emyn_Muil",
-          "Value Node: Literal(\"Emyn Muil\", lang=en)",
-          "Result Path: tgo:name",
-          "Message: Location must have exactly one name (tgo:name)"
-        ]
-      },
-      {
-        "type": "violation",
-        "details": [
-          "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
-          "Focus Node: tg:Argonath",
-          "Value Node: Literal(\"The Argonath\", lang=en)",
-          "Result Path: tgo:name",
-          "Message: Location must have exactly one name (tgo:name)"
-        ]
-      },
-      {
-        "type": "violation",
-        "details": [
-          "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
-          "Focus Node: tg:Cirith_Ungol",
-          "Value Node: Literal(\"Cirith Ungol\", lang=en)",
-          "Result Path: tgo:name",
-          "Message: Location must have exactly one name (tgo:name)"
-        ]
-      },
-      {
-        "type": "violation",
-        "details": [
-          "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
-          "Focus Node: tg:Orthanc",
-          "Value Node: Literal(\"Orthanc\", lang=en)",
-          "Result Path: tgo:name",
-          "Message: Location must have exactly one name (tgo:name)"
-        ]
-      },
-      {
-        "type": "violation",
-        "details": [
-          "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
-          "Focus Node: tg:The_Shire",
-          "Value Node: Literal(\"The Shire\", lang=en)",
-          "Result Path: tgo:name",
-          "Message: Location must have exactly one name (tgo:name)"
-        ]
-      },
-      {
-        "type": "violation",
-        "details": [
-          "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
-          "Focus Node: tg:Dead_Marshes",
-          "Value Node: Literal(\"Dead Marshes\", lang=en)",
-          "Result Path: tgo:name",
-          "Message: Location must have exactly one name (tgo:name)"
-        ]
-      },
-      {
-        "type": "violation",
-        "details": [
-          "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
-          "Focus Node: tg:Weathertop",
-          "Value Node: Literal(\"Weathertop\", lang=en)",
-          "Result Path: tgo:name",
-          "Message: Location must have exactly one name (tgo:name)"
-        ]
-      },
-      {
-        "type": "violation",
-        "details": [
-          "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
-          "Focus Node: tg:Rhovanion",
-          "Value Node: Literal(\"Rhovanion\", lang=en)",
-          "Result Path: tgo:name",
-          "Message: Location must have exactly one name (tgo:name)"
-        ]
-      },
-      {
-        "type": "violation",
-        "details": [
-          "Severity: sh:Violation",
-          "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Location must have exactly one name (tgo:name)\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path tgo:name ]",
-          "Focus Node: tg:Lothlórien",
-          "Value Node: Literal(\"Lothlórien\", lang=en)",
-          "Result Path: tgo:name",
-          "Message: Location must have exactly one name (tgo:name)"
-        ]
-      }
-    ],
+    "total_issues": 0,
+    "violation_details": [],
     "warning_details": []
   }
 }
