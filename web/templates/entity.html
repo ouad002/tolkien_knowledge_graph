@@ -1,239 +1,206 @@
 {% extends "base.html" %}
 
-{% block title %}{{ entity_label }}{% endblock %}
+{% block title %}{{ entity_label }} - Tolkien KG{% endblock %}
 
 {% block content %}
-<div class="entity-header">
-    <h1>{{ entity_label }}</h1>
-    {% if entity_type %}
-    <span class="badge badge-{{ entity_type|lower }}">{{ entity_type }}</span>
-    {% endif %}
-</div>
-
-<p class="entity-uri"><strong>URI:</strong> <code>{{ entity_uri }}</code></p>
-
-{% if error %}
-<p class="error">{{ error }}</p>
-{% else %}
-
-<h2>Properties</h2>
-
-{% if properties %}
-<div class="properties-grid">
-    <!-- Priority properties first (members, participants, wielders, etc.) -->
-    {% set priority_props = ['Members', 'Participants', 'Wielded by', 'Ridden by', 'Spoken by', 
-                             'Members of this race', 'Members of this house'] %}
-    
-    {% for prop_name in priority_props %}
-        {% if prop_name in properties %}
-        <div class="property-section priority">
-            <h3>{{ prop_name }}</h3>
-            <ul class="property-values">
-            {% for val in properties[prop_name] %}
-                <li>
-                    {% if val.is_uri %}
-                        <a href="/resource/{{ val.local_name }}">{{ val.label }}</a>
-                    {% else %}
-                        {{ val.label }}
-                    {% endif %}
-                </li>
-            {% endfor %}
-            </ul>
-        </div>
+<article class="entity-page">
+    <header>
+        <h1>{{ entity_label }}</h1>
+        {% if entity_type %}
+        <span class="badge">{{ entity_type }}</span>
         {% endif %}
-    {% endfor %}
-    
-    <!-- Other important properties -->
-    {% set important_props = ['Member of', 'Race', 'House', 'Wields', 'Participated in', 
-                              'Notable for', 'Rides', 'Speaks', 'Parents', 'Siblings', 
-                              'Spouse', 'Children', 'Birth location', 'Death location'] %}
-    
-    {% for prop_name in important_props %}
-        {% if prop_name in properties %}
-        <div class="property-section">
-            <h3>{{ prop_name }}</h3>
-            <ul class="property-values">
-            {% for val in properties[prop_name] %}
-                <li>
-                    {% if val.is_uri %}
-                        <a href="/resource/{{ val.local_name }}">{{ val.label }}</a>
-                    {% else %}
-                        {{ val.label }}
-                    {% endif %}
-                </li>
-            {% endfor %}
-            </ul>
-        </div>
+    </header>
+
+    <section class="entity-metadata">
+        <p><strong>URI:</strong> <code>{{ entity_uri }}</code> 
+            <a href="{{ entity_uri }}" title="View as RDF/Turtle" style="margin-left: 10px;">
+                <small>[RDF]</small>
+            </a>
+        </p>
+        {% if entity_source %}
+        <p><strong>Source:</strong> 
+            <a href="{{ entity_source }}" target="_blank" rel="noopener">
+                {{ entity_source }}
+            </a>
+        </p>
         {% endif %}
-    {% endfor %}
-    
-    <!-- All other properties (except Type and Label) -->
-    {% for prop_name, values in properties.items() %}
-        {% if prop_name not in priority_props and prop_name not in important_props and prop_name not in ['Type', 'Label'] %}
-        <div class="property-section other">
-            <h3>{{ prop_name }}</h3>
-            <ul class="property-values">
+    </section>
+
+    {% if properties %}
+    <section class="entity-properties">
+        <h2>Properties</h2>
+        <dl>
+            {% for prop_name, values in properties.items() %}
+            <dt>{{ prop_name }}</dt>
             {% for val in values %}
-                <li>
-                    {% if val.is_uri %}
-                        <a href="/resource/{{ val.local_name }}">{{ val.label }}</a>
+            <dd>
+                {% if val.is_uri %}
+                    {% if val.is_internal %}
+                        <!-- Internal KG URI - will redirect to Tolkien Gateway if not found -->
+                        <a href="{{ url_for('entity', entity_name=val.local_name) }}" 
+                           title="{{ val.value }}">
+                            {{ val.label }}
+                        </a>
                     {% else %}
-                        {{ val.label }}
+                        <!-- External URI (source, image, etc.) -->
+                        <a href="{{ val.value }}" target="_blank" rel="noopener"
+                           title="{{ val.value }}">
+                            {% if val.value.startswith('http') and (val.value.endswith('.jpg') or val.value.endswith('.png')) %}
+                                🖼️ {{ val.label|truncate(60) }}
+                            {% else %}
+                                {{ val.label|truncate(80) }}
+                            {% endif %}
+                        </a>
                     {% endif %}
-                </li>
+                {% else %}
+                    <!-- Literal value -->
+                    {{ val.label }}
+                {% endif %}
+            </dd>
             {% endfor %}
-            </ul>
-        </div>
-        {% endif %}
-    {% endfor %}
-</div>
-{% else %}
-<p>No properties found for this entity.</p>
-{% endif %}
+            {% endfor %}
+        </dl>
+    </section>
+    {% else %}
+    <section class="no-properties">
+        <p>No properties found for this entity.</p>
+    </section>
+    {% endif %}
 
-{% endif %}
-
-<p><a href="/">← Back to homepage</a></p>
+    <footer class="entity-footer">
+        <a href="{{ url_for('index') }}" class="button">← Back to homepage</a>
+        <a href="https://tolkiengateway.net/wiki/{{ entity_label }}" 
+           target="_blank" 
+           rel="noopener"
+           class="button button-secondary">
+            View on Tolkien Gateway →
+        </a>
+    </footer>
+</article>
 
 <style>
-/* Entity header styling */
-.entity-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
+.entity-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.entity-header h1 {
-    margin: 0;
+.entity-page header {
+    border-bottom: 3px solid #2c3e50;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
 }
 
-/* Type badges */
+.entity-page h1 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    display: inline-block;
+}
+
 .badge {
-    padding: 0.25rem 0.75rem;
-    border-radius: 0.25rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    white-space: nowrap;
+    background: #3498db;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    margin-left: 15px;
+    font-weight: normal;
 }
 
-.badge-person { background: #3b82f6; color: white; }
-.badge-place { background: #10b981; color: white; }
-.badge-event { background: #f59e0b; color: white; }
-.badge-organization { background: #8b5cf6; color: white; }
-.badge-race { background: #ec4899; color: white; }
-.badge-artifact { background: #ef4444; color: white; }
-.badge-house { background: #6366f1; color: white; }
-.badge-creature { background: #14b8a6; color: white; }
-.badge-language { background: #a855f7; color: white; }
-.badge-book { background: #06b6d4; color: white; }
-.badge-thing { background: #6b7280; color: white; }
+.entity-metadata {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    font-size: 0.95em;
+}
 
-/* URI display */
-.entity-uri {
+.entity-metadata code {
+    background: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 3px;
     font-family: 'Courier New', monospace;
-    background: #f3f4f6;
-    padding: 0.75rem;
-    border-radius: 0.375rem;
-    font-size: 0.875rem;
-    overflow-x: auto;
-    border: 1px solid #e5e7eb;
+    font-size: 0.9em;
 }
 
-.entity-uri code {
-    background: transparent;
-    padding: 0;
+.entity-properties h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.4em;
 }
 
-/* Properties grid */
-.properties-grid {
-    display: grid;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-/* Property sections */
-.property-section {
+.entity-properties dl {
     background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    transition: all 0.2s;
-}
-
-.property-section:hover {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Priority properties (inverse relationships) */
-.property-section.priority {
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-    border-left: 4px solid #3b82f6;
-    border-color: #3b82f6;
-}
-
-/* Property headings */
-.property-section h3 {
-    color: #1e40af;
-    margin: 0 0 0.75rem 0;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.025em;
-}
-
-.property-section.other h3 {
-    color: #6b7280;
-    font-size: 0.875rem;
-}
-
-/* Property value lists */
-.property-values {
-    list-style: none;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
     padding: 0;
+}
+
+.entity-properties dt {
+    background: #f1f3f5;
+    padding: 12px 20px;
+    font-weight: bold;
+    color: #495057;
+    border-bottom: 1px solid #dee2e6;
     margin: 0;
 }
 
-.property-values li {
-    padding: 0.375rem 0;
-    border-bottom: 1px solid #f3f4f6;
+.entity-properties dd {
+    padding: 12px 20px;
+    margin: 0;
+    border-bottom: 1px solid #f1f3f5;
 }
 
-.property-values li:last-child {
+.entity-properties dd:last-of-type {
     border-bottom: none;
 }
 
-.property-values a {
-    color: #2563eb;
+.entity-properties a {
+    color: #007bff;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
 }
 
-.property-values a:hover {
-    color: #1d4ed8;
+.entity-properties a:hover {
     text-decoration: underline;
 }
 
-/* Error message */
-.error {
-    background: #fee2e2;
-    color: #991b1b;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border-left: 4px solid #dc2626;
+.no-properties {
+    background: #fff3cd;
+    padding: 20px;
+    border-radius: 5px;
+    border-left: 4px solid #ffc107;
 }
 
-/* Responsive design */
-@media (min-width: 768px) {
-    .properties-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .property-section.priority {
-        grid-column: 1 / -1;
-    }
+.entity-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background: #0056b3;
+    text-decoration: none;
+}
+
+.button-secondary {
+    background: #6c757d;
+}
+
+.button-secondary:hover {
+    background: #545b62;
 }
 </style>
 {% endblock %}
