@@ -346,7 +346,7 @@ def map_infobox_to_rdf(page_title, infobox, graph):
                 # Use standard property for normal literal values
                 graph.add((entity_uri, rdf_property, Literal(clean_value, lang='en')))
     
-    # ✨ Extract embedded entities from properties
+    # Extract embedded entities from properties
     extract_embedded_entities(entity_uri, infobox['params'], graph)
     
     # Add source information
@@ -462,7 +462,7 @@ def main():
     print(f"\nTotal triples: {stats['total_triples']:,}")
     print(f"\nOutput file: {RDF_OUTPUT_FILE}")
     print(f"File size: {os.path.getsize(RDF_OUTPUT_FILE) / (1024*1024):.2f} MB")
-    print("\n✅ Using schema.org vocabulary only (DBpedia removed)")
+    
 
 if __name__ == "__main__":
     main()
