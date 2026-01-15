@@ -459,10 +459,6 @@ def main():
     
     print(f"\n{'='*60}\n")
     print("✅ Reasoning complete!")
-    print(f"\nNext steps:")
-    print(f"  1. Reload into Fuseki: python src/05_load_fuseki.py --force")
-    print(f"  2. Test SPARQL queries with inferred facts")
-    print(f"  3. Launch web interface: cd web && python app.py")
 
 if __name__ == "__main__":
     main()
