@@ -174,7 +174,6 @@ The Flask application provides:
 - **Content Negotiation**: 
   - HTML for browsers
   - Turtle (text/turtle) for RDF clients
-- **API Endpoint**: `/api/stats` for statistics
 
 ### Example URLs
 
