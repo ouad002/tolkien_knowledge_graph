@@ -5,7 +5,7 @@ import os
 # Configuration
 FUSEKI_URL = "http://localhost:3030"
 DATASET_NAME = "tolkien"
-RDF_FILE = "output/tolkien_kg_reasoned.ttl"  # Changed from tolkien_kg.ttl
+RDF_FILE = "output/tolkien_kg_reasoned.ttl"  
 
 def setup_fuseki():
     print(f"Checking Fuseki connection at {FUSEKI_URL}...")
