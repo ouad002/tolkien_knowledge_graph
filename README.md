@@ -95,7 +95,7 @@ Utilities:
 python 01_fetch_pages.py
 ```
 
-Fetches wikitext for 60+ entities including:
+Fetches wikitext for 50+ pages that  includes:
 - Characters: Gandalf, Frodo, Aragorn, Legolas, etc.
 - Locations: Rivendell, Minas Tirith, Mordor, etc.
 - Regions: Gondor, Rohan, The Shire, etc.
@@ -124,7 +124,7 @@ Converts parsed templates to RDF using:
 
 **Output**: `output/tolkien_kg.ttl`
 
-### Step 4: Validate with SHACL (Optional)
+### Step 4: Validate with SHACL 
 
 ```bash
 python 04_validate_shacl.py
@@ -134,15 +134,7 @@ Validates RDF data against SHACL shapes for data quality.
 
 **Output**: `output/shacl_validation_report.json`
 
-### Step 5: Load into Fuseki
-
-```bash
-python 05_load_fuseki.py
-```
-
-Creates dataset and uploads RDF to Apache Fuseki triplestore.
-
-### Step 6: Apply Reasoning
+### Step 5: Apply Reasoning
 
 ```bash
 python 06_apply_reasoning.py
@@ -156,6 +148,13 @@ Enriches the knowledge graph with inferred relationships:
 
 **Output**: `output/tolkien_kg_reasoned.ttl`
 
+### Step 6: Load into Fuseki
+
+```bash
+python 05_load_fuseki.py
+```
+
+Creates dataset and uploads RDF to Apache Fuseki triplestore.
 ### Step 7: Launch Web Interface
 
 ```bash
@@ -250,29 +249,35 @@ SELECT ?person ?artifact WHERE {
 
 ```
 tolkien-kg/
-├── 01_fetch_pages.py       # MediaWiki data extraction
-├── 02_parse_templates.py   # Wikitext template parser
-├── 03_build_rdf.py          # RDF graph builder
-├── 04_validate_shacl.py     # SHACL validator
-├── 05_load_fuseki.py        # Fuseki loader
-├── 06_apply_reasoning.py    # Semantic reasoning engine
-├── app.py                   # Flask web application
-├── config.py                # Configuration settings
-├── requirements.txt         # Python dependencies
 ├── data/
-│   ├── tolkien_pages.json
-│   └── parsed_templates.json
+│   ├── parsed_templates.json
+│   └── tolkien_pages.json
 ├── output/
+│   ├── shacl_validation_detail.json
+│   ├── shacl_validation_report.json
 │   ├── tolkien_kg.ttl
-│   ├── tolkien_kg_reasoned.ttl
-│   └── shacl_validation_report.json
+│   └── tolkien_kg_reasoned.ttl
 ├── shapes/
 │   └── tolkien_shapes.ttl
-└── templates/
-    ├── base.html
-    ├── index.html
-    ├── search.html
-    └── entity.html
+├── src/
+│   ├── 01_fetch_pages.py
+│   ├── 02_parse_templates.py
+│   ├── 03_build_rdf.py
+│   ├── 04_validate_shacl.py
+│   ├── 05_load_fuseki.py
+│   └── 06_apply_reasoning.py
+├── web/
+│   ├── static/
+│   ├── templates/
+│   │   ├── base.html
+│   │   ├── index.html
+│   │   ├── search.html
+│   │   └── entity.html
+│   └── app.py
+├── .gitignore
+├── config.py
+├── README.md
+└── requirements.txt
 ```
 
 ## 🧪 Reasoning Rules
@@ -289,11 +294,8 @@ The reasoning engine applies:
 ## 📈 Statistics
 
 After reasoning, the knowledge graph contains approximately:
-- **1,500+** RDF triples
-- **60+** entities
-- **200+** relationships
-- **15+** property types
-
+- **2,500+** RDF triples
+- **100+** entities
 ## 🎓 Academic Context
 
 This project was developed for **Mines Saint-Étienne** as a semantic web technologies demonstration, showcasing:
@@ -303,34 +305,8 @@ This project was developed for **Mines Saint-Étienne** as a semantic web techno
 - Semantic reasoning
 - Data integration from external sources
 
-## 📝 Configuration
-
-Edit `config.py` to customize:
-
-```python
-# MediaWiki API
-WIKI_DOMAIN = "tolkiengateway.net"
-
-# Namespaces
-NAMESPACE_BASE = "http://tolkiengateway.net/kg/"
-
-# Apache Fuseki
-FUSEKI_HOST = "http://localhost:3030"
-FUSEKI_DATASET = "tolkien"
-
-# Flask Server
-FLASK_PORT = 5000
-```
 
 ## 🛠️ Troubleshooting
-
-### Fuseki Connection Error
-```bash
-# Ensure Fuseki is running
-./fuseki-server
-
-# Check http://localhost:3030
-```
 
 ### SHACL Validation Fails
 This is informational - the knowledge graph will still work. Review `output/shacl_validation_details.txt` for specific issues.
@@ -347,4 +323,9 @@ pip install -r requirements.txt --force-reinstall
 - [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/) - Triple store
 - [RDFLib Documentation](https://rdflib.readthedocs.io/) - RDF library
 - [Schema.org](https://schema.org/) - Vocabulary
+## Authors
+- LAHRACH Soukaina
 
+- BAHAFID Salah Eddine
+
+- BOUSSETTA Ouadie
