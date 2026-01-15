@@ -1,6 +1,5 @@
 # Tolkien Gateway Knowledge Graph
 
-A semantic web project that transforms data from [Tolkien Gateway](https://tolkiengateway.net) into a linked data knowledge graph using RDF, RDFS/OWL reasoning, SHACL validation, and Apache Fuseki triplestore.
 
 ## 📋 Overview
 
