@@ -46,7 +46,7 @@ app.py (Flask) → Web Interface
 
 1. **Clone the repository**
 ```bash
-git clone <your-repo-url>
+git clone <github.com/ouad002/tolkien_knowledge_graph>
 cd tolkien-kg
 ```
 
